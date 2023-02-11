@@ -18,10 +18,10 @@ const Login = () => {
       <Card>
         <div>Take your business to a new level.</div>
         <div>create a new account.</div>
-        <Input type={"text"} />
-        <Input type={"text"} />
-        <Input type={"password"} />
-        <Input type={"password"} />
+        <Input type={"text"} label={"Your Name"} />
+        <Input type={"text"} label={"Email"} />
+        <Input type={"password"} label={"Password"} />
+        <Input type={"password"} label={"Confirm Password"} />
         <Terms type={"checkbox"} />
         <Button text={"Create Account"} />
         <div>
