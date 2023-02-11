@@ -1,7 +1,12 @@
 import React from "react";
+import Card from "../components/Card";
 
 const Login = () => {
-  return <div>kill myself</div>;
+  return (
+    <main>
+      <Card></Card>
+    </main>
+  );
 };
 
 export default Login;
