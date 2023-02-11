@@ -6,7 +6,12 @@ const Input = ({ type }) => {
     width: 100%;
   `;
 
-  return <StyledInput type={type}></StyledInput>;
+  return (
+    <label>
+      Do you like peas?
+      <StyledInput type={type}></StyledInput>
+    </label>
+  );
 };
 
 export default Input;
