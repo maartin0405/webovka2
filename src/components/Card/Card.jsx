@@ -9,6 +9,9 @@ const Card = ({ children }) => {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     width: 485px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   `;
   return <StyledCard>{children}</StyledCard>;
 };

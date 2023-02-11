@@ -3,6 +3,8 @@ import Card from "../components/Card";
 import styled from "@emotion/styled";
 import Logo from "../components/Logo";
 import Input from "../components/Input";
+import Button from "../components/Button";
+import Terms from "../components/Card/Terms";
 
 const Login = () => {
   const StyledLogin = styled.main`
@@ -14,12 +16,20 @@ const Login = () => {
     <StyledLogin>
       <Logo width={90} />
       <Card>
+        <div>Take your business to a new level.</div>
+        <div>create a new account.</div>
         <Input type={"text"} />
         <Input type={"text"} />
-        <Input type={"text"} />
-        <Input type={"text"} />
+        <Input type={"password"} />
+        <Input type={"password"} />
+        <Terms type={"checkbox"} />
+        <Button text={"Create Account"} />
+        <div>
+          <div>Already have an account?</div>
+          <Button text={"Log in"} />
+        </div>
       </Card>
-    </StyledLogin>
+    </StyledLogin> /* how do i style the divs without using a class?, it doesnt let me use another css thingy in here*/
   );
 };
 
