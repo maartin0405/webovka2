@@ -1,11 +1,19 @@
 import React from "react";
 import Card from "../components/Card";
+import styled from "@emotion/styled";
+import Logo from "../components/Logo";
 
 const Login = () => {
+  const StyledLogin = styled.main`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `;
   return (
-    <main>
-      <Card></Card>
-    </main>
+    <StyledLogin>
+      <Logo width={90} />
+      <Card>hiiii</Card>
+    </StyledLogin>
   );
 };
 
