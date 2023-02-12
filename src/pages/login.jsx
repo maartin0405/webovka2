@@ -8,6 +8,7 @@ import Checkbox from "../components/Checkbox";
 import Text from "../components/Text";
 import Header from "../components/Header";
 import Form from "../components/Form";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 const Login = () => {
   const StyledLogin = styled.main`
@@ -15,11 +16,19 @@ const Login = () => {
     flex-direction: column;
     align-items: center;
   `;
+
+  const StyledForm = styled(Form)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `;
+
   return (
     <StyledLogin>
       <Logo width={90} />
       <Card>
-        <Form>
+        <LanguageSwitcher />
+        <StyledForm>
           <Text>Take your business to a new level.</Text>
           <Header size={1}>Create a new account</Header>
           <Input type="text" label="Your Name" />
@@ -31,9 +40,9 @@ const Login = () => {
             id="terms"
           ></Checkbox>
           <Button fill> Create account</Button>
-        </Form>
-        <Text>Already have an account?</Text>
-        <Button fill>Log in</Button>
+          <Text>Already have an account?</Text>
+          <Button fill>Log in</Button>
+        </StyledForm>
       </Card>
     </StyledLogin>
   );
