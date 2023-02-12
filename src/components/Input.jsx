@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const Input = ({ type, label }) => {
+const Input = ({ type, label, weight }) => {
   const StyledInput = styled.input`
     width: 100%;
   `;
@@ -10,7 +10,7 @@ const Input = ({ type, label }) => {
   `;
 
   return (
-    <StyledLabel>
+    <StyledLabel weight={weight}>
       {label}
       <StyledInput type={type}></StyledInput>
     </StyledLabel>

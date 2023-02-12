@@ -1,4 +1,14 @@
 @font-face {
     font-family: workSans;
-    src: url(https://fonts.google.com/specimen/Work+Sans);
+    src: url(../assets/WorkSans-Bold.ttf);
+    font-weight: bold;
   }
+
+  @font-face {
+    font-family: workSans;
+    src: url(../assets/WorkSans-Regular.ttf);
+  }
+
+body{
+  font-family: workSans, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
