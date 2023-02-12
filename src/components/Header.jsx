@@ -3,7 +3,10 @@ import styled from "@emotion/styled";
 
 const Header = ({ children, size }) => {
   const Tag = `h${size}`;
-  return <Tag>{children}</Tag>;
+  const StyledTag = styled[Tag]`
+    text-transform: lowercase;
+  `;
+  return <StyledTag>{children}</StyledTag>;
 };
 
 export default Header;
