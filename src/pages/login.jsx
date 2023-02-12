@@ -5,6 +5,8 @@ import Logo from "../components/Logo";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Checkbox from "../components/Checkbox";
+import Text from "../components/Text";
+import Header from "../components/Header";
 
 const Login = () => {
   const StyledLogin = styled.main`
@@ -16,8 +18,8 @@ const Login = () => {
     <StyledLogin>
       <Logo width={90} />
       <Card>
-        <p>Take your business to a new level.</p>
-        <h1>create a new account.</h1>
+        <Text text={"Take your business to a new level."}></Text>
+        <Header header={"create a new account."}></Header>
         <Input type={"text"} label={"Your Name"} />
         <Input type={"text"} label={"Email"} />
         <Input type={"password"} label={"Password"} />
@@ -28,10 +30,8 @@ const Login = () => {
           }
         ></Checkbox>
         <Button text={"Create Account"} />
-        <div>
-          <div>Already have an account?</div>
-          <Button text={"Log in"} />
-        </div>
+        <Text text={"Already have an account?"}></Text>
+        <Button text={"Log in"} />
       </Card>
     </StyledLogin> /* how do i style the divs without using a class?, it doesnt let me use another css thingy in here*/
   );
