@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import Logo from "../components/Logo";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import Terms from "../components/Card/Terms";
+import Checkbox from "../components/Checkbox";
 
 const Login = () => {
   const StyledLogin = styled.main`
@@ -16,13 +16,17 @@ const Login = () => {
     <StyledLogin>
       <Logo width={90} />
       <Card>
-        <div>Take your business to a new level.</div>
-        <div>create a new account.</div>
+        <p>Take your business to a new level.</p>
+        <h1>create a new account.</h1>
         <Input type={"text"} label={"Your Name"} />
         <Input type={"text"} label={"Email"} />
         <Input type={"password"} label={"Password"} />
         <Input type={"password"} label={"Confirm Password"} />
-        <Terms type={"checkbox"} />
+        <Checkbox
+          label={
+            "I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement."
+          }
+        ></Checkbox>
         <Button text={"Create Account"} />
         <div>
           <div>Already have an account?</div>
