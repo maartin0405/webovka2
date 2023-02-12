@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const Header = ({ header }) => {
-  return <h1>{header}</h1>;
+const Header = ({ children, size }) => {
+  const Tag = `h${size}`;
+  return <Tag>{children}</Tag>;
 };
 
 export default Header;

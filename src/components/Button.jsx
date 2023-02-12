@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const Button = ({ text }) => {
+const Button = ({ text, fill }) => {
   const StyledButton = styled.button`
-    width: 100%;
+    width: ${({ fill }) => (fill ? "100%" : "auto")};
   `;
-  return <StyledButton>{text}</StyledButton>;
+  return <StyledButton fill={fill}>{text}</StyledButton>;
 };
 
 export default Button;
