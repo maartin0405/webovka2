@@ -10,7 +10,7 @@ const Input = ({ type, label, weight }) => {
   `;
 
   return (
-    <StyledLabel style={(font-weight = { weight })}>
+    <StyledLabel style={ weight }>
       {label}
       <StyledInput type={type}></StyledInput>
     </StyledLabel>

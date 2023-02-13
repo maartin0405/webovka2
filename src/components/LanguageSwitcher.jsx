@@ -1,6 +1,6 @@
 import React from "react";
-import CZ from "C:/Users/marti/Documents/GitHub/webovka2/src/images/CZ.svg";
-import GB from "C:/Users/marti/Documents/GitHub/webovka2/src/images/GB.svg";
+import CZ from "../images/CZ.svg";
+import GB from "../images/GB.svg";
 import styled from "@emotion/styled";
 
 const LanguageSwitcher = () => {
