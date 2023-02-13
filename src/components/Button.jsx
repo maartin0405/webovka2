@@ -11,6 +11,10 @@ const Button = ({ children, fill, background }) => {
     color: white;
     padding: 14px 20px;
     font-family: workSans;
+    font-size: 15px;
+    line-height: 14px;
+
+    letter-spacing: 0.15px;
   `;
   return <StyledButton fill={fill}>{children}</StyledButton>;
 };

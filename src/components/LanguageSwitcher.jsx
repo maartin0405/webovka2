@@ -8,6 +8,8 @@ const LanguageSwitcher = () => {
     border: none;
     outline: none;
     padding: 0;
+    height: auto;
+    background-color: transparent;
     &:not(:last-child) {
       margin-right: 10px;
     }
