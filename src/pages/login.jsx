@@ -39,7 +39,7 @@ const Login = () => {
             <Input type="password" label="Confirm Password" />
             <Checkbox
               label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement."
-              id="terms"
+              id="terms" // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
             ></Checkbox>
             <Button fill background="#CF1322">
               Create account

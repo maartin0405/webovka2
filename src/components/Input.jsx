@@ -5,7 +5,7 @@ import eye from "../images/eye.svg";
 const Input = ({ type, label, fill }) => {
   const EyeDisplay = styled.button`
     display: ${({ fill }) => (fill ? "block" : "none")};
-  `; // fill prop not being read for some reason??? works in button component but not here.
+  `; // fill prop not being read for some reason??? works in button component but not here. is this the className issue like from before?
 
   const StyledInput = styled.input`
     width: 100%;
