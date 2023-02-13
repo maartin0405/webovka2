@@ -8,6 +8,7 @@ const Card = ({ children }) => {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     width: 485px;
+    margin-bottom: 147px;
   `;
   return <StyledCard>{children}</StyledCard>;
 };

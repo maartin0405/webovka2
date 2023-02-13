@@ -5,10 +5,18 @@ const Checkbox = ({ label, id }) => {
   const StyledDiv = styled.div`
     margin-top: 25px;
     margin-bottom: 25px;
+    display: flex;
+    align-items: flex-start;
+  `;
+
+  const StyledInput = styled.input`
+    background: #0980cd;
+    margin-right: 12.34px;
+    width: 20px;
   `;
   return (
     <StyledDiv>
-      <input type="checkbox" id={id}></input>
+      <StyledInput type="checkbox" id={id}></StyledInput>
       <label for={id}>{label}</label>
     </StyledDiv>
   );
