@@ -33,7 +33,7 @@ const Login = () => {
           <StyledForm>
             <Text>Take your business to a new level.</Text>
             <Header size={1}>Create a new account</Header>
-            <Input weight="bold" type="text" label="Your Name" />
+            <Input displayeye weight="bold" type="text" label="Your Name" />
             <Input type="text" label="Email" />
             <Input type="password" label="Password" />
             <Input type="password" label="Confirm Password" />
