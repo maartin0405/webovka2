@@ -41,9 +41,13 @@ const Login = () => {
               label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement."
               id="terms"
             ></Checkbox>
-            <Button fill> Create account</Button>
+            <Button fill background="#CF1322">
+              Create account
+            </Button>
             <Text>Already have an account?</Text>
-            <Button fill>Log in</Button>
+            <Button fill background="#0980CD">
+              Log in
+            </Button>
           </StyledForm>
         </Card>
       </StyledLogin>
