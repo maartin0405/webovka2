@@ -10,9 +10,11 @@ const Checkbox = ({ label, id }) => {
   `;
 
   const StyledInput = styled.input`
-    background: #0980cd;
-    margin-right: 12.34px;
-    width: 20px;
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 5px;
   `;
   return (
     <StyledDiv>
