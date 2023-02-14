@@ -20,10 +20,13 @@ const InputEye = ({ label }) => {
   return (
     <StyledLabel>
       {label}
-      <StyledButton>
-        <img src={eye} />
-      </StyledButton>
-      <Input type="password"></Input>
+
+      <div>
+        <StyledButton>
+          <img src={eye} />
+        </StyledButton>
+        <Input type="password"></Input>
+      </div>
     </StyledLabel>
   );
 };
