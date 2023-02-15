@@ -11,6 +11,7 @@ import Form from "../components/Form";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Layout from "../components/Layout";
 import InputEye from "../components/InputEye";
+import { Link } from "gatsby";
 
 const Login = () => {
   const StyledLogin = styled.main`
@@ -23,6 +24,11 @@ const Login = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
+  `;
+
+  const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: white;
   `;
 
   return (
@@ -47,7 +53,7 @@ const Login = () => {
             </Button>
             <Text>Already have an account?</Text>
             <Button fill background="rgba(207, 19, 34, 0.8);">
-              Log in
+              <StyledLink to="/login/">Log in</StyledLink>
             </Button>
           </StyledForm>
         </Card>
