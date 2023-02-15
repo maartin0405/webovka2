@@ -34,7 +34,7 @@ const Login = () => {
           <LanguageSwitcher />
           <StyledForm>
             <Text>welcome back</Text>
-            <Header size={1}>login</Header>
+            <Header size={1}>log in</Header>
             <Input type="text" label="Email" />
             <InputEye type="password" label="Password" />
             <Checkbox
