@@ -45,8 +45,7 @@ const Login = () => {
             <InputEye type="password" label="Password" />
             <InputEye type="password" label="Confirm password" />
             <Checkbox
-              label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement."
-              id="terms" // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
+              label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement." // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
             ></Checkbox>
             <Button fill background="#0980CD">
               Create account

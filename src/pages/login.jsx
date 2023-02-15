@@ -42,10 +42,7 @@ const Login = () => {
             <Header size={1}>log in</Header>
             <Input type="text" label="Email" />
             <InputEye type="password" label="Password" />
-            <Checkbox
-              label="Remember the password"
-              id="terms" // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
-            ></Checkbox>
+            <Checkbox label="Remember the password"></Checkbox>
             <Text>I forgot my password</Text>
             <Button fill background="#0980CD">
               Log in
