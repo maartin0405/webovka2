@@ -5,28 +5,36 @@ import styled from "@emotion/styled";
 import Button from "./Button";
 
 const InputEye = ({ label }) => {
+  const StyledButton = styled.button`
+    position: absolute;
+    border-radius: 5px;
+    right: 1%;
+    z-index: 2;
+    border: none;
+    top: 22%;
+    height: 32px;
+    cursor: pointer;
+    background-color: transparent;
+  `;
+
+  const StyledDiv = styled.div`
+    position: relative;
+  `;
+
   const StyledLabel = styled.label`
     width: 100%;
-    gap: 5px;
     margin-top: 15px;
   `;
 
-  const StyledButton = styled.button`
-    border: none;
-    outline: none;
-    height: auto;
-    background-color: transparent;
-  `;
   return (
     <StyledLabel>
       {label}
-
-      <div>
+      <StyledDiv>
+        <Input type="password" />
         <StyledButton>
           <img src={eye} />
         </StyledButton>
-        <Input type="password"></Input>
-      </div>
+      </StyledDiv>
     </StyledLabel>
   );
 };

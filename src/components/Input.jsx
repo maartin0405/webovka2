@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import eye from "../images/eye.svg";
 
 const Input = ({ type, label }) => {
   const StyledInput = styled.input`
@@ -9,6 +8,8 @@ const Input = ({ type, label }) => {
     border-radius: 5px;
     border: 1px solid #bfbfbf;
     margin-top: 5px;
+    padding: 10px;
+    box-sizing: border-box;
   `;
   const StyledLabel = styled.label`
     width: 100%;
