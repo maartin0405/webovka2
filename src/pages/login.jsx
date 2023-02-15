@@ -26,6 +26,11 @@ const Login = () => {
     align-items: center;
   `;
 
+  const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: white;
+  `;
+
   return (
     <Layout>
       <StyledLogin>
@@ -47,7 +52,7 @@ const Login = () => {
             </Button>
             <Text>Don't have an account yet?</Text>
             <Button fill background="rgba(207, 19, 34, 0.8);">
-              Create account
+              <StyledLink to="/register/">Create an account</StyledLink>
             </Button>
           </StyledForm>
         </Card>
