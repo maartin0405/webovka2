@@ -1,7 +1,7 @@
 import React from "react";
 
 const Text = ({ children }) => {
-  return <p>{children}</p>;
+  return <div>{children}</div>;
 };
 
 export default Text;

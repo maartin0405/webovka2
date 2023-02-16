@@ -31,6 +31,11 @@ const Login = () => {
     color: white;
   `;
 
+  const StyledCheckbox = styled(Checkbox)`
+    margin-top: 400px;
+    margin-bottom: 25px;
+  `;
+
   return (
     <Layout>
       <StyledLogin>
@@ -44,9 +49,9 @@ const Login = () => {
             <Input type="text" label="Email" />
             <InputEye type="password" label="Password" />
             <InputEye type="password" label="Confirm password" />
-            <Checkbox
+            <StyledCheckbox
               label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement." // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
-            ></Checkbox>
+            ></StyledCheckbox>
             <Button fill background="#0980CD">
               Create account
             </Button>

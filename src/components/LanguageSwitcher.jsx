@@ -10,6 +10,7 @@ const LanguageSwitcher = () => {
     padding: 0;
     height: auto;
     background-color: transparent;
+    cursor: pointer;
     &:not(:last-child) {
       margin-right: 10px;
     }

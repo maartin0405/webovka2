@@ -13,6 +13,7 @@ const Button = ({ children, fill, background }) => {
     font-family: workSans;
     font-size: 15px;
     line-height: 14px;
+    cursor: pointer;
 
     letter-spacing: 0.15px;
   `;

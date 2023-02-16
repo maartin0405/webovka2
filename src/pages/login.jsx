@@ -31,6 +31,15 @@ const Login = () => {
     color: white;
   `;
 
+  const StyledDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    width: 100%;
+    gap: 17px;
+  `;
+
   return (
     <Layout>
       <StyledLogin>
@@ -42,8 +51,10 @@ const Login = () => {
             <Header size={1}>log in</Header>
             <Input type="text" label="Email" />
             <InputEye type="password" label="Password" />
-            <Checkbox label="Remember the password"></Checkbox>
-            <Text>I forgot my password</Text>
+            <StyledDiv>
+              <Checkbox label="Remember the password"></Checkbox>
+              <Text>I forgot my password</Text>
+            </StyledDiv>
             <Button fill background="#0980CD">
               Log in
             </Button>
