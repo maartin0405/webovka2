@@ -2,6 +2,7 @@ import React from "react";
 import eye from "../images/eye.svg";
 import Input from "./Input";
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 const InputEye = ({ label }) => {
   const StyledButton = styled.button`
@@ -25,16 +26,21 @@ const InputEye = ({ label }) => {
     margin-top: 15px;
   `;
 
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
   return (
-    <StyledLabel>
+    <label>
       {label}
       <StyledDiv>
-        <Input type="password" />
-        <StyledButton>
+        <input type={passwordShown ? "text" : "password"} />
+        <button onClick={togglePasswordVisiblity} type="button">
           <img src={eye} />
-        </StyledButton>
+        </button>
       </StyledDiv>
-    </StyledLabel>
+    </label>
   );
 };
 
