@@ -2,7 +2,6 @@ import React from "react";
 import eye from "../images/eye.svg";
 import Input from "./Input";
 import styled from "@emotion/styled";
-import Button from "./Button";
 
 const InputEye = ({ label }) => {
   const StyledButton = styled.button`
