@@ -1,19 +1,19 @@
 import React from "react";
 import styled from "@emotion/styled";
 
+const StyledDiv = styled.div`
+  display: flex;
+  align-items: flex-start;
+`;
+
+const StyledInput = styled.input`
+  width: 50px;
+  height: 20px;
+  margin-right: 12.34px;
+  cursor: pointer;
+`;
+
 const Checkbox = ({ label }) => {
-  const StyledDiv = styled.div`
-    display: flex;
-    align-items: flex-start;
-  `;
-
-  const StyledInput = styled.input`
-    width: 50px;
-    height: 20px;
-    margin-right: 12.34px;
-    cursor: pointer;
-  `;
-
   return (
     <StyledDiv>
       <StyledInput type="checkbox"></StyledInput>
