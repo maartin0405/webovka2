@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const Input = ({ type, label }) => {
+const Input = ({ type, label, onChange }) => {
   const StyledInput = styled.input`
     width: 100%;
     height: 40px;
@@ -20,7 +20,7 @@ const Input = ({ type, label }) => {
   return (
     <StyledLabel>
       {label}
-      <StyledInput type={type}></StyledInput>
+      <StyledInput onChange={onChange} type={type}></StyledInput>
     </StyledLabel>
   );
 };

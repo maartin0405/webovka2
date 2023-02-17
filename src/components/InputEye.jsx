@@ -36,7 +36,7 @@ const InputEye = ({ label }) => {
     <StyledLabel>
       {label}
       <StyledDiv>
-        <input
+        <Input
           onChange={(event) => setPassword(event.target.value)}
           type={passwordShown ? "text" : "password"}
           value={password}
