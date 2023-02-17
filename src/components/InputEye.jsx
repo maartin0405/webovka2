@@ -27,20 +27,25 @@ const InputEye = ({ label }) => {
   `;
 
   const [passwordShown, setPasswordShown] = useState(false);
+  const [password, setPassword] = useState("");
 
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
   return (
-    <label>
+    <StyledLabel>
       {label}
       <StyledDiv>
-        <input type={passwordShown ? "text" : "password"} />
-        <button onClick={togglePasswordVisiblity} type="button">
+        <input
+          onChange={(event) => setPassword(event.target.value)}
+          type={passwordShown ? "text" : "password"}
+          value={password}
+        />
+        <StyledButton onClick={togglePasswordVisiblity} type="button">
           <img src={eye} />
-        </button>
+        </StyledButton>
       </StyledDiv>
-    </label>
+    </StyledLabel>
   );
 };
 
