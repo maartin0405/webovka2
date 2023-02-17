@@ -13,23 +13,23 @@ import Layout from "../components/Layout";
 import InputEye from "../components/InputEye";
 import { Link } from "gatsby";
 
+const StyledLogin = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledForm = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+`;
 const Login = () => {
-  const StyledLogin = styled.main`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `;
-
-  const StyledForm = styled(Form)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `;
-
-  const StyledLink = styled(Link)`
-    text-decoration: none;
-    color: white;
-  `;
   return (
     <Layout>
       <StyledLogin>

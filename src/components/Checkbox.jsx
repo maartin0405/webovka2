@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 const StyledDiv = styled.div`
   display: flex;
   align-items: flex-start;
+  margin-top: 25px;
+  margin-bottom: 25px;
 `;
 
 const StyledInput = styled.input`

@@ -5,7 +5,7 @@ const StyledButton = styled.button`
   border: none;
   outline: none;
   width: ${({ fill }) => (fill ? "100%" : "auto")};
-  background-color: ${background}
+  background-color: ${({ background }) => background};
   border-radius: 5px;
   color: white;
   padding: 14px 20px;
@@ -17,7 +17,11 @@ const StyledButton = styled.button`
 `;
 
 const Button = ({ children, fill, background }) => {
-  return <StyledButton fill={fill}>{children}</StyledButton>;
+  return (
+    <StyledButton background={background} fill={fill}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default Button;
