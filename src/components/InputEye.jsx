@@ -5,27 +5,20 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 
 const StyledButton = styled.button`
-  position: absolute;
-  border-radius: 5px;
-  right: 1%;
-  z-index: 2;
-  border: none;
-  top: 22%;
-  height: 32px;
-  cursor: pointer;
-  background-color: transparent;
+  height: 40px;
+  width: 40px;
 `;
 
 const StyledDiv = styled.div`
-  position: relative;
-`;
-
-const StyledLabel = styled.label`
+  display: flex;
+  align-items: flex-end;
   width: 100%;
-  margin-top: 15px;
 `;
 
-const InputEye = ({ label }) => {
+const StyledInput = styled(Input)`
+`;
+
+const InputEye = ({ className, label }) => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [password, setPassword] = useState("");
 
@@ -33,20 +26,34 @@ const InputEye = ({ label }) => {
     setPasswordShown(passwordShown ? false : true);
   };
   return (
-    <StyledLabel>
-      {label}
-      <StyledDiv>
-        <Input
-          onChange={(event) => setPassword(event.target.value)}
-          type={passwordShown ? "text" : "password"}
-          value={password}
-        />
-        <StyledButton onClick={togglePasswordVisiblity} type="button">
-          <img src={eye} />
-        </StyledButton>
-      </StyledDiv>
-    </StyledLabel>
+    <StyledDiv>
+      <StyledInput
+        className={className}
+        id="username"
+        onChange={(event) => setPassword(event.target.value)}
+        type={passwordShown ? "text" : "password"}
+        value={password}
+        label={label}
+      />
+      <StyledButton onClick={togglePasswordVisiblity} type="button">
+        <img src={eye} />
+      </StyledButton>
+    </StyledDiv>
   );
 };
 
 export default InputEye;
+
+/**   <StyledLabel>
+{label}
+<StyledDiv>
+  <Input
+    onChange={(event) => setPassword(event.target.value)}
+    type={passwordShown ? "text" : "password"}
+    value={password}
+  />
+  <StyledButton onClick={togglePasswordVisiblity} type="button">
+    <img src={eye} />
+  </StyledButton>
+</StyledDiv>
+</StyledLabel> */

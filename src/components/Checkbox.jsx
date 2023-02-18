@@ -6,6 +6,7 @@ const StyledDiv = styled.div`
   align-items: flex-start;
   margin-top: 25px;
   margin-bottom: 25px;
+  width: 100%;
 `;
 
 const StyledInput = styled.input`
