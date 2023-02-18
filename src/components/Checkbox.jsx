@@ -2,25 +2,36 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const StyledDiv = styled.div`
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 35px auto;
   margin-top: 25px;
   margin-bottom: 25px;
   width: 100%;
 `;
 
 const StyledInput = styled.input`
-  width: 20px;
-  height: 20px;
+  width: 20.31px;
+  height: 20.31px;
   margin-right: 12.34px;
   cursor: pointer;
+  grid-column: 1;
 `;
 
-const Checkbox = ({ label }) => {
+const StyledLabel = styled.label`
+  display: block;
+  align-self: center;
+  font-style: normal;
+  font-size: 14px;
+  letter-spacing: 0.15px;
+  color: #322e35;
+  line-height: 21px;
+`;
+
+const Checkbox = ({ className, label }) => {
   return (
-    <StyledDiv>
-      <StyledInput type="checkbox"></StyledInput>
-      <span>{label}</span>
+    <StyledDiv className={className}>
+      <StyledInput type="checkbox" id="label"></StyledInput>
+      <StyledLabel for="label">{label}</StyledLabel>
     </StyledDiv>
   );
 };

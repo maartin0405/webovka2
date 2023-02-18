@@ -11,6 +11,7 @@ import Form from "../components/Form";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Layout from "../components/Layout";
 import InputPassword from "../components/InputPassword";
+import LinkAsAButton from "../components/LinkAsAButton";
 import { Link } from "gatsby";
 
 const StyledLogin = styled.main`
@@ -26,20 +27,19 @@ const StyledForm = styled(Form)`
 `;
 
 const StyledLink = styled(Link)`
-  color: white;
-  width: 100%;
-  text-align: center;
-  text-decoration: none;
-  background-color: rgba(207, 19, 34, 0.8);
-  border-radius: 5px;
-  padding: 14px 0px;
-  font-size: 15px;
-  line-height: 14px;
-  cursor: pointer;
+  color: #cf1322;
+  font-size: 14px;
+  line-height: 150%;
   letter-spacing: 0.15px;
-  margin-top: 5px;
-  margin-bottom: 35px;
-  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 25px;
+  display: block;
+  width: 100%;
+  align-self: left;
+`;
+
+const StyledCheckbox = styled(Checkbox)`
+  margin-bottom: 15px;
 `;
 
 const Login = () => {
@@ -54,13 +54,13 @@ const Login = () => {
             <Header size={1}>log in</Header>
             <Input type="text" label="Email" />
             <InputPassword type="password" label="Password" />
-            <Checkbox label="Remember the password"></Checkbox>
-            <Text>I forgot my password</Text>
+            <StyledCheckbox label="Remember the password"></StyledCheckbox>
+            <StyledLink to="/register">I forgot my password</StyledLink>
             <Button fill background="#0980CD">
               Log in
             </Button>
             <Text>Don't have an account yet?</Text>
-            <StyledLink to="/register">Create an account</StyledLink>
+            <LinkAsAButton to="/register">Register</LinkAsAButton>
           </StyledForm>
         </Card>
       </StyledLogin>

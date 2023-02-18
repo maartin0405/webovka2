@@ -10,8 +10,8 @@ import Header from "../components/Header";
 import Form from "../components/Form";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Layout from "../components/Layout";
+import LinkAsAButton from "../components/LinkAsAButton";
 import InputPassword from "../components/InputPassword";
-import { Link } from "gatsby";
 
 const StyledLogin = styled.main`
   display: flex;
@@ -23,23 +23,6 @@ const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const StyledLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-  width: 100%;
-  text-align: center;
-  background-color: rgba(207, 19, 34, 0.8);
-  border-radius: 5px;
-  padding: 14px 0px;
-  font-size: 15px;
-  line-height: 14px;
-  cursor: pointer;
-  letter-spacing: 0.15px;
-  margin-top: 5px;
-  margin-bottom: 35px;
-  font-weight: 600;
 `;
 
 const Register = () => {
@@ -63,7 +46,7 @@ const Register = () => {
               Create account
             </Button>
             <Text>Already have an account?</Text>
-            <StyledLink to="/login">Log in</StyledLink>
+            <LinkAsAButton to="/login">Log in</LinkAsAButton>
           </StyledForm>
         </Card>
       </StyledLogin>
