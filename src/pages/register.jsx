@@ -10,7 +10,7 @@ import Header from "../components/Header";
 import Form from "../components/Form";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Layout from "../components/Layout";
-import InputEye from "../components/InputEye";
+import InputPassword from "../components/InputPassword";
 import { Link } from "gatsby";
 
 const StyledLogin = styled.main`
@@ -29,7 +29,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: white;
 `;
-const Login = () => {
+const Register = () => {
   return (
     <Layout>
       <StyledLogin>
@@ -41,8 +41,8 @@ const Login = () => {
             <Header size={1}>Create a new account</Header>
             <Input fill weight="bold" type="text" label="Your Name" />
             <Input type="text" label="Email" />
-            <InputEye type="password" label="Password" />
-            <InputEye type="password" label="Confirm password" />
+            <InputPassword type="password" label="Password" />
+            <InputPassword type="password" label="Confirm password" />
             <Checkbox
               label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement." // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
             ></Checkbox>
@@ -51,7 +51,7 @@ const Login = () => {
             </Button>
             <Text>Already have an account?</Text>
             <Button fill background="rgba(207, 19, 34, 0.8);">
-              <StyledLink to="/login/">Log in</StyledLink>
+              <StyledLink to="/login">Log in</StyledLink>
             </Button>
           </StyledForm>
         </Card>
@@ -60,4 +60,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
