@@ -5,7 +5,6 @@ const StyledForm = styled.form`
   margin-top: 48.5px;
   margin-right: 65px;
   margin-left: 65px;
-  margin-bottom: 50px;
 `;
 
 const Form = ({ className, children, color }) => {

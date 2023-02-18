@@ -18,10 +18,17 @@ const StyledDiv = styled.div`
   margin-top: 15px;
 `;
 
+const StyledLabel = styled.label`
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0.15px;
+`;
+
 const Input = ({ type, label, onChange }) => {
   return (
     <StyledDiv>
-      <label for={label}>{label}</label>
+      <StyledLabel for={label}>{label}</StyledLabel>
       <StyledInput id={label} onChange={onChange} type={type} />
     </StyledDiv>
   );

@@ -10,7 +10,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledInput = styled.input`
-  width: 50px;
+  width: 20px;
   height: 20px;
   margin-right: 12.34px;
   cursor: pointer;

@@ -26,9 +26,22 @@ const StyledForm = styled(Form)`
 `;
 
 const StyledLink = styled(Link)`
-  text-decoration: none;
   color: white;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(207, 19, 34, 0.8);
+  border-radius: 5px;
+  padding: 14px 0px;
+  font-size: 15px;
+  line-height: 14px;
+  cursor: pointer;
+  letter-spacing: 0.15px;
+  margin-top: 5px;
+  margin-bottom: 35px;
+  font-weight: 600;
 `;
+
 const Register = () => {
   return (
     <Layout>
@@ -39,7 +52,7 @@ const Register = () => {
           <StyledForm>
             <Text>Take your business to a new level.</Text>
             <Header size={1}>Create a new account</Header>
-            <Input fill weight="bold" type="text" label="Your Name" />
+            <Input fill weight="bold" type="text" label="Your name" />
             <Input type="text" label="Email" />
             <InputPassword type="password" label="Password" />
             <InputPassword type="password" label="Confirm password" />
@@ -50,9 +63,7 @@ const Register = () => {
               Create account
             </Button>
             <Text>Already have an account?</Text>
-            <Button fill background="rgba(207, 19, 34, 0.8);">
-              <StyledLink to="/login">Log in</StyledLink>
-            </Button>
+            <StyledLink to="/login">Log in</StyledLink>
           </StyledForm>
         </Card>
       </StyledLogin>

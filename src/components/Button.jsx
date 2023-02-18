@@ -14,6 +14,8 @@ const StyledButton = styled.button`
   line-height: 14px;
   cursor: pointer;
   letter-spacing: 0.15px;
+  margin-bottom: 25px;
+  font-weight: 600;
 `;
 
 const Button = ({ children, fill, background }) => {

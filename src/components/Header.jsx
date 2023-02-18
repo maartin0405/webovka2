@@ -6,6 +6,7 @@ const Header = ({ children, size }) => {
   const StyledTag = styled[Tag]`
     text-transform: lowercase;
     font-family: workSans;
+    font-weight: 700;
   `;
   return <StyledTag>{children}</StyledTag>;
 };
