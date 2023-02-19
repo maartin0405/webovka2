@@ -71,7 +71,6 @@ const Input = ({ type, label, onChange }) => {
           src={errorStar}
         ></StyledImg>
       </StyledLabel>
-
       <StyledInput
         className={error ? "error" : null}
         id={label}
@@ -89,20 +88,3 @@ const Input = ({ type, label, onChange }) => {
 };
 
 export default Input;
-
-/* function MyComponent (props) {
-  const [isActive, setActive] = useState(false);
-
-  const toggleClass = () => {
-    setActive(!isActive);
-  };
-
-  return (
-    <div 
-      className={isActive ? 'your_className': null} 
-      onClick={toggleClass} 
-    >
-      <p>{props.text}</p>
-    </div>
-   );
-}   */
