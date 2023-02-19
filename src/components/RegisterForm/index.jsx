@@ -1,3 +1,3 @@
-import RegisterForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 export default RegisterForm;

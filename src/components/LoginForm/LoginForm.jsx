@@ -8,6 +8,12 @@ const StyledForm = styled.form`
 `;
 
 const LoginForm = (props) => {
+  
+  const [loginValues, setLoginValues] = useState({
+    name: "",
+    password: "",
+  });
+
   return (
     <StyledForm className={props.className} color={props.color}>
       {props.children}
