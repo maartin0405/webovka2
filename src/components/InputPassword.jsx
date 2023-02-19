@@ -22,13 +22,12 @@ const StyledDiv = styled.div`
 
 const InputPassword = ({ label }) => {
   const [passwordShown, setPasswordShown] = useState(false);
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(""); // do i still need this???
 
   const togglePasswordVisiblity = () => {
     setPasswordShown(!passwordShown);
   };
 
-  console.log(password);
   return (
     <StyledDiv>
       <Input type={passwordShown ? "text" : "password"} label={label} />

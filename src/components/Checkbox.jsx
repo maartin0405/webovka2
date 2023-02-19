@@ -4,8 +4,6 @@ import styled from "@emotion/styled";
 const StyledDiv = styled.div`
   display: grid;
   grid-template-columns: 35px auto;
-  margin-top: 25px;
-  margin-bottom: 25px;
   width: 100%;
 `;
 

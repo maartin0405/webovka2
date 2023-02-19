@@ -14,7 +14,6 @@ const StyledInput = styled.input`
   &.error {
     border-color: #cf1322;
   }
-  margin-bottom: 5px;
 `;
 
 const StyledDiv = styled.div`
@@ -63,8 +62,6 @@ const Input = (props) => {
     setError(!error);
   };
 
-  const [value, setValue] = useState("");
-
   return (
     <StyledDiv>
       <StyledLabel htmlFor={props.label}>
@@ -75,10 +72,11 @@ const Input = (props) => {
         ></StyledImg>
       </StyledLabel>
       <StyledInput
+        name={props.name}
+        onChange={props.onChange}
         className={error ? "error" : null}
         id={props.label}
         type={props.type}
-        onChange={(event) => setValue(event.target.value)}
       />
       <StyledErrorDiv className={error ? "error" : null}>
         Placeholder

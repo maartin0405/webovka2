@@ -14,13 +14,15 @@ const StyledLink = styled(Link)`
   line-height: 14px;
   cursor: pointer;
   letter-spacing: 0.15px;
-  margin-top: 5px;
-  margin-bottom: 35px;
-  font-weight: 600; 
+  font-weight: 600;
 `;
 
-const LinkAsAButton = ({ children, ...props }) => {
-  return <StyledLink {...props}>{children}</StyledLink>;
+const LinkAsAButton = ({ className, children, ...props }) => {
+  return (
+    <StyledLink className={className} {...props}>
+      {children}
+    </StyledLink>
+  );
 };
 
 export default LinkAsAButton;

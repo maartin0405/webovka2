@@ -14,13 +14,17 @@ const StyledButton = styled.button`
   line-height: 14px;
   cursor: pointer;
   letter-spacing: 0.15px;
-  margin-bottom: 25px;
   font-weight: 600;
 `;
 
-const Button = ({ children, fill, background }) => {
+const Button = ({ className, children, fill, background, type }) => {
   return (
-    <StyledButton background={background} fill={fill}>
+    <StyledButton
+      type={type}
+      className={className}
+      background={background}
+      fill={fill}
+    >
       {children}
     </StyledButton>
   );
