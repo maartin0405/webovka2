@@ -8,7 +8,6 @@ const StyledForm = styled.form`
 `;
 
 const LoginForm = (props) => {
-  
   const [loginValues, setLoginValues] = useState({
     name: "",
     password: "",
