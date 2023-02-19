@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 
 const StyledForm = styled.form`
@@ -7,10 +7,10 @@ const StyledForm = styled.form`
   margin-left: 65px;
 `;
 
-const Form = ({ className, children, color }) => {
+const Form = (props) => {
   return (
-    <StyledForm className={className} color={color}>
-      {children}
+    <StyledForm className={props.className} color={props.color}>
+      {props.children}
     </StyledForm>
   );
 };

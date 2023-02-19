@@ -28,13 +28,10 @@ const InputPassword = ({ label }) => {
     setPasswordShown(!passwordShown);
   };
 
+  console.log(password);
   return (
     <StyledDiv>
-      <Input
-        onChange={(event) => setPassword(event.target.value)}
-        type={passwordShown ? "text" : "password"}
-        label={label}
-      />
+      <Input type={passwordShown ? "text" : "password"} label={label} />
       <StyledButton onClick={togglePasswordVisiblity} type="button">
         <img src={eye} alt="Hide/Show" />
       </StyledButton>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Card from "../components/Card";
 import Logo from "../components/Logo";
@@ -43,6 +43,11 @@ const StyledCheckbox = styled(Checkbox)`
 `;
 
 const Login = () => {
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+
   return (
     <Layout>
       <StyledLogin>

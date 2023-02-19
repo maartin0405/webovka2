@@ -56,16 +56,19 @@ const StyledImg = styled.img`
   }
 `;
 
-const Input = ({ type, label, onChange }) => {
+const Input = (props) => {
   const [error, setError] = useState(false);
 
   const toggleError = () => {
     setError(!error);
   };
+
+  const [value, setValue] = useState("");
+
   return (
     <StyledDiv>
-      <StyledLabel for={label}>
-        {label}
+      <StyledLabel htmlFor={props.label}>
+        {props.label}
         <StyledImg
           className={error ? "error" : null}
           src={errorStar}
@@ -73,9 +76,9 @@ const Input = ({ type, label, onChange }) => {
       </StyledLabel>
       <StyledInput
         className={error ? "error" : null}
-        id={label}
-        onChange={onChange}
-        type={type}
+        id={props.label}
+        type={props.type}
+        onChange={(event) => setValue(event.target.value)}
       />
       <StyledErrorDiv className={error ? "error" : null}>
         Placeholder

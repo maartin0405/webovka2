@@ -12,6 +12,7 @@ import LanguageSwitcher from "../components/LanguageSwitcher";
 import Layout from "../components/Layout";
 import LinkAsAButton from "../components/LinkAsAButton";
 import InputPassword from "../components/InputPassword";
+import { useState } from "react";
 
 const StyledLogin = styled.main`
   display: flex;
@@ -26,6 +27,21 @@ const StyledForm = styled(Form)`
 `;
 
 const Register = () => {
+  /* const [values, setValues] = useState({
+    yourName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const onChange = (e) => {
+    setValues(e.target.value);
+  }; */
+
   return (
     <Layout>
       <StyledLogin>
