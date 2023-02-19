@@ -27,6 +27,12 @@
     src: url(../assets/WorkSans-Regular.ttf);
     font-weight: 400
   }
+
+  @font-face {
+    font-family: Roboto;
+    src: url(../assets/Roboto-Regular.ttf);
+    font-weight: 400
+  }
   
 
 

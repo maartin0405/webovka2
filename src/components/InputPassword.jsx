@@ -12,7 +12,6 @@ const StyledButton = styled.button`
   right: 3px;
   border: none;
   background-color: transparent;
-
   cursor: pointer;
 `;
 

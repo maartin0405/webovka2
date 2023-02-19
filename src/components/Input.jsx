@@ -14,12 +14,28 @@ const StyledInput = styled.input`
   &.error {
     border-color: #cf1322;
   }
+  margin-bottom: 5px;
 `;
 
 const StyledDiv = styled.div`
   width: 100%;
   padding: 0px;
   margin-top: 15px;
+`;
+
+const StyledErrorDiv = styled.div`
+  display: none;
+  &.error {
+    display: inline-block;
+  }
+  height: 15px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 140%;
+  letter-spacing: 0.15px;
+  color: #cf1322;
 `;
 
 const StyledLabel = styled.label`
@@ -62,6 +78,9 @@ const Input = ({ type, label, onChange }) => {
         onChange={onChange}
         type={type}
       />
+      <StyledErrorDiv className={error ? "error" : null}>
+        Placeholder
+      </StyledErrorDiv>
       <button type="button" onClick={toggleError}>
         hi
       </button>
