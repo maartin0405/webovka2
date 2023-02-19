@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import Checkbox from "../components/Checkbox";
 import Text from "../components/Text";
 import Header from "../components/Header";
-import Form from "../components/Form";
+import RegisterForm from "../components/RegisterForm";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Layout from "../components/Layout";
 import LinkAsAButton from "../components/LinkAsAButton";
@@ -20,28 +20,13 @@ const StyledLogin = styled.main`
   align-items: center;
 `;
 
-const StyledForm = styled(Form)`
+const StyledForm = styled(RegisterForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const Register = () => {
-  /* const [values, setValues] = useState({
-    yourName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const onChange = (e) => {
-    setValues(e.target.value);
-  }; */
-
   return (
     <Layout>
       <StyledLogin>

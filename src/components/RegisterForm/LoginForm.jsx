@@ -7,7 +7,7 @@ const StyledForm = styled.form`
   margin-left: 65px;
 `;
 
-const Form = (props) => {
+const RegisterForm = (props) => {
   return (
     <StyledForm className={props.className} color={props.color}>
       {props.children}
@@ -15,4 +15,4 @@ const Form = (props) => {
   );
 };
 
-export default Form;
+export default RegisterForm;

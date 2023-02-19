@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import Checkbox from "../components/Checkbox";
 import Text from "../components/Text";
 import Header from "../components/Header";
-import Form from "../components/Form";
+import LoginForm from "../components/LoginForm";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Layout from "../components/Layout";
 import InputPassword from "../components/InputPassword";
@@ -20,7 +20,7 @@ const StyledLogin = styled.main`
   align-items: center;
 `;
 
-const StyledForm = styled(Form)`
+const StyledForm = styled(LoginForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
