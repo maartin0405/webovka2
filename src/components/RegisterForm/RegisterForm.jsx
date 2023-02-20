@@ -52,22 +52,30 @@ const RegisterForm = (props) => {
         errors.name = "Name is required";
       } else if (registerValues.name.length < 2) {
         errors.name = "Name must be at least 2 characters";
+      } else {
+        errors.name = "";
       }
 
       if (!registerValues.email) {
         errors.email = "Email is required";
       } else if (!/\S+@\S+\.\S+/.test(registerValues.email)) {
         errors.email = "Invalid email address";
+      } else {
+        errors.email = "";
       }
 
       if (!registerValues.password) {
         errors.password = "Password is required";
       } else if (registerValues.password.length < 8) {
         errors.password = "Password must be at least 8 characters";
+      } else {
+        errors.password = "";
       }
 
       if (registerValues.password !== registerValues.confirmPassword) {
         errors.confirmPassword = "Passwords do not match";
+      } else {
+        errors.confirmPassword = "";
       }
       return Object.keys(errors).length > 0 ? errors : null;
     };

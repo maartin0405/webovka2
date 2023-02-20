@@ -47,23 +47,44 @@ const LoginForm = (props) => {
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (event) => {
-    setLoginValues({ ...loginValues, [event.target.name]: event.target.value });
+    setLoginValues({
+      ...loginValues,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("user created", loginValues);
+    const validateForm = () => {
+      let errors = {};
 
-    let email = loginValues.email;
-    let password = loginValues.password;
+      if (!loginValues.email) {
+        errors.email = "Email is required";
+      } else if (!/\S+@\S+\.\S+/.test(loginValues.email)) {
+        errors.email = "Invalid email address";
+      } else {
+        errors.email = "";
+      }
 
-    if (email === "") {
-      console.log("");
-    }
+      if (!loginValues.password) {
+        errors.password = "Password is required";
+      } else if (loginValues.password.length < 8) {
+        errors.password = "Password must be at least 8 characters";
+      } else {
+        errors.password = "";
+      }
 
-    if (password === "") {
-      console.log("empty string");
+      return Object.keys(errors).length > 0 ? errors : null;
+    };
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors || {}).length === 0) {
+      console.log(loginValues);
+    } else {
+      setErrors(validationErrors);
     }
   };
 
@@ -75,12 +96,19 @@ const LoginForm = (props) => {
     >
       <Text>welcome back</Text>
       <Header size={1}>log in</Header>
-      <Input name="email" type="text" label="Email" onChange={handleChange} />
+      <Input
+        name="email"
+        type="text"
+        label="Email"
+        onChange={handleChange}
+        error={errors.email}
+      />
       <InputPassword
         name="password"
         type="password"
         label="Password"
         onChange={handleChange}
+        error={errors.password}
       />
       <StyledCheckbox label="Remember the password" />
       <StyledLink to="/register">I forgot my password</StyledLink>
