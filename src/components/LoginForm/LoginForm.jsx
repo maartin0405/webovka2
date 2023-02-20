@@ -54,6 +54,15 @@ const LoginForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("user created", loginValues);
+
+    let email = loginValues.email;
+    let password = loginValues.password;
+
+    if (email === "") {
+    }
+
+    if (password === "") {
+    }
   };
 
   return (
@@ -64,7 +73,13 @@ const LoginForm = (props) => {
     >
       <Text>welcome back</Text>
       <Header size={1}>log in</Header>
-      <Input name="email" type="text" label="Email" onChange={handleChange} />
+      <Input
+        error={"hii"}
+        name="email"
+        type="text"
+        label="Email"
+        onChange={handleChange}
+      />
       <InputPassword
         name="password"
         type="password"

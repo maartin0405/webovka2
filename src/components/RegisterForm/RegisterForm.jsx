@@ -59,8 +59,6 @@ const RegisterForm = (props) => {
       <Input
         onChange={handleChange}
         name="name"
-        fill
-        weight="bold"
         type="text"
         label="Your name"
       />

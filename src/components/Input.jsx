@@ -56,11 +56,7 @@ const StyledImg = styled.img`
 `;
 
 const Input = (props) => {
-  const [error, setError] = useState(false);
-
-  const toggleError = () => {
-    setError(!error);
-  };
+  const [error, setError] = useState(true);
 
   return (
     <StyledDiv>
@@ -79,11 +75,8 @@ const Input = (props) => {
         type={props.type}
       />
       <StyledErrorDiv className={error ? "error" : null}>
-        Placeholder
+        {props.error}
       </StyledErrorDiv>
-      <button type="button" onClick={toggleError}>
-        hi
-      </button>
     </StyledDiv>
   );
 };
