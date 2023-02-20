@@ -47,7 +47,6 @@ const RegisterForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const validateForm = () => {
       let errors = {};
       if (!registerValues.name) {
