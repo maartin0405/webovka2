@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 const StyledButton = styled.button`
   border: none;
   outline: none;
-  width: ${({ fill }) => (fill ? "100%" : "auto")};
+  width: 100%;
   background-color: ${({ background }) => background};
   border-radius: 5px;
   color: white;
@@ -17,14 +17,9 @@ const StyledButton = styled.button`
   font-weight: 600;
 `;
 
-const Button = ({ className, children, fill, background, type }) => {
+const Button = ({ className, children, background, type }) => {
   return (
-    <StyledButton
-      type={type}
-      className={className}
-      background={background}
-      fill={fill}
-    >
+    <StyledButton type={type} className={className} background={background}>
       {children}
     </StyledButton>
   );

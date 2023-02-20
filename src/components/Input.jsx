@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import errorStar from "../images/Vector.svg";
 
@@ -72,9 +72,9 @@ const Input = (props) => {
         id={props.label}
         type={props.type}
       />
-      <StyledErrorDiv
-        className={props.error ? "errorClass" : null}
-      ></StyledErrorDiv>
+      <StyledErrorDiv className={props.error ? "errorClass" : null}>
+        {props.error}
+      </StyledErrorDiv>
     </StyledDiv>
   );
 };

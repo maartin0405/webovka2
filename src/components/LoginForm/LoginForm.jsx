@@ -59,9 +59,11 @@ const LoginForm = (props) => {
     let password = loginValues.password;
 
     if (email === "") {
+      console.log("");
     }
 
     if (password === "") {
+      console.log("empty string");
     }
   };
 
@@ -73,15 +75,8 @@ const LoginForm = (props) => {
     >
       <Text>welcome back</Text>
       <Header size={1}>log in</Header>
-      <Input
-        error
-        name="email"
-        type="text"
-        label="Email"
-        onChange={handleChange}
-      />
+      <Input name="email" type="text" label="Email" onChange={handleChange} />
       <InputPassword
-        error
         name="password"
         type="password"
         label="Password"
@@ -89,7 +84,7 @@ const LoginForm = (props) => {
       />
       <StyledCheckbox label="Remember the password" />
       <StyledLink to="/register">I forgot my password</StyledLink>
-      <StyledButton type="submit" fill background="#0980CD">
+      <StyledButton type="submit" background="#0980CD">
         Log in
       </StyledButton>
       <Text>Don't have an account yet?</Text>

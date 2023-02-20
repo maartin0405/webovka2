@@ -29,7 +29,7 @@ const Checkbox = ({ className, label }) => {
   return (
     <StyledDiv className={className}>
       <StyledInput type="checkbox" id="label"></StyledInput>
-      <StyledLabel for="label">{label}</StyledLabel>
+      <StyledLabel htmlFor="label">{label}</StyledLabel>
     </StyledDiv>
   );
 };

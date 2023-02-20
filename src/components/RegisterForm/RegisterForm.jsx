@@ -36,6 +36,8 @@ const RegisterForm = (props) => {
     confirmPassword: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (event) => {
     setRegisterValues({
       ...registerValues,
@@ -45,7 +47,39 @@ const RegisterForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("user created", registerValues);
+
+    const validateForm = () => {
+      let errors = {};
+      if (!registerValues.name) {
+        errors.name = "Name is required";
+      } else if (registerValues.name.length < 2) {
+        errors.name = "Name must be at least 2 characters";
+      }
+
+      if (!registerValues.email) {
+        errors.email = "Email is required";
+      } else if (!/\S+@\S+\.\S+/.test(registerValues.email)) {
+        errors.email = "Invalid email address";
+      }
+
+      if (!registerValues.password) {
+        errors.password = "Password is required";
+      } else if (registerValues.password.length < 8) {
+        errors.password = "Password must be at least 8 characters";
+      }
+
+      if (registerValues.password !== registerValues.confirmPassword) {
+        errors.confirmPassword = "Passwords do not match";
+      }
+      console.log(errors);
+    };
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors || {}).length === null) {
+      console.log(registerValues);
+    } else {
+      setErrors(validationErrors);
+    }
   };
 
   return (
@@ -61,24 +95,33 @@ const RegisterForm = (props) => {
         name="name"
         type="text"
         label="Your name"
+        error={errors.name}
       />
-      <Input onChange={handleChange} name="email" type="text" label="Email" />
+      <Input
+        onChange={handleChange}
+        name="email"
+        type="text"
+        label="Email"
+        error={errors.email}
+      />
       <InputPassword
         onChange={handleChange}
         name="password"
         type="password"
         label="Password"
+        error={errors.password}
       />
       <InputPassword
         onChange={handleChange}
         name="confirmPassword"
         type="password"
         label="Confirm password"
+        error={errors.confirmPassword}
       />
       <StyledCheckbox
         label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement." // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
       />
-      <StyledButton type="submit" fill background="#0980CD">
+      <StyledButton type="submit" background="#0980CD">
         Create account
       </StyledButton>
       <Text>Already have an account?</Text>
