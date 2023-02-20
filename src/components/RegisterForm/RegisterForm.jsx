@@ -14,21 +14,20 @@ const StyledForm = styled.form`
   margin-left: 65px;
 `;
 
+const StyledCheckbox = styled(Checkbox)`
+  margin-bottom: 25px;
+  margin-top: 25px;
+`;
+
+const StyledButton = styled(Button)`
+  margin-bottom: 25px;
+`;
+
+const StyledLinkAsAButton = styled(LinkAsAButton)`
+  margin-bottom: 35px;
+  margin-top: 5px;
+`;
 const RegisterForm = (props) => {
-  const StyledCheckbox = styled(Checkbox)`
-    margin-bottom: 15px;
-    margin-top: 25px;
-  `;
-
-  const StyledButton = styled(Button)`
-    margin-bottom: 25px;
-  `;
-
-  const StyledLinkAsAButton = styled(LinkAsAButton)`
-    margin-bottom: 35px;
-    margin-top: 5px;
-  `;
-
   const [registerValues, setRegisterValues] = useState({
     name: "",
     email: "",
@@ -70,11 +69,11 @@ const RegisterForm = (props) => {
       if (registerValues.password !== registerValues.confirmPassword) {
         errors.confirmPassword = "Passwords do not match";
       }
-      console.log(errors);
+      return Object.keys(errors).length > 0 ? errors : null;
     };
 
     const validationErrors = validateForm();
-    if (Object.keys(validationErrors || {}).length === null) {
+    if (Object.keys(validationErrors || {}).length === 0) {
       console.log(registerValues);
     } else {
       setErrors(validationErrors);
