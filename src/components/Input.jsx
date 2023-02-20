@@ -11,7 +11,7 @@ const StyledInput = styled.input`
   border-radius: 5px;
   padding: 10px;
   margin-top: 5px;
-  &.error {
+  &.errorClass {
     border-color: #cf1322;
   }
 `;
@@ -24,7 +24,7 @@ const StyledDiv = styled.div`
 
 const StyledErrorDiv = styled.div`
   display: none;
-  &.error {
+  &.errorClass {
     display: inline-block;
   }
   height: 15px;
@@ -50,33 +50,31 @@ const StyledLabel = styled.label`
 const StyledImg = styled.img`
   display: none;
   margin-left: 3.35px;
-  &.error {
+  &.errorClass {
     display: inline-block;
   }
 `;
 
 const Input = (props) => {
-  const [error, setError] = useState(true);
-
   return (
     <StyledDiv>
       <StyledLabel htmlFor={props.label}>
         {props.label}
         <StyledImg
-          className={error ? "error" : null}
+          className={props.error ? "errorClass" : null}
           src={errorStar}
         ></StyledImg>
       </StyledLabel>
       <StyledInput
         name={props.name}
         onChange={props.onChange}
-        className={error ? "error" : null}
+        className={props.error ? "errorClass" : null}
         id={props.label}
         type={props.type}
       />
-      <StyledErrorDiv className={error ? "error" : null}>
-        {props.error}
-      </StyledErrorDiv>
+      <StyledErrorDiv
+        className={props.error ? "errorClass" : null}
+      ></StyledErrorDiv>
     </StyledDiv>
   );
 };

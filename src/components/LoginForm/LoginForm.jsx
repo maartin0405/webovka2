@@ -74,13 +74,14 @@ const LoginForm = (props) => {
       <Text>welcome back</Text>
       <Header size={1}>log in</Header>
       <Input
-        error={"hii"}
+        error
         name="email"
         type="text"
         label="Email"
         onChange={handleChange}
       />
       <InputPassword
+        error
         name="password"
         type="password"
         label="Password"
