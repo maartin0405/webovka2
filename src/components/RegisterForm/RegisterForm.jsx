@@ -27,6 +27,7 @@ const StyledLinkAsAButton = styled(LinkAsAButton)`
   margin-bottom: 35px;
   margin-top: 5px;
 `;
+
 const RegisterForm = (props) => {
   const [registerValues, setRegisterValues] = useState({
     name: "",
