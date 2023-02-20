@@ -20,9 +20,8 @@ const StyledDiv = styled.div`
   width: 100%;
 `;
 
-const InputPassword = ({ label }) => {
+const InputPassword = ({ label, onChange, name }) => {
   const [passwordShown, setPasswordShown] = useState(false);
-  const [password, setPassword] = useState(""); // do i still need this???
 
   const togglePasswordVisiblity = () => {
     setPasswordShown(!passwordShown);
@@ -30,7 +29,12 @@ const InputPassword = ({ label }) => {
 
   return (
     <StyledDiv>
-      <Input type={passwordShown ? "text" : "password"} label={label} />
+      <Input
+        name={name}
+        onChange={onChange}
+        type={passwordShown ? "text" : "password"}
+        label={label}
+      />
       <StyledButton onClick={togglePasswordVisiblity} type="button">
         <img src={eye} alt="Hide/Show" />
       </StyledButton>
