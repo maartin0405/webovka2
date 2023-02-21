@@ -53,6 +53,8 @@ const RegisterForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     validateForm();
+
+    
   };
 
   const validateForm = () => {
@@ -63,8 +65,8 @@ const RegisterForm = (props) => {
       confirmPassword: validateConfirmPassword(),
       checkbox: validateCheckbox(),
     };
-    console.log(validationErrors);
     setErrors(validationErrors);
+    console.log(errors);
   };
 
   const validateName = () => {
