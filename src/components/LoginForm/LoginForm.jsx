@@ -65,6 +65,8 @@ const LoginForm = (props) => {
         errors.email = "Email is required";
       } else if (!/\S+@\S+\.\S+/.test(loginValues.email)) {
         errors.email = "Invalid email address";
+      } else {
+        errors.email = "";
       }
 
       if (!loginValues.password) {
