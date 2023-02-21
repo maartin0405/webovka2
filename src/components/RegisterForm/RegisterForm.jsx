@@ -37,12 +37,18 @@ const RegisterForm = (props) => {
   });
 
   const [errors, setErrors] = useState({});
+  const [checkbox, setCheckbox] = useState(false);
 
   const handleChange = (event) => {
     setRegisterValues({
       ...registerValues,
       [event.target.name]: event.target.value,
     });
+  };
+
+  const handleCheckboxChange = (event) => {
+    setCheckbox(!checkbox);
+    console.log(checkbox);
   };
 
   const handleSubmit = (event) => {
@@ -80,6 +86,13 @@ const RegisterForm = (props) => {
       } else {
         errors.confirmPassword = "";
       }
+
+      if (checkbox) {
+        errors.checkbox = false;
+      } else {
+        errors.checkbox = true;
+      }
+
       return errors;
     };
 
@@ -88,12 +101,15 @@ const RegisterForm = (props) => {
       validationErrors.name === "" &&
       validationErrors.email === "" &&
       validationErrors.password === "" &&
-      validationErrors.confirmPassword === ""
+      validationErrors.confirmPassword === "" &&
+      validationErrors.checkbox === true
     ) {
       console.log(registerValues);
       setErrors(validationErrors);
+      setCheckbox(checkbox);
     } else {
       setErrors(validationErrors);
+      setCheckbox(checkbox);
     }
   };
 
@@ -134,6 +150,9 @@ const RegisterForm = (props) => {
         error={errors.confirmPassword}
       />
       <StyledCheckbox
+        onChange={handleCheckboxChange}
+        checked={checkbox}
+        error={errors.checkbox}
         label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement." // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
       />
       <StyledButton type="submit" background="#0980CD">

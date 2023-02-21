@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import errorStar from "../images/Vector.svg";
 
 const StyledDiv = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: 35px auto;
   width: 100%;
@@ -29,22 +30,29 @@ const StyledLabel = styled.label`
 `;
 
 const StyledImg = styled.img`
-  display: inline-block;
-  margin-left: 3.35px;
+  position: absolute;
+  display: none;
   &.errorClass {
     display: inline-block;
   }
-  top: 0%;
+  top: -5px;
+  left: 25.31px;
 `;
 
-const Checkbox = ({ className, label }) => {
+const Checkbox = ({ className, label, error, checked, onChange }) => {
   return (
     <StyledDiv className={className}>
-      <StyledInput type="checkbox" id="label" />
-      <StyledLabel htmlFor="label">
-        {label}
-        <StyledImg src={errorStar}></StyledImg>
-      </StyledLabel>
+      <StyledInput
+        type="checkbox"
+        id="label"
+        checked={checked}
+        onChange={onChange}
+      />
+      <StyledLabel htmlFor="label">{label}</StyledLabel>
+      <StyledImg
+        src={errorStar}
+        className={error ? "errorClass" : null}
+      ></StyledImg>
     </StyledDiv>
   );
 };
