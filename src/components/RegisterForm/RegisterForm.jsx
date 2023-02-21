@@ -52,39 +52,13 @@ const RegisterForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const validateForm = () => {
-      let errors = {};
-      if (!registerValues.name) {
-        errors.name = "Name is required";
-      } else if (registerValues.name.length < 2) {
-        errors.name = "Name must be at least 2 characters";
-      } else {
-        errors.name = "";
-      }
-
-      if (!registerValues.email) {
-        errors.email = "Email is required";
-      } else if (!/\S+@\S+\.\S+/.test(registerValues.email)) {
-        errors.email = "Invalid email address";
-      } else {
-        errors.email = "";
-      }
-
-      if (!registerValues.password) {
-        errors.password = "Password is required";
-      } else if (registerValues.password.length < 8) {
-        errors.password = "Password must be at least 8 characters";
-      } else {
-        errors.password = "";
-      }
-
-      if (registerValues.password !== registerValues.confirmPassword) {
-        errors.confirmPassword = "Passwords do not match";
-      } else if (!registerValues.confirmPassword) {
-        errors.confirmPassword = "Cannot be empty";
-      } else {
-        errors.confirmPassword = "";
-      }
+    validateName();
+    validateEmail();
+    validatePassword();
+    validateConfirmPassword();
+    setErrors(errors);
+    console.log(errors);
+    /*const validateForm = () => {
 
       if (!checkbox) {
         errors.checkbox = true;
@@ -93,22 +67,45 @@ const RegisterForm = (props) => {
       }
 
       return errors;
-    };
-
-    const validationErrors = validateForm();
-    if (
-      validationErrors.name === "" &&
-      validationErrors.email === "" &&
-      validationErrors.password === "" &&
-      validationErrors.confirmPassword === "" &&
-      validationErrors.checkbox === false
-    ) {
-      console.log(registerValues);
-      setErrors(validationErrors);
-      setCheckbox(checkbox);
+    };*/
+  };
+  const validateName = () => {
+    if (!registerValues.name) {
+      errors.name = "Name is required";
+    } else if (registerValues.name.length < 2) {
+      errors.name = "Name must be at least 2 characters";
     } else {
-      setErrors(validationErrors);
-      setCheckbox(checkbox);
+      delete errors.name;
+    }
+  };
+
+  const validateEmail = () => {
+    if (!registerValues.email) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(registerValues.email)) {
+      errors.email = "Invalid email address";
+    } else {
+      delete errors.email;
+    }
+  };
+
+  const validatePassword = () => {
+    if (!registerValues.password) {
+      errors.password = "Password is required";
+    } else if (registerValues.password.length < 8) {
+      errors.password = "Password must be at least 8 characters";
+    } else {
+      delete errors.password;
+    }
+  };
+
+  const validateConfirmPassword = () => {
+    if (registerValues.password !== registerValues.confirmPassword) {
+      errors.confirmPassword = "Passwords do not match";
+    } else if (!registerValues.confirmPassword) {
+      errors.confirmPassword = "Cannot be empty";
+    } else {
+      delete errors.confirmPassword;
     }
   };
 
