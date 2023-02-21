@@ -66,7 +66,7 @@ const LoginForm = (props) => {
       } else if (!/\S+@\S+\.\S+/.test(loginValues.email)) {
         errors.email = "Invalid email address";
       } else {
-        return (errors = {});
+        errors.email = "";
       }
 
       if (!loginValues.password) {
@@ -74,7 +74,7 @@ const LoginForm = (props) => {
       } else if (loginValues.password.length < 8) {
         errors.password = "Password must be at least 8 characters";
       } else {
-        return (errors = {});
+        errors.password = "";
       } // i cant set a "errors.password = """ because then the object below will be filled with a key with an empty string and it wont return the form even if it has tehcnically 0 errors, the empty string is still an "error"
 
       return Object.keys(errors).length > 0 ? errors : null;
@@ -82,7 +82,7 @@ const LoginForm = (props) => {
 
     const validationErrors = validateForm();
 
-    if (validationErrors === null) {
+    if (validationErrors.email === "" && validationErrors.password === "") {
       console.log(loginValues);
     } else {
       setErrors(validationErrors);
