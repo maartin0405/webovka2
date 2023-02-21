@@ -75,9 +75,9 @@ const LoginForm = (props) => {
         errors.password = "Password must be at least 8 characters";
       } else {
         errors.password = "";
-      } // i cant set a "errors.password = """ because then the object below will be filled with a key with an empty string and it wont return the form even if it has tehcnically 0 errors, the empty string is still an "error"
+      }
 
-      return Object.keys(errors).length > 0 ? errors : null;
+      return errors;
     };
 
     const validationErrors = validateForm();

@@ -75,15 +75,23 @@ const RegisterForm = (props) => {
 
       if (registerValues.password !== registerValues.confirmPassword) {
         errors.confirmPassword = "Passwords do not match";
+      } else if (registerValues.confirmPassword === "") {
+        errors.confirmPassword = "Cannot be empty";
       } else {
         errors.confirmPassword = "";
       }
-      return Object.keys(errors).length > 0 ? errors : null;
+      return errors;
     };
 
     const validationErrors = validateForm();
-    if (Object.keys(validationErrors || {}).length === 0) {
+    if (
+      validationErrors.name === "" &&
+      validationErrors.email === "" &&
+      validationErrors.password === "" &&
+      validationErrors.confirmPassword === ""
+    ) {
       console.log(registerValues);
+      setErrors(validationErrors);
     } else {
       setErrors(validationErrors);
     }
