@@ -65,23 +65,20 @@ const LoginForm = (props) => {
         errors.email = "Email is required";
       } else if (!/\S+@\S+\.\S+/.test(loginValues.email)) {
         errors.email = "Invalid email address";
-      } else {
-        errors.email = "";
       }
 
       if (!loginValues.password) {
         errors.password = "Password is required";
       } else if (loginValues.password.length < 8) {
         errors.password = "Password must be at least 8 characters";
-      } else {
-        errors.password = "";
-      }
+      } // i cant set a "errors.password = """ because then the object below will be filled with objects and it wont return the form even if it has tehcnically 0 errors, the empty string is still an error
 
-      return Object.keys(errors).length > 0 ? errors : null;
+      return Object.keys(errors).length > 0 ? errors : {};
     };
 
     const validationErrors = validateForm();
-    if (Object.keys(validationErrors || {}).length === 0) {
+
+    if (Object.keys(validationErrors).length === 0) {
       console.log(loginValues);
     } else {
       setErrors(validationErrors);
