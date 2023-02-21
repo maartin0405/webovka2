@@ -75,7 +75,7 @@ const RegisterForm = (props) => {
 
       if (registerValues.password !== registerValues.confirmPassword) {
         errors.confirmPassword = "Passwords do not match";
-      } else if (registerValues.confirmPassword === "") {
+      } else if (!registerValues.confirmPassword) {
         errors.confirmPassword = "Cannot be empty";
       } else {
         errors.confirmPassword = "";

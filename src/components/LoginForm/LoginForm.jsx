@@ -71,12 +71,9 @@ const LoginForm = (props) => {
 
       if (!loginValues.password) {
         errors.password = "Password is required";
-      } else if (loginValues.password.length < 8) {
-        errors.password = "Password must be at least 8 characters";
       } else {
         errors.password = "";
       }
-
       return errors;
     };
 
