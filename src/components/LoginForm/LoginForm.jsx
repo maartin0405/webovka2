@@ -84,6 +84,7 @@ const LoginForm = (props) => {
 
     if (validationErrors.email === "" && validationErrors.password === "") {
       console.log(loginValues);
+      setErrors(validationErrors);
     } else {
       setErrors(validationErrors);
     }
