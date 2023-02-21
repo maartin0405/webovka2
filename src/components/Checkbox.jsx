@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import errorStar from "../images/Vector.svg";
 
 const StyledDiv = styled.div`
   display: grid;
@@ -23,13 +24,27 @@ const StyledLabel = styled.label`
   letter-spacing: 0.15px;
   color: #322e35;
   line-height: 21px;
+  display: flex;
+  align-items: flex-start;
+`;
+
+const StyledImg = styled.img`
+  display: inline-block;
+  margin-left: 3.35px;
+  &.errorClass {
+    display: inline-block;
+  }
+  top: 0%;
 `;
 
 const Checkbox = ({ className, label }) => {
   return (
     <StyledDiv className={className}>
       <StyledInput type="checkbox" id="label" />
-      <StyledLabel htmlFor="label">{label}</StyledLabel>
+      <StyledLabel htmlFor="label">
+        {label}
+        <StyledImg src={errorStar}></StyledImg>
+      </StyledLabel>
     </StyledDiv>
   );
 };
