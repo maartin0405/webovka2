@@ -46,9 +46,8 @@ const RegisterForm = (props) => {
     });
   };
 
-  const handleCheckboxChange = (event) => {
+  const handleCheckboxChange = () => {
     setCheckbox(!checkbox);
-    console.log(checkbox);
   };
 
   const handleSubmit = (event) => {
