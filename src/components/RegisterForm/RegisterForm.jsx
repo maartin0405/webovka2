@@ -102,7 +102,7 @@ const RegisterForm = (props) => {
       validationErrors.email === "" &&
       validationErrors.password === "" &&
       validationErrors.confirmPassword === "" &&
-      validationErrors.checkbox === true
+      validationErrors.checkbox === false
     ) {
       console.log(registerValues);
       setErrors(validationErrors);
