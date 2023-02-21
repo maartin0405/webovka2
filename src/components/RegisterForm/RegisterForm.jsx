@@ -52,61 +52,77 @@ const RegisterForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    validateName();
-    validateEmail();
-    validatePassword();
-    validateConfirmPassword();
-    setErrors(errors);
-    console.log(errors);
-    /*const validateForm = () => {
-
-      if (!checkbox) {
-        errors.checkbox = true;
-      } else {
-        errors.checkbox = false;
-      }
-
-      return errors;
-    };*/
+    validateForm();
   };
+
+  const validateForm = () => {
+    const validationErrors = {
+      name: validateName(),
+      email: validateEmail(),
+      password: validatePassword(),
+      confirmPassword: validateConfirmPassword(),
+      checkbox: validateCheckbox(),
+    };
+    console.log(validationErrors);
+    setErrors(validationErrors);
+  };
+
   const validateName = () => {
+    let error = "";
     if (!registerValues.name) {
-      errors.name = "Name is required";
+      error = "Name is required";
     } else if (registerValues.name.length < 2) {
-      errors.name = "Name must be at least 2 characters";
+      error = "Name must be at least 2 characters";
     } else {
-      delete errors.name;
+      error = "";
     }
+    return error;
   };
 
   const validateEmail = () => {
+    let error = "";
     if (!registerValues.email) {
-      errors.email = "Email is required";
+      error = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(registerValues.email)) {
-      errors.email = "Invalid email address";
+      error = "Invalid email address";
     } else {
-      delete errors.email;
+      error = "";
     }
+    return error;
   };
 
   const validatePassword = () => {
+    let error = "";
     if (!registerValues.password) {
-      errors.password = "Password is required";
+      error = "Password is required";
     } else if (registerValues.password.length < 8) {
-      errors.password = "Password must be at least 8 characters";
+      error = "Password must be at least 8 characters";
     } else {
-      delete errors.password;
+      error = "";
     }
+    return error;
   };
 
   const validateConfirmPassword = () => {
+    let error = "";
     if (registerValues.password !== registerValues.confirmPassword) {
-      errors.confirmPassword = "Passwords do not match";
+      error = "Passwords do not match";
     } else if (!registerValues.confirmPassword) {
-      errors.confirmPassword = "Cannot be empty";
+      error = "Cannot be empty";
     } else {
-      delete errors.confirmPassword;
+      error = "";
     }
+    return error;
+  };
+
+  const validateCheckbox = () => {
+    let error = "";
+    if (!checkbox) {
+      error = true;
+    } else {
+      error = "";
+    }
+    return error;
   };
 
   return (
