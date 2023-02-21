@@ -86,10 +86,10 @@ const RegisterForm = (props) => {
         errors.confirmPassword = "";
       }
 
-      if (checkbox) {
-        errors.checkbox = false;
-      } else {
+      if (!checkbox) {
         errors.checkbox = true;
+      } else {
+        errors.checkbox = false;
       }
 
       return errors;
