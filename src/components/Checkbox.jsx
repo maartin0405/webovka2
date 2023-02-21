@@ -25,8 +25,6 @@ const StyledLabel = styled.label`
   letter-spacing: 0.15px;
   color: #322e35;
   line-height: 21px;
-  display: flex;
-  align-items: flex-start;
 `;
 
 const StyledImg = styled.img`
