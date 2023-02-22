@@ -6,13 +6,17 @@ import { useState } from "react";
 
 const StyledButton = styled.button`
   width: 40px;
-  height: 40px;
+  height: 38px;
+  padding: 0px;
   position: absolute;
-  top: 41px;
-  right: 3px;
+  top: 40px;
+  right: 1px;
   border: none;
   background-color: transparent;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StyledDiv = styled.div`
