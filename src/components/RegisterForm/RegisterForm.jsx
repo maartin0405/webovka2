@@ -33,11 +33,11 @@ const RegisterForm = (props) => {
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({});
   const [checkbox, setCheckbox] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleChange = (event) => {
     setRegisterValues({
@@ -48,6 +48,11 @@ const RegisterForm = (props) => {
 
   const handleCheckboxChange = () => {
     setCheckbox(!checkbox);
+  };
+
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+    console.log(confirmPassword);
   };
 
   const handleSubmit = (event) => {
@@ -101,10 +106,10 @@ const RegisterForm = (props) => {
   };
 
   const validateConfirmPassword = () => {
-    if (!registerValues.confirmPassword) {
+    if (!confirmPassword) {
       return "Cannot be empty";
     }
-    return registerValues.password !== registerValues.confirmPassword
+    return registerValues.password !== confirmPassword
       ? "Passwords do not match"
       : "";
   };
@@ -146,7 +151,7 @@ const RegisterForm = (props) => {
         error={errors.password}
       />
       <InputPassword
-        onChange={handleChange}
+        onChange={handleConfirmPasswordChange}
         name="confirmPassword"
         type="password"
         label="Confirm password"
