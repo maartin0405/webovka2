@@ -9,9 +9,9 @@ import LinkAsAButton from "../LinkAsAButton";
 import InputPassword from "../InputPassword";
 
 const StyledForm = styled.form`
-  margin-top: 48.5px;
-  margin-right: 65px;
-  margin-left: 65px;
+  padding-top: 48.5px;
+  padding-right: 65px;
+  padding-left: 65px;
 `;
 
 const StyledCheckbox = styled(Checkbox)`

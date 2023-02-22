@@ -68,7 +68,6 @@ const LoginForm = (props) => {
     const validationErrors = {
       email: validateEmail(),
       password: validatePassword(),
-      // checkbox: validateCheckbox(),
     };
     setErrors(validationErrors);
     const hasErrors = Object.values(validationErrors).some(
