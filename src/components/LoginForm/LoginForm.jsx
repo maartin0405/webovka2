@@ -79,27 +79,21 @@ const LoginForm = (props) => {
   };
 
   const validateEmail = () => {
-    let error = "";
     if (!loginValues.email) {
-      error = "Email is required";
+      return "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(loginValues.email)) {
-      error = "Invalid email address";
-    } else {
-      error = "";
+      return "Invalid email address";
     }
-    return error;
+    return "";
   };
 
   const validatePassword = () => {
-    let error = "";
     if (!loginValues.password) {
-      error = "Password is required";
+      return "Password is required";
     } else if (loginValues.password.length < 8) {
-      error = "Password must be at least 8 characters";
-    } else {
-      error = "";
+      return "Password must be at least 8 characters";
     }
-    return error;
+    return "";
   };
 
   return (

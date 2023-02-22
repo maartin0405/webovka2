@@ -74,61 +74,46 @@ const RegisterForm = (props) => {
   };
 
   const validateName = () => {
-    let error = "";
     if (!registerValues.name) {
-      error = "Name is required";
+      return "Name is required";
     } else if (registerValues.name.length < 2) {
-      error = "Name must be at least 2 characters";
-    } else {
-      error = "";
+      return "Name must be at least 2 characters";
     }
-    return error;
+    return "";
   };
 
   const validateEmail = () => {
-    let error = "";
     if (!registerValues.email) {
-      error = "Email is required";
+      return "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(registerValues.email)) {
-      error = "Invalid email address";
-    } else {
-      error = "";
+      return "Invalid email address";
     }
-    return error;
+    return "";
   };
 
   const validatePassword = () => {
-    let error = "";
     if (!registerValues.password) {
-      error = "Password is required";
+      return "Password is required";
     } else if (registerValues.password.length < 8) {
-      error = "Password must be at least 8 characters";
-    } else {
-      error = "";
+      return "Password must be at least 8 characters";
     }
-    return error;
+    return "";
   };
 
   const validateConfirmPassword = () => {
-    let error = "";
-    if (registerValues.password !== registerValues.confirmPassword) {
-      error = "Passwords do not match";
-    } else if (!registerValues.confirmPassword) {
-      error = "Cannot be empty";
-    } else {
-      error = "";
+    if (!registerValues.confirmPassword) {
+      return "Cannot be empty";
     }
-    return error;
+    return registerValues.password !== registerValues.confirmPassword
+      ? "Passwords do not match"
+      : "";
   };
 
   const validateCheckbox = () => {
-    let error = "";
     if (!checkbox) {
-      error = true;
-    } else {
-      error = "";
+      return true;
     }
-    return error;
+    return "";
   };
 
   return (
