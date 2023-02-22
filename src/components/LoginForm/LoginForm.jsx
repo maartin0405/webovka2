@@ -10,9 +10,9 @@ import Button from "../Button";
 import { Link } from "gatsby";
 
 const StyledForm = styled.form`
-  margin-top: 48.5px;
-  margin-right: 65px;
-  margin-left: 65px;
+  padding-top: 48.5px;
+  padding-right: 65px;
+  padding-left: 65px;
 `;
 
 const StyledLink = styled(Link)`
@@ -45,6 +45,7 @@ const LoginForm = (props) => {
   const [loginValues, setLoginValues] = useState({
     email: "",
     password: "",
+    checkbox: false, //how to handle this?
   });
 
   const [errors, setErrors] = useState({});
@@ -54,6 +55,7 @@ const LoginForm = (props) => {
     setLoginValues({
       ...loginValues,
       [event.target.name]: event.target.value,
+      
     });
   };
 
@@ -69,7 +71,7 @@ const LoginForm = (props) => {
       // checkbox: validateCheckbox(),
     };
     setErrors(validationErrors);
-    console.log(errors);
+    console.log(loginValues);
   };
 
   const validateEmail = () => {

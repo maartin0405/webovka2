@@ -37,10 +37,11 @@ const StyledImg = styled.img`
   left: 25.31px;
 `;
 
-const Checkbox = ({ className, label, error, checked, onChange }) => {
+const Checkbox = ({ className, label, error, checked, onChange, name }) => {
   return (
     <StyledDiv className={className}>
       <StyledInput
+        name={name}
         type="checkbox"
         id="label"
         checked={checked}
