@@ -45,17 +45,17 @@ const LoginForm = (props) => {
   const [loginValues, setLoginValues] = useState({
     email: "",
     password: "",
-    checkbox: false, //how to handle this?
+    checkbox: false,
   });
 
   const [errors, setErrors] = useState({});
-  // const [checkbox, setCheckbox] = useState(false);
 
   const handleChange = (event) => {
+    const { name, type, checked, value } = event.target;
+
     setLoginValues({
       ...loginValues,
-      [event.target.name]: event.target.value,
-      
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
@@ -71,7 +71,12 @@ const LoginForm = (props) => {
       // checkbox: validateCheckbox(),
     };
     setErrors(validationErrors);
-    console.log(loginValues);
+    const hasErrors = Object.values(validationErrors).some(
+      (error) => error !== ""
+    );
+    if (!hasErrors) {
+      console.log(loginValues);
+    }
   };
 
   const validateEmail = () => {
@@ -98,16 +103,6 @@ const LoginForm = (props) => {
     return error;
   };
 
-  /* const validateCheckbox = () => {
-    let error = "";
-    if (!checkbox) {
-      error = true;
-    } else {
-      error = "";
-    }
-    return error;
-  }; */
-
   return (
     <StyledForm
       onSubmit={handleSubmit}
@@ -130,7 +125,11 @@ const LoginForm = (props) => {
         onChange={handleChange}
         error={errors.password}
       />
-      <StyledCheckbox label="Remember the password" />
+      <StyledCheckbox
+        label="Remember the password"
+        name="checkbox"
+        onChange={handleChange}
+      />
       <StyledLink to="/register">I forgot my password</StyledLink>
       <StyledButton type="submit" background="#0980CD">
         Log in
