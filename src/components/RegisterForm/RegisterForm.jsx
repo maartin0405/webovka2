@@ -90,7 +90,11 @@ const RegisterForm = (props) => {
   const validateEmail = () => {
     if (!registerValues.email) {
       return "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(registerValues.email)) {
+    } else if (
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+        registerValues.email === false
+      )
+    ) {
       return "Invalid email address";
     }
     return "";
