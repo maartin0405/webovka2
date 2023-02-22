@@ -48,6 +48,7 @@ const LoginForm = (props) => {
   });
 
   const [errors, setErrors] = useState({});
+  // const [checkbox, setCheckbox] = useState(false);
 
   const handleChange = (event) => {
     setLoginValues({
@@ -58,34 +59,52 @@ const LoginForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const validateForm = () => {
-      let errors = {};
-
-      if (!loginValues.email) {
-        errors.email = "Email is required";
-      } else if (!/\S+@\S+\.\S+/.test(loginValues.email)) {
-        errors.email = "Invalid email address";
-      } else {
-        errors.email = "";
-      }
-
-      if (!loginValues.password) {
-        errors.password = "Password is required";
-      } else {
-        errors.password = "";
-      }
-      return errors;
-    };
-
-    const validationErrors = validateForm();
-
-    if (validationErrors.email === "" && validationErrors.password === "") {
-      console.log(loginValues);
-      setErrors(validationErrors);
-    } else {
-      setErrors(validationErrors);
-    }
+    validateForm();
   };
+
+  const validateForm = () => {
+    const validationErrors = {
+      email: validateEmail(),
+      password: validatePassword(),
+      // checkbox: validateCheckbox(),
+    };
+    setErrors(validationErrors);
+    console.log(errors);
+  };
+
+  const validateEmail = () => {
+    let error = "";
+    if (!loginValues.email) {
+      error = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(loginValues.email)) {
+      error = "Invalid email address";
+    } else {
+      error = "";
+    }
+    return error;
+  };
+
+  const validatePassword = () => {
+    let error = "";
+    if (!loginValues.password) {
+      error = "Password is required";
+    } else if (loginValues.password.length < 8) {
+      error = "Password must be at least 8 characters";
+    } else {
+      error = "";
+    }
+    return error;
+  };
+
+  /* const validateCheckbox = () => {
+    let error = "";
+    if (!checkbox) {
+      error = true;
+    } else {
+      error = "";
+    }
+    return error;
+  }; */
 
   return (
     <StyledForm
