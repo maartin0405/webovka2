@@ -73,7 +73,7 @@ const RegisterForm = (props) => {
       (error) => error !== ""
     );
     if (!hasErrors) {
-      console.log(registerValues);
+      console.log(registerValues); // this will be the submit thing
     }
   };
 
