@@ -80,10 +80,10 @@ const RegisterForm = (props) => {
   const validateName = () => {
     if (!registerValues.name) {
       return "Name is required";
-    } else if (registerValues.name.length < 2) {
-      return "Name must be at least 2 characters";
     }
-    return "";
+    return registerValues.name.length < 2
+      ? "Name must be at least 2 characters"
+      : "";
   };
 
   const validateEmail = () => {
@@ -96,16 +96,18 @@ const RegisterForm = (props) => {
     ) {
       return "Invalid email address";
     }
-    return "";
+    return ""; //i could ternary this
   };
 
   const validatePassword = () => {
     if (!registerValues.password) {
       return "Password is required";
-    } else if (registerValues.password.length < 8) {
-      return "Password must be at least 8 characters";
     }
-    return "";
+    return registerValues.password.length < 8
+      ? "Password must be at least 8 characters"
+      : "";
+
+    // i could ternary this
   }; // make it so there has to be atleast 1 special character, 1 big letter and 1 number and maybe special character
 
   const validateConfirmPassword = () => {
@@ -118,10 +120,7 @@ const RegisterForm = (props) => {
   };
 
   const validateCheckbox = () => {
-    if (!checkbox) {
-      return true;
-    }
-    return "";
+    return !checkbox ? true : "";
   };
 
   return (
