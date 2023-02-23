@@ -123,7 +123,7 @@ const LoginForm = (props) => {
         name="checkbox"
         onChange={handleChange}
       />
-      <StyledLink to="/register">I forgot my password</StyledLink>
+      <StyledLink to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">I forgot my password</StyledLink>
       <StyledButton type="submit" background="#0980CD">
         Log in
       </StyledButton>
