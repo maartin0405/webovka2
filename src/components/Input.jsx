@@ -23,10 +23,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledErrorDiv = styled.div`
-  display: none;
-  &.errorClass {
-    display: inline-block;
-  }
+  display: ${({ error }) => (error === "" ? "none" : "inline-block")};
   height: 15px;
   font-family: "Roboto";
   font-style: normal;
@@ -52,7 +49,8 @@ const StyledImg = styled.img`
   margin-left: 3.35px;
   &.errorClass {
     display: inline-block;
-  }
+  } 
+  //use :: after with a normal star instead of an image, maybe because the display ternary works weird with it\?
 `;
 
 const Input = (props) => {
@@ -61,14 +59,12 @@ const Input = (props) => {
       <StyledLabel htmlFor={props.label}>
         {props.label}
         <StyledImg
-          className={props.error ? "errorClass" : null}
           src={errorStar}
+          className={props.error ? "errorClass" : null}
         ></StyledImg>
       </StyledLabel>
       <StyledInput {...props} />
-      <StyledErrorDiv className={props.error ? "errorClass" : null}>
-        {props.error}
-      </StyledErrorDiv>
+      <StyledErrorDiv>{props.error}</StyledErrorDiv>
     </StyledDiv>
   );
 };
