@@ -65,13 +65,7 @@ const Input = (props) => {
           src={errorStar}
         ></StyledImg>
       </StyledLabel>
-      <StyledInput
-        name={props.name}
-        onChange={props.onChange}
-        className={props.error ? "errorClass" : null}
-        id={props.label}
-        type={props.type}
-      />
+      <StyledInput {...props} />
       <StyledErrorDiv className={props.error ? "errorClass" : null}>
         {props.error}
       </StyledErrorDiv>

@@ -42,7 +42,7 @@ const RegisterForm = (props) => {
   const handleChange = (event) => {
     setRegisterValues({
       ...registerValues,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value.trim(),
     });
   };
 
@@ -52,7 +52,6 @@ const RegisterForm = (props) => {
 
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
-    console.log(confirmPassword);
   };
 
   const handleSubmit = (event) => {
@@ -107,7 +106,7 @@ const RegisterForm = (props) => {
       return "Password must be at least 8 characters";
     }
     return "";
-  };
+  }; // make it so there has to be atleast 1 special character, 1 big letter and 1 number and maybe special character
 
   const validateConfirmPassword = () => {
     if (!confirmPassword) {

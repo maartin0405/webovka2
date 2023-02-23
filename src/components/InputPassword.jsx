@@ -24,7 +24,7 @@ const StyledDiv = styled.div`
   width: 100%;
 `;
 
-const InputPassword = ({ label, onChange, name, error }) => {
+const InputPassword = (props) => {
   const [passwordShown, setPasswordShown] = useState(false);
 
   const togglePasswordVisiblity = () => {
@@ -33,13 +33,7 @@ const InputPassword = ({ label, onChange, name, error }) => {
 
   return (
     <StyledDiv>
-      <Input
-        name={name}
-        onChange={onChange}
-        type={passwordShown ? "text" : "password"}
-        label={label}
-        error={error}
-      />
+      <Input {...props} type={passwordShown ? "text" : "password"} />
       <StyledButton onClick={togglePasswordVisiblity} type="button">
         <img src={eye} alt="Hide/Show" />
       </StyledButton>
