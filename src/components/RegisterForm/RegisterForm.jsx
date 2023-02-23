@@ -116,7 +116,7 @@ const RegisterForm = (props) => {
       ? "Passwords do not match"
       : "";
   };
-
+  
   const validateCheckbox = () => {
     return !checkbox ? true : "";
   };
