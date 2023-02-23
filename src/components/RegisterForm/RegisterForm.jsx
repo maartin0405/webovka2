@@ -106,8 +106,6 @@ const RegisterForm = (props) => {
     return registerValues.password.length < 8
       ? "Password must be at least 8 characters"
       : "";
-
-    // i could ternary this
   }; // make it so there has to be atleast 1 special character, 1 big letter and 1 number and maybe special character
 
   const validateConfirmPassword = () => {
