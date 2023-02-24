@@ -42,7 +42,7 @@ const RegisterForm = (props) => {
   const handleChange = (event) => {
     setRegisterValues({
       ...registerValues,
-      [event.target.name]: event.target.value.trim(),
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -68,7 +68,6 @@ const RegisterForm = (props) => {
       checkbox: validateCheckbox(),
     };
     setErrors(validationErrors);
-    console.log(errors);
     const hasErrors = Object.values(validationErrors).some(
       (error) => error !== ""
     );
@@ -90,9 +89,7 @@ const RegisterForm = (props) => {
     if (!registerValues.email) {
       return "Email is required";
     } else if (
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
-        registerValues.email === false
-      )
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(registerValues.email) // why the fuck does this not work
     ) {
       return "Invalid email address";
     }
@@ -116,7 +113,7 @@ const RegisterForm = (props) => {
       ? "Passwords do not match"
       : "";
   };
-  
+
   const validateCheckbox = () => {
     return !checkbox ? true : "";
   };
