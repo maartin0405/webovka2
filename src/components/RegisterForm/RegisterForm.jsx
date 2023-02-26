@@ -56,11 +56,14 @@ const RegisterForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    validateForm();
-    const hasErrors = Object.values(errors).some((error) => error !== "");
+    const validationErrors = validateForm();
+    const hasErrors = Object.values(validationErrors).some(
+      (error) => error !== ""
+    );
     if (!hasErrors) {
       console.log(registerValues); // this will be the submit thing
     }
+    console.log(errors);
   };
 
   const validateForm = () => {
@@ -72,6 +75,7 @@ const RegisterForm = (props) => {
       checkbox: validateCheckbox(),
     };
     setErrors(validationErrors);
+    return validationErrors;
   };
 
   const validateName = () => {
