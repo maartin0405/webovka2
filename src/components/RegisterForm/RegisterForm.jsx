@@ -33,25 +33,17 @@ const RegisterForm = (props) => {
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
+    checkbox: false,
   });
 
   const [errors, setErrors] = useState({});
-  const [checkbox, setCheckbox] = useState(false);
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleChange = (event) => {
     setRegisterValues({
       ...registerValues,
       [event.target.name]: event.target.value,
     });
-  };
-
-  const handleCheckboxChange = () => {
-    setCheckbox(!checkbox);
-  };
-
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
   };
 
   const handleSubmit = (event) => {
