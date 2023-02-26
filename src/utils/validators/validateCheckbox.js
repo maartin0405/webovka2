@@ -1,5 +1,5 @@
-const validateCheckbox = (props) => {
-  return !props.checkbox ? true : "";
+const validateCheckbox = (values) => {
+  return !values.checkbox ? true : "";
 };
 
 export default validateCheckbox;

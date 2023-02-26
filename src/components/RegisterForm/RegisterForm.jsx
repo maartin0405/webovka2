@@ -39,7 +39,7 @@ const RegisterForm = (props) => {
     email: "",
     password: "",
     confirmPassword: "",
-    checkbox: false,
+    checkbox: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -66,13 +66,14 @@ const RegisterForm = (props) => {
 
   const validateForm = () => {
     const validationErrors = {
-      name: validateName(),
-      email: validateEmail(),
-      password: validatePassword(),
-      confirmPassword: validateConfirmPassword(),
-      checkbox: validateCheckbox(),
+      name: validateName(registerValues),
+      email: validateEmail(registerValues),
+      password: validatePassword(registerValues),
+      confirmPassword: validateConfirmPassword(registerValues),
+      checkbox: validateCheckbox(registerValues),
     };
     setErrors(validationErrors);
+    console.log(validationErrors);
     return validationErrors;
   };
 
