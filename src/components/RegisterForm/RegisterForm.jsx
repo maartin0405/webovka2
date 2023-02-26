@@ -50,7 +50,6 @@ const RegisterForm = (props) => {
       ...registerValues,
       [name]: type === "checkbox" ? checked : value,
     });
-    console.log(registerValues);
   };
 
   const handleSubmit = (event) => {
@@ -76,7 +75,6 @@ const RegisterForm = (props) => {
       checkbox: validateCheckbox(registerValues.checkbox),
     };
     setErrors(validationErrors);
-    console.log(validationErrors);
     return validationErrors;
   };
 
