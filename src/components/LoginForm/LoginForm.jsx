@@ -7,6 +7,7 @@ import Header from "../Header";
 import Checkbox from "../Checkbox";
 import Input from "../Input";
 import Button from "../Button";
+import validateEmail from "../../utils/validators/validateEmail";
 import { Link } from "gatsby";
 
 const StyledForm = styled.form`
@@ -66,7 +67,7 @@ const LoginForm = (props) => {
 
   const validateForm = () => {
     const validationErrors = {
-      email: validateEmail(),
+      email: validateEmail(loginValues.email),
       password: validatePassword(),
     };
     setErrors(validationErrors);
@@ -76,15 +77,6 @@ const LoginForm = (props) => {
     if (!hasErrors) {
       console.log(loginValues);
     }
-  };
-
-  const validateEmail = () => {
-    if (!loginValues.email) {
-      return "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(loginValues.email)) {
-      return "Invalid email address";
-    }
-    return "";
   };
 
   const validatePassword = () => {
