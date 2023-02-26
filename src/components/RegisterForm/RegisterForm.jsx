@@ -91,13 +91,13 @@ const RegisterForm = (props) => {
     if (!registerValues.email) {
       return "Email is required";
     } else if (
-      /^([\w.%+-]+)?(?!@)[\w-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/g.test(
+      /^[\w.%+-]+([.-]?[\w%+-]+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(
         registerValues.email
-      ) === false // why the fuck does this not work
+      ) === false
     ) {
       return "Invalid email address";
     }
-    return ""; //i could ternary this
+    return "";
   };
 
   const validatePassword = () => {
@@ -107,7 +107,7 @@ const RegisterForm = (props) => {
     return registerValues.password.length < 8
       ? "Password must be at least 8 characters"
       : "";
-  }; // make it so there has to be atleast 1 special character, 1 big letter and 1 number and maybe special character
+  }; // make it so there has to be atleast 1 special charac ter, 1 big letter and 1 number and maybe special character
 
   const validateConfirmPassword = () => {
     if (!confirmPassword) {
