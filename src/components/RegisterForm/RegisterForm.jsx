@@ -60,10 +60,10 @@ const RegisterForm = (props) => {
     const hasErrors = Object.values(validationErrors).some(
       (error) => error !== ""
     );
-    if (!hasErrors) {
-      console.log(registerValues); // this will be the submit thing
+    if (hasErrors) {
+      return;
     }
-    console.log(errors);
+    console.log(registerValues);
   };
 
   const validateForm = () => {
@@ -91,7 +91,9 @@ const RegisterForm = (props) => {
     if (!registerValues.email) {
       return "Email is required";
     } else if (
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(registerValues.email) // why the fuck does this not work
+      /^([\w.%+-]+)?(?!@)[\w-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/g.test(
+        registerValues.email
+      ) === false // why the fuck does this not work
     ) {
       return "Invalid email address";
     }
