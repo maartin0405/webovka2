@@ -7,6 +7,11 @@ import Text from "../Text";
 import Header from "../Header";
 import LinkAsAButton from "../LinkAsAButton";
 import InputPassword from "../InputPassword";
+import validateName from "../../utils/validators/validateName";
+import validateConfirmPassword from "../../utils/validators/validateConfirmPassword";
+import validateCheckbox from "../../utils/validators/validateCheckbox";
+import validateEmail from "../../utils/validators/validateEmail";
+import validatePassword from "../../utils/validators/validatePassword";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -40,9 +45,10 @@ const RegisterForm = (props) => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
+    const { name, type, checked, value } = event.target;
     setRegisterValues({
       ...registerValues,
-      [event.target.name]: event.target.value,
+      [name]: type === "checkbox" ? checked : value,
     });
   };
 
@@ -68,50 +74,6 @@ const RegisterForm = (props) => {
     };
     setErrors(validationErrors);
     return validationErrors;
-  };
-
-  const validateName = () => {
-    if (!registerValues.name) {
-      return "Name is required";
-    }
-    return registerValues.name.length < 2
-      ? "Name must be at least 2 characters"
-      : "";
-  };
-
-  const validateEmail = () => {
-    if (!registerValues.email) {
-      return "Email is required";
-    } else if (
-      /^[\w.%+-]+([.-]?[\w%+-]+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(
-        registerValues.email
-      ) === false
-    ) {
-      return "Invalid email address";
-    }
-    return "";
-  };
-
-  const validatePassword = () => {
-    if (!registerValues.password) {
-      return "Password is required";
-    }
-    return registerValues.password.length < 8
-      ? "Password must be at least 8 characters"
-      : "";
-  }; // make it so there has to be atleast 1 special charac ter, 1 big letter and 1 number and maybe special character
-
-  const validateConfirmPassword = () => {
-    if (!confirmPassword) {
-      return "Cannot be empty";
-    }
-    return registerValues.password !== confirmPassword
-      ? "Passwords do not match"
-      : "";
-  };
-
-  const validateCheckbox = () => {
-    return !checkbox ? true : "";
   };
 
   return (
@@ -144,15 +106,14 @@ const RegisterForm = (props) => {
         error={errors.password}
       />
       <InputPassword
-        onChange={handleConfirmPasswordChange}
+        onChange={handleChange}
         name="confirmPassword"
         type="password"
         label="Confirm password"
         error={errors.confirmPassword}
       />
       <StyledCheckbox
-        onChange={handleCheckboxChange}
-        checked={checkbox}
+        onChange={handleChange}
         error={errors.checkbox}
         label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement." // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
       />
