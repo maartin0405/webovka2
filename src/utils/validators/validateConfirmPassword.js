@@ -1,10 +1,8 @@
-const validateConfirmPassword = (props) => {
-  if (!props.confirmPassword) {
+const validateConfirmPassword = (password, confirmPassword) => {
+  if (!confirmPassword) {
     return "Cannot be empty";
   }
-  return props.registerValues.password !== props.confirmPassword
-    ? "Passwords do not match"
-    : "";
+  return password !== confirmPassword ? "Passwords do not match" : "";
 };
 
 export default validateConfirmPassword;

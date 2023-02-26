@@ -39,7 +39,7 @@ const RegisterForm = (props) => {
     email: "",
     password: "",
     confirmPassword: "",
-    checkbox: "",
+    checkbox: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -50,6 +50,7 @@ const RegisterForm = (props) => {
       ...registerValues,
       [name]: type === "checkbox" ? checked : value,
     });
+    console.log(registerValues);
   };
 
   const handleSubmit = (event) => {
@@ -61,16 +62,18 @@ const RegisterForm = (props) => {
     if (hasErrors) {
       return;
     }
-    console.log(registerValues);
   };
 
   const validateForm = () => {
     const validationErrors = {
-      name: validateName(registerValues),
-      email: validateEmail(registerValues),
-      password: validatePassword(registerValues),
-      confirmPassword: validateConfirmPassword(registerValues),
-      checkbox: validateCheckbox(registerValues),
+      name: validateName(registerValues.name),
+      email: validateEmail(registerValues.email),
+      password: validatePassword(registerValues.password),
+      confirmPassword: validateConfirmPassword(
+        registerValues.password,
+        registerValues.confirmPassword
+      ),
+      checkbox: validateCheckbox(registerValues.checkbox),
     };
     setErrors(validationErrors);
     console.log(validationErrors);
@@ -114,6 +117,7 @@ const RegisterForm = (props) => {
         error={errors.confirmPassword}
       />
       <StyledCheckbox
+        name="checkbox"
         onChange={handleChange}
         error={errors.checkbox}
         label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement." // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird

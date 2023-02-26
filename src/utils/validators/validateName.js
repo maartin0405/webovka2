@@ -1,8 +1,8 @@
-const validateName = (values) => {
-  if (!values.name) {
+const validateName = (name) => {
+  if (!name) {
     return "Name is required";
   }
-  return values.name.length < 2 ? "Name must be at least 2 characters" : "";
+  return name.length < 2 ? "Name must be at least 2 characters" : "";
 };
 
 export default validateName;
