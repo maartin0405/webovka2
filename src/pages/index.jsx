@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
 const pageStyles = {
   color: "#232129",
@@ -124,6 +125,7 @@ const links = [
 ];
 
 const IndexPage = () => {
+  const { languages, originalPath, t, i18n } = useI18next();
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>

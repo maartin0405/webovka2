@@ -12,6 +12,7 @@ import validateConfirmPassword from "../../utils/validators/validateConfirmPassw
 import validateCheckbox from "../../utils/validators/validateCheckbox";
 import validateEmail from "../../utils/validators/validateEmail";
 import validatePassword from "../../utils/validators/validatePassword";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -77,7 +78,7 @@ const RegisterForm = (props) => {
     setErrors(validationErrors);
     return validationErrors;
   };
-
+  const { t } = useI18next();
   return (
     <StyledForm
       onSubmit={handleSubmit}
@@ -90,7 +91,7 @@ const RegisterForm = (props) => {
         onChange={handleChange}
         name="name"
         type="text"
-        label="Your name"
+        label={t("yourName")}
         error={errors.name}
       />
       <Input
@@ -104,14 +105,14 @@ const RegisterForm = (props) => {
         onChange={handleChange}
         name="password"
         type="password"
-        label="Password"
+        label={t("password")}
         error={errors.password}
       />
       <InputPassword
         onChange={handleChange}
         name="confirmPassword"
         type="password"
-        label="Confirm password"
+        label={t("confirmPassword")}
         error={errors.confirmPassword}
       />
       <StyledCheckbox
