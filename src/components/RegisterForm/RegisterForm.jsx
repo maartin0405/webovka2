@@ -12,6 +12,7 @@ import validateConfirmPassword from "../../utils/validators/validateConfirmPassw
 import validateCheckbox from "../../utils/validators/validateCheckbox";
 import validateEmail from "../../utils/validators/validateEmail";
 import validatePassword from "../../utils/validators/validatePassword";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -77,13 +78,14 @@ const RegisterForm = (props) => {
     setErrors(validationErrors);
     return validationErrors;
   };
+  const { t } = useTranslation();
   return (
     <StyledForm
       onSubmit={handleSubmit}
       className={props.className}
       color={props.color}
     >
-      <Text>Take your business to a new level.</Text>
+      <Text>{t("Whatever")}</Text>
       <Header size={1}>Create a new account</Header>
       <Input
         onChange={handleChange}
