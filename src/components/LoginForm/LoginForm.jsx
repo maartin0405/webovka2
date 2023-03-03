@@ -9,7 +9,6 @@ import Input from "../Input";
 import Button from "../Button";
 import validateEmail from "../../utils/validators/validateEmail";
 import { Link } from "gatsby";
-import {  useI18next } from "gatsby-plugin-react-i18next";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -88,7 +87,6 @@ const LoginForm = (props) => {
     }
     return "";
   };
-  const { languages, originalPath, t, i18n } = useI18next();
   return (
     <StyledForm
       onSubmit={handleSubmit}
