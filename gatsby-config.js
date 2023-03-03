@@ -12,16 +12,40 @@ module.exports = {
   plugins: [
     "gatsby-plugin-emotion",
     {
-      resolve: `gatsby-plugin-intl`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        // language JSON resource path
-        path: `${__dirname}/src/intl`,
-        // supported language
+        path: `${__dirname}/locales`,
+        name: `locale`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-i18next`,
+      options: {
+        localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
         languages: [`en`, `cz`],
-        // language file path
         defaultLanguage: `en`,
-        // option to redirect to `/ko` when connecting `/`
-        redirect: true,
+        siteUrl,
+        // if you are using trailingSlash gatsby config include it here, as well (the default is 'always')
+        trailingSlash: "always",
+        // you can pass any i18next options
+        i18nextOptions: {
+          interpolation: {
+            escapeValue: false, // not needed for react as it escapes by default
+          },
+          keySeparator: false,
+          nsSeparator: false,
+        },
+        pages: [
+          {
+            matchPath: "/:lang?/blog/:uid",
+            getLanguageFromPath: true,
+            excludeLanguages: ["es"],
+          },
+          {
+            matchPath: "/preview",
+            languages: ["en"],
+          },
+        ],
       },
     },
   ],
