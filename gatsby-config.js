@@ -10,6 +10,12 @@ module.exports = {
     siteUrl,
   },
   plugins: [
-    "gatsby-plugin-emotion",
+    "gatsby-plugin-emotion",   {
+      resolve: 'gatsby-plugin-i18n',
+      options: {        
+        langKeyDefault: 'en',
+        useLangKeyLayout: false
+      }
+    }
   ],
 };

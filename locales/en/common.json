@@ -1,7 +1,8 @@
 {
-  "yourName": "Your name",
-  "password": "Password",
-  "confirmPassword": "Confirm password",
-  "createAccount": "Create Acccount",
-  "logIn": "Log in"
+  "welcomeBack": "hiii",
+  "yourName": "Vaše jméno",
+  "password": "Heslo",
+  "confirmPassword": "Potvrdťte heslo",
+  "createAccount": "Vytvořit účet",
+  "logIn": "Přihlásit"
 }

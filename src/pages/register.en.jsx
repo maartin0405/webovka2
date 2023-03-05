@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import Card from "../components/Card";
 import Logo from "../components/Logo";
-import LoginForm from "../components/LoginForm";
+import RegisterForm from "../components/RegisterForm";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Layout from "../components/Layout";
 
@@ -12,12 +12,13 @@ const StyledLogin = styled.main`
   align-items: center;
 `;
 
-const StyledForm = styled(LoginForm)`
+const StyledForm = styled(RegisterForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const Login = () => {
+
+const Register = () => {
   return (
     <Layout>
       <StyledLogin>
@@ -31,4 +32,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
