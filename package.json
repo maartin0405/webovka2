@@ -21,6 +21,7 @@
     "gatsby-plugin-emotion": "^8.6.0",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-react-i18next": "^3.0.1",
+    "gatsby-source-filesystem": "^5.7.0",
     "i18next": "^22.4.10",
     "i18next-browser-languagedetector": "^7.0.1",
     "react": "^18.2.0",
