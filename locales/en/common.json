@@ -8,5 +8,9 @@
   "login": "Log in",
   "BusinessToANewLevel": "Take your business to a new level.",
   "termsOfService": "I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement.",
-  "alreadyHaveAnAccount": "Already have an account?"
+  "alreadyHaveAnAccount": "Already have an account?",
+  "rememberPassword": "Remember my password",
+  "forgotPassword": "I forgot my password",
+  "dontHaveAccountYet": "Don't have an account yet?",
+  "register": "Register"
 }

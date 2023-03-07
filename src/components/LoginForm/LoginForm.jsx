@@ -104,7 +104,9 @@ const LoginForm = (props) => {
       <Text>
         <FormattedMessage id="welcomeBack" />
       </Text>
-      <Header size={1}>log in</Header>
+      <Header size={1}>
+        <FormattedMessage id="login" />
+      </Header>
       <Input
         name="email"
         type="text"
@@ -120,17 +122,22 @@ const LoginForm = (props) => {
         error={errors.password}
       />
       <StyledCheckbox
-        label="Remember the password"
+        label={<FormattedMessage id="rememberPassword" />}
         name="checkbox"
         onChange={handleChange}
       />
-      <StyledLink to="/register">I forgot my password</StyledLink>
+      <StyledLink to="/register">
+        <FormattedMessage id="forgotPassword" />
+      </StyledLink>
       <StyledButton type="submit" background="#0980CD">
-        Log in
+        <FormattedMessage id="login" />
       </StyledButton>
-      <Text>Don't have an account yet?</Text>
+      <Text>
+        {" "}
+        <FormattedMessage id="dontHaveAccountYet" />
+      </Text>
       <StyledLinkAsAButton to={`../../${currentLangKey}/register`}>
-        Register
+        <FormattedMessage id="register" />
       </StyledLinkAsAButton>
     </StyledForm>
   );

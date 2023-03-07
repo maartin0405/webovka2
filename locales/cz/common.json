@@ -8,5 +8,9 @@
   "login": "Přihlásit",
   "BusinessToANewLevel": "Posuňte své podnikání na novou úroveň.",
   "termsOfService": "Souhlasím s Obchodními podmínkami, Zpracováním osobních údajů a Smlouvou se zpracovatelem.",
-  "alreadyHaveAnAccount": "Už máte účet?"
+  "alreadyHaveAnAccount": "Už máte účet?",
+  "rememberPassword": "Zapamatovat heslo",
+  "forgotPassword": "Zapomněli jste heslo?",
+  "dontHaveAccountYet": "Nemáte účet?",
+  "register": "Registrace"
 }
