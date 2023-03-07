@@ -16,12 +16,20 @@ const StyledButton = styled.button`
 `;
 
 const LanguageSwitcher = () => {
+  const currentLang = window.location.pathname.startsWith("/cs") ? "cs" : "en";
+  const handleLangSwitch = (event, lang) => {
+    event.preventDefault();
+    const path = window.location.pathname;
+    const newPath = path.replace("/" + currentLang + "/", "/" + lang + "/");
+    window.location.replace(newPath);
+  };
+
   return (
     <div style={{ width: "100%", textAlign: "right" }}>
-      <StyledButton>
+      <StyledButton onClick={(event) => handleLangSwitch(event, "cs")}>
         <img src={CZ} alt="Czech" />
       </StyledButton>
-      <StyledButton>
+      <StyledButton onClick={(event) => handleLangSwitch(event, "en")}>
         <img src={GB} alt="English" />
       </StyledButton>
     </div>
