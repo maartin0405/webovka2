@@ -1,8 +1,12 @@
 {
-  "welcomeBack": "die",
+  "welcomeBack": "vítejte zpět",
+  "createNewAccount": "vytvořte si účet",
   "yourName": "Vaše jméno",
   "password": "Heslo",
-  "confirmPassword": "Potvrdťte heslo",
+  "confirmPassword": "Potvrďte heslo",
   "createAccount": "Vytvořit účet",
-  "logIn": "Přihlásit"
+  "login": "Přihlásit",
+  "BusinessToANewLevel": "Posuňte své podnikání na novou úroveň.",
+  "termsOfService": "Souhlasím s Obchodními podmínkami, Zpracováním osobních údajů a Smlouvou se zpracovatelem.",
+  "alreadyHaveAnAccount": "Už máte účet?"
 }

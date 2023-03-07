@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
     loadMessages()
       // make sure to catch any error
       .catch(console.error);
-  }, []);
+  }, [currentLangKey]);
 
   console.log(messages);
   return (

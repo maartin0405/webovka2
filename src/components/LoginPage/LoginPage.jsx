@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import Card from "../components/Card";
-import Logo from "../components/Logo";
-import LoginForm from "../components/LoginForm";
-import LanguageSwitcher from "../components/LanguageSwitcher";
-import Layout from "../components/Layout";
+import Card from "../Card";
+import Logo from "../Logo";
+import LoginForm from "../LoginForm";
+import LanguageSwitcher from "../LanguageSwitcher";
+import Layout from "../Layout";
 
 const StyledLogin = styled.main`
   display: flex;

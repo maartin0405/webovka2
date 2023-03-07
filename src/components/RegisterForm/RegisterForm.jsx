@@ -12,7 +12,7 @@ import validateConfirmPassword from "../../utils/validators/validateConfirmPassw
 import validateCheckbox from "../../utils/validators/validateCheckbox";
 import validateEmail from "../../utils/validators/validateEmail";
 import validatePassword from "../../utils/validators/validatePassword";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import { FormattedMessage } from "react-intl";  
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -78,20 +78,23 @@ const RegisterForm = (props) => {
     setErrors(validationErrors);
     return validationErrors;
   };
-  const { t } = useTranslation();
   return (
     <StyledForm
       onSubmit={handleSubmit}
       className={props.className}
       color={props.color}
     >
-      <Text>{t("Whatever")}</Text>
-      <Header size={1}>Create a new account</Header>
+      <Text>
+        <FormattedMessage id="BusinessToANewLevel" />
+      </Text>
+      <Header size={1}>
+        <FormattedMessage id="createNewAccount" />
+      </Header>
       <Input
         onChange={handleChange}
         name="name"
         type="text"
-        label="Your name"
+        label={<FormattedMessage id="yourName" />}
         error={errors.name}
       />
       <Input
@@ -105,27 +108,31 @@ const RegisterForm = (props) => {
         onChange={handleChange}
         name="password"
         type="password"
-        label="Password"
+        label={<FormattedMessage id="password" />}
         error={errors.password}
       />
       <InputPassword
         onChange={handleChange}
         name="confirmPassword"
         type="password"
-        label="Confirm Password"
+        label={<FormattedMessage id="confirmPassword" />}
         error={errors.confirmPassword}
       />
       <StyledCheckbox
         name="checkbox"
         onChange={handleChange}
         error={errors.checkbox}
-        label="I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement." // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
+        label={<FormattedMessage id="termsOfService" />} // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
       />
       <StyledButton type="submit" background="#0980CD">
-        Create account
+        <FormattedMessage id="createAccount" />
       </StyledButton>
-      <Text>Already have an account?</Text>
-      <StyledLinkAsAButton to="/login">Log in</StyledLinkAsAButton>
+      <Text>
+        <FormattedMessage id="alreadyHaveAnAccount" />
+      </Text>
+      <StyledLinkAsAButton to="/login">
+        <FormattedMessage id="login" />
+      </StyledLinkAsAButton>
     </StyledForm>
   );
 };

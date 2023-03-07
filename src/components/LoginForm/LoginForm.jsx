@@ -10,6 +10,7 @@ import Button from "../Button";
 import validateEmail from "../../utils/validators/validateEmail";
 import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
+import getLangKey from "../../utils/intl/getLangKey";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -66,6 +67,9 @@ const LoginForm = (props) => {
     validateForm();
   };
 
+  const VALID_LANG_KEYS = ["cs", "en"];
+  const DEFAULT_LANG_KEY = "en";
+
   const validateForm = () => {
     const validationErrors = {
       email: validateEmail(loginValues.email),
@@ -88,6 +92,9 @@ const LoginForm = (props) => {
     }
     return "";
   };
+  const url = window.location.pathname;
+  const currentLangKey = getLangKey(url, VALID_LANG_KEYS, DEFAULT_LANG_KEY);
+
   return (
     <StyledForm
       onSubmit={handleSubmit}
@@ -108,7 +115,7 @@ const LoginForm = (props) => {
       <InputPassword
         name="password"
         type="password"
-        label="Password"
+        label={<FormattedMessage id="password" />}
         onChange={handleChange}
         error={errors.password}
       />
@@ -122,7 +129,9 @@ const LoginForm = (props) => {
         Log in
       </StyledButton>
       <Text>Don't have an account yet?</Text>
-      <StyledLinkAsAButton to="/register">Register</StyledLinkAsAButton>
+      <StyledLinkAsAButton to={`../../${currentLangKey}/register`}>
+        Register
+      </StyledLinkAsAButton>
     </StyledForm>
   );
 };

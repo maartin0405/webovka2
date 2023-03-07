@@ -1,8 +1,12 @@
 {
-  "welcomeBack": "hiii",
-  "yourName": "Vaše jméno",
-  "password": "Heslo",
-  "confirmPassword": "Potvrdťte heslo",
-  "createAccount": "Vytvořit účet",
-  "logIn": "Přihlásit"
+  "welcomeBack": "welcome back",
+  "createNewAccount": "create a new account",
+  "yourName": "Your name",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "createAccount": "Create account",
+  "login": "Log in",
+  "BusinessToANewLevel": "Take your business to a new level.",
+  "termsOfService": "I agree with the Terms and Conditions, the Processing of Personal Data and the Processor Agreement.",
+  "alreadyHaveAnAccount": "Already have an account?"
 }
