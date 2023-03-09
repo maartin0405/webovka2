@@ -133,7 +133,6 @@ const LoginForm = (props) => {
         <FormattedMessage id="login" />
       </StyledButton>
       <Text>
-        {" "}
         <FormattedMessage id="dontHaveAccountYet" />
       </Text>
       <StyledLinkAsAButton to={`/${currentLangKey}/register`}>
