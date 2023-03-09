@@ -2,6 +2,8 @@ import React from "react";
 import CZ from "../images/CZ.svg";
 import GB from "../images/GB.svg";
 import styled from "@emotion/styled";
+import getLangKey from "../utils/intl/getLangKey";
+import { VALID_LANG_KEYS, DEFAULT_LANG_KEY } from "../utils/intl/LANG_KEYS.js";
 
 const StyledButton = styled.button`
   border: none;
@@ -16,12 +18,12 @@ const StyledButton = styled.button`
 `;
 
 const LanguageSwitcher = () => {
-  const currentLang = window.location.pathname.startsWith("/cs") ? "cs" : "en";
   const handleLangSwitch = (event, lang) => {
     event.preventDefault();
-    const path = window.location.pathname;
-    const newPath = path.replace("/" + currentLang + "/", "/" + lang + "/");
-    window.location.replace(newPath);
+    const url = window.location.pathname;
+    const currentLang = getLangKey(url, VALID_LANG_KEYS, DEFAULT_LANG_KEY);
+    const newUrl = url.replace("/" + currentLang + "/", "/" + lang + "/");
+    window.location.replace(newUrl);
   };
 
   return (

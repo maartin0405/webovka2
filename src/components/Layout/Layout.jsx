@@ -5,13 +5,11 @@ import { IntlProvider } from "react-intl";
 import getLangKey from "../../utils/intl/getLangKey";
 import loadLocaleMessage from "../../utils/intl/loadLocaleMessages";
 import { useEffect } from "react";
+import { VALID_LANG_KEYS, DEFAULT_LANG_KEY } from "../../utils/intl/LANG_KEYS";
 
 const StyledDiv = styled.div`
   padding-bottom: 137px;
 `;
-
-const VALID_LANG_KEYS = ["cs", "en"];
-const DEFAULT_LANG_KEY = "en";
 
 const Layout = ({ children }) => {
   const url = window.location.pathname;
