@@ -137,7 +137,7 @@ const RegisterForm = (props) => {
       <Text>
         <FormattedMessage id="alreadyHaveAnAccount" />
       </Text>
-      <StyledLinkAsAButton to={`../../${currentLangKey}/login`}>
+      <StyledLinkAsAButton to={`/${currentLangKey}/login`}>
         <FormattedMessage id="login" />
       </StyledLinkAsAButton>
     </StyledForm>
