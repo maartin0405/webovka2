@@ -28,8 +28,6 @@ const Layout = ({ children }) => {
       // make sure to catch any error
       .catch(console.error);
   }, [currentLangKey]);
-
-  console.log(messages);
   return (
     <IntlProvider
       locale={currentLangKey}

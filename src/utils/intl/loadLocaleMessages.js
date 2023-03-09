@@ -1,10 +1,10 @@
 const loadLocaleMessage = (locale) => {
   switch (locale) {
     case "cs":
-      return import("../../../locales/cs/common.json");
+      return import("../../../lang/cs/common.json");
     case "en":
     default:
-      return import("../../../locales/en/common.json");
+      return import("../../../lang/en/common.json");
   }
 };
 
