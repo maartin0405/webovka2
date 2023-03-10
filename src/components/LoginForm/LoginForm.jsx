@@ -92,7 +92,7 @@ const LoginForm = (props) => {
     }
     return "";
   };
-  const url = window.location.pathname;
+  const url = typeof window !== "undefined" ? window.location.pathname : "";
   const currentLangKey = getLangKey(url, VALID_LANG_KEYS, DEFAULT_LANG_KEY);
 
   return (

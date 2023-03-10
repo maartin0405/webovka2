@@ -16,7 +16,10 @@ const StyledLink = styled(Link)`
 `;
 
 const LanguageSwitcher = () => {
-  const currentUrl = window.location.pathname.split("/").slice(2).join("/");
+  const currentUrl =
+    typeof window !== "undefined"
+      ? window.location.pathname.split("/").slice(2).join("/")
+      : "";
   return (
     <div style={{ width: "100%", textAlign: "right" }}>
       <StyledLink to={`/cs/${currentUrl}`}>
