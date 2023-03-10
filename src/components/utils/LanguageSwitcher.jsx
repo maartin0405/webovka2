@@ -1,6 +1,6 @@
 import React from "react";
-import CZ from "../images/CZ.svg";
-import GB from "../images/GB.svg";
+import CZ from "../../images/CZ.svg";
+import GB from "../../images/GB.svg";
 import styled from "@emotion/styled";
 import { Link as GatsbyLink } from "gatsby";
 

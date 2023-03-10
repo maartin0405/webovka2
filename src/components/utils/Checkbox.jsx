@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import errorStar from "../images/Vector.svg";
+import errorStar from "../../images/Vector.svg";
 
 const StyledDiv = styled.div`
   position: relative;
