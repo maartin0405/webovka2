@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import Link from "./Link";
 import styled from "@emotion/styled";
 
 const StyledLink = styled(Link)`
