@@ -79,8 +79,8 @@ const LoginForm = (props) => {
     const hasErrors = Object.values(validationErrors).some(
       (error) => error !== ""
     );
-    if (!hasErrors) {
-      console.log(loginValues);
+    if (hasErrors) {
+      return;
     }
   };
 
