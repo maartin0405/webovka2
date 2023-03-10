@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import InputPassword from "../utils/InputPassword";
-import LinkAsAButton from "../utils/LinkAsAButton";
-import Text from "../utils/Text";
+import {
+  Input,
+  Text,
+  InputPassword,
+  Button,
+  LinkAsAButton,
+  Checkbox,
+} from "../utils";
 import Header from "../Header";
-import Checkbox from "../utils/Checkbox";
-import Input from "../utils/Input";
-import Button from "../utils/Button";
 import validateEmail from "../../utils/validators/validateEmail";
 import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";

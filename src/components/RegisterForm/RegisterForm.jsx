@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import Input from "../utils/Input";
-import Button from "../utils/Button";
-import Checkbox from "../utils/Checkbox";
-import Text from "../utils/Text";
+import { Input, Text, Button, Checkbox, LinkAsAButton, InputPassword } from "../utils";
 import Header from "../Header";
-import LinkAsAButton from "../utils/LinkAsAButton";
-import InputPassword from "../utils/InputPassword";
 import validateName from "../../utils/validators/validateName";
 import validateConfirmPassword from "../../utils/validators/validateConfirmPassword";
 import validateCheckbox from "../../utils/validators/validateCheckbox";

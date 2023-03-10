@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Card from "../Card";
 import Logo from "../Logo";
 import RegisterForm from "../RegisterForm";
-import LanguageSwitcher from "../utils/LanguageSwitcher";
+import { LanguageSwitcher } from "../utils";
 import Layout from "../Layout";
 
 const StyledLogin = styled.main`
