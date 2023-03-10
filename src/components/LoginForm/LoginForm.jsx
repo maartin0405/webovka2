@@ -11,6 +11,7 @@ import validateEmail from "../../utils/validators/validateEmail";
 import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
 import getLangKey from "../../utils/intl/getLangKey";
+import { VALID_LANG_KEYS, DEFAULT_LANG_KEY } from "../../utils/intl/LANG_KEYS";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -66,9 +67,6 @@ const LoginForm = (props) => {
     event.preventDefault();
     validateForm();
   };
-
-  const VALID_LANG_KEYS = ["cs", "en"];
-  const DEFAULT_LANG_KEY = "en";
 
   const validateForm = () => {
     const validationErrors = {

@@ -14,6 +14,7 @@ import validateEmail from "../../utils/validators/validateEmail";
 import validatePassword from "../../utils/validators/validatePassword";
 import { FormattedMessage } from "react-intl";
 import getLangKey from "../../utils/intl/getLangKey";
+import { VALID_LANG_KEYS, DEFAULT_LANG_KEY } from "../../utils/intl/LANG_KEYS";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -35,8 +36,6 @@ const StyledLinkAsAButton = styled(LinkAsAButton)`
   margin-top: 5px;
 `;
 
-const VALID_LANG_KEYS = ["cs", "en"];
-const DEFAULT_LANG_KEY = "en";
 
 const RegisterForm = (props) => {
   const [registerValues, setRegisterValues] = useState({
