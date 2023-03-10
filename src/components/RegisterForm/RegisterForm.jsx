@@ -13,8 +13,6 @@ import validateCheckbox from "../../utils/validators/validateCheckbox";
 import validateEmail from "../../utils/validators/validateEmail";
 import validatePassword from "../../utils/validators/validatePassword";
 import { FormattedMessage } from "react-intl";
-import getLangKey from "../../utils/intl/getLangKey";
-import { VALID_LANG_KEYS, DEFAULT_LANG_KEY } from "../../utils/intl/LANG_KEYS";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -35,7 +33,6 @@ const StyledLinkAsAButton = styled(LinkAsAButton)`
   margin-bottom: 35px;
   margin-top: 5px;
 `;
-
 
 const RegisterForm = (props) => {
   const [registerValues, setRegisterValues] = useState({
@@ -81,8 +78,6 @@ const RegisterForm = (props) => {
     setErrors(validationErrors);
     return validationErrors;
   };
-  const url = typeof window !== "undefined" ? window.location.pathname : "";
-  const currentLangKey = getLangKey(url, VALID_LANG_KEYS, DEFAULT_LANG_KEY);
 
   return (
     <StyledForm
@@ -136,7 +131,7 @@ const RegisterForm = (props) => {
       <Text>
         <FormattedMessage id="alreadyHaveAnAccount" />
       </Text>
-      <StyledLinkAsAButton to={`/${currentLangKey}/login`}>
+      <StyledLinkAsAButton to={`/login`}>
         <FormattedMessage id="login" />
       </StyledLinkAsAButton>
     </StyledForm>

@@ -10,8 +10,6 @@ import Button from "../Button";
 import validateEmail from "../../utils/validators/validateEmail";
 import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
-import getLangKey from "../../utils/intl/getLangKey";
-import { VALID_LANG_KEYS, DEFAULT_LANG_KEY } from "../../utils/intl/LANG_KEYS";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -90,8 +88,6 @@ const LoginForm = (props) => {
     }
     return "";
   };
-  const url = typeof window !== "undefined" ? window.location.pathname : "";
-  const currentLangKey = getLangKey(url, VALID_LANG_KEYS, DEFAULT_LANG_KEY);
 
   return (
     <StyledForm
@@ -133,7 +129,7 @@ const LoginForm = (props) => {
       <Text>
         <FormattedMessage id="dontHaveAccountYet" />
       </Text>
-      <StyledLinkAsAButton to={`/${currentLangKey}/register`}>
+      <StyledLinkAsAButton to={`/register`}>
         <FormattedMessage id="register" />
       </StyledLinkAsAButton>
     </StyledForm>

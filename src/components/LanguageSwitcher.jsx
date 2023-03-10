@@ -2,9 +2,9 @@ import React from "react";
 import CZ from "../images/CZ.svg";
 import GB from "../images/GB.svg";
 import styled from "@emotion/styled";
-import { Link } from "gatsby";
+import { Link as GatsbyLink } from "gatsby";
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(GatsbyLink)`
   border: none;
   padding: 0;
   height: auto;
