@@ -12,5 +12,14 @@
   "rememberPassword": "Remember my password",
   "forgotPassword": "I forgot my password",
   "dontHaveAccountYet": "Don't have an account yet?",
-  "register": "Register"
+  "register": "Register",
+  "errorName": "Name is required",
+  "errorNameLength": "Name must be at least 2 characters",
+  "errorEmail": "Email is required",
+  "errorEmailFormat": "Invalid email address",
+  "errorPassword": "Password is required",
+  "errorPasswordLength": "Password must be at least 8 characters",
+  "errorConfirmPassword": "Passwords do not match",
+  "cannotBeEmpty": "Cannot be empty"
+
 }

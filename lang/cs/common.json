@@ -12,5 +12,13 @@
   "rememberPassword": "Zapamatovat heslo",
   "forgotPassword": "Zapomněli jste heslo?",
   "dontHaveAccountYet": "Nemáte účet?",
-  "register": "Registrace"
+  "register": "Registrace",
+  "errorName": "Jméno je povinné",
+  "errorNameLength": "Jméno musí být delší než 2 znaky",
+  "errorEmail": "Email je povinný",
+  "errorEmailFormat": "Neplatný email",
+  "errorPassword": "Heslo je povinné",
+  "errorPasswordLength": "Heslo musí být delší než 8 znaků",
+  "errorConfirmPassword": "Hesla nesouhlasí",
+  "cannotBeEmpty": "Pole nesmí být prázdné"
 }

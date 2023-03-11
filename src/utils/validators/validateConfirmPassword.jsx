@@ -1,8 +1,11 @@
+import React from "react";
+import { FormattedMessage } from "react-intl";
+
 const validateConfirmPassword = (password, confirmPassword) => {
   if (!confirmPassword) {
-    return "Cannot be empty";
+    return <FormattedMessage id="cannotBeEmpty" />;
   } else if (password !== confirmPassword) {
-    return "Password do not match";
+    return <FormattedMessage id="errorConfirmPassword" />;
   }
   return "";
 };

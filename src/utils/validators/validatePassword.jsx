@@ -1,8 +1,11 @@
+import React from "react";
+import { FormattedMessage } from "react-intl";
+
 const validatePassword = (password) => {
   if (!password) {
-    return "Password is required";
+    return <FormattedMessage id="errorPassword" />
   } else if (password.length < 8) {
-    return "Password must be at least 8 characters";
+    return <FormattedMessage id="errorPasswordLength" />;
   }
   return "";
 }; // make it so there has to be atleast 1 special charac ter, 1 big letter and 1 number and maybe special character
