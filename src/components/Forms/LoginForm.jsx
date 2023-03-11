@@ -12,6 +12,8 @@ import Header from "../Header";
 import validateEmail from "../../utils/validators/validateEmail";
 import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import auth from "../../firebase/auth";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -65,7 +67,20 @@ const LoginForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    validateForm();
+    if (validateForm() !== undefined) {
+      console.log(loginValues.email, loginValues.password);
+      signInWithEmailAndPassword(auth, loginValues.email, loginValues.password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log("User successfully signed in:", user.email);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log("Error code:", errorCode, "Error message:", errorMessage);
+        });
+    }
   };
 
   const validateForm = () => {
@@ -80,6 +95,7 @@ const LoginForm = (props) => {
     if (hasErrors) {
       return;
     }
+    return "hi";
   };
 
   const validatePassword = () => {
