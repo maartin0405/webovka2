@@ -13,7 +13,7 @@ const StyledLink = styled(GatsbyLink)`
   &:not(:last-child) {
     margin-right: 10px;
   }
-`;
+`; //the link is weirdly moved down for whatever reason idk why
 
 const LanguageSwitcher = () => {
   const currentUrl =
