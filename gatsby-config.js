@@ -2,7 +2,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 
-const siteUrl = `https://www.yourdomain.tld`;
+const siteUrl = `https://martin-learns-code.firebaseapp.com/`;
 
 module.exports = {
   siteMetadata: {
