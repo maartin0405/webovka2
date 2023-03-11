@@ -28,13 +28,12 @@ const LanguageSwitcher = () => {
 
   const linkUrl =
     currentLangKey === "cs" ? `/en/${currentUrl}` : `/cs/${currentUrl}`;
-  const linkText = currentLangKey === "cs" ? "EN" : "CZ";
   const flagImage = currentLangKey === "cs" ? GB : CZ;
 
   return (
     <div style={{ width: "100%", textAlign: "right" }}>
       <StyledLink to={linkUrl}>
-        <img src={flagImage} alt={linkText} />
+        <img src={flagImage} />
       </StyledLink>
     </div>
   );
