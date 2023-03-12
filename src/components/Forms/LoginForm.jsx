@@ -7,10 +7,10 @@ import {
   Button,
   LinkAsAButton,
   Checkbox,
+  Link,
 } from "../utils";
 import Header from "../Header";
 import validateEmail from "../../utils/validators/validateEmail";
-import { Link } from "gatsby";
 import { FormattedMessage } from "react-intl";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/auth";
@@ -77,8 +77,20 @@ const LoginForm = (props) => {
         })
         .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log("Error code:", errorCode, "Error message:", errorMessage);
+          switch (errorCode) {
+            // add translations to this !
+            case "auth/user-not-found":
+              setErrors({ email: "Incorrect email address" }); 
+              break;
+            case "auth/invalid-email":
+              setErrors({ email: "Invalid email address" });
+              break;
+            case "auth/wrong-password":
+              setErrors({ password: "Wrong password" });
+              break;
+            default:
+              console.log(errorCode);
+          }
         });
     }
   };
@@ -138,7 +150,7 @@ const LoginForm = (props) => {
         name="checkbox"
         onChange={handleChange}
       />
-      <StyledLink to="/register">
+      <StyledLink to="/login">
         <FormattedMessage id="forgotPassword" />
       </StyledLink>
       <StyledButton type="submit" background="#0980CD">
