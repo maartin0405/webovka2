@@ -3,6 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import auth from "../../firebase/auth";
 import Text from "../utils/Text";
 import Layout from "../Layout";
+import Link from "../utils/Link";
 
 const HomePage = () => {
   const [user, setUser] = useState(null);
@@ -23,6 +24,8 @@ const HomePage = () => {
   return (
     <Layout>
       <Text>{user ? `Welcome, ${user.email}` : "Please log in."}</Text>
+      <Link to="/login">Login</Link>
+      <Link to="/register">Register</Link>
     </Layout>
   );
 };

@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { Input, Text, Button, Checkbox, LinkAsAButton, InputPassword } from "../utils";
+import {
+  Input,
+  Text,
+  Button,
+  Checkbox,
+  LinkAsAButton,
+  InputPassword,
+} from "../utils";
 import Header from "../Header";
 import validateName from "../../utils/validators/validateName";
 import validateConfirmPassword from "../../utils/validators/validateConfirmPassword";
@@ -8,6 +15,9 @@ import validateCheckbox from "../../utils/validators/validateCheckbox";
 import validateEmail from "../../utils/validators/validateEmail";
 import validatePassword from "../../utils/validators/validatePassword";
 import { FormattedMessage } from "react-intl";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../../firebase/auth";
+import { navigate } from "gatsby";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -50,12 +60,34 @@ const RegisterForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const validationErrors = validateForm();
-    const hasErrors = Object.values(validationErrors).some(
-      (error) => error !== ""
-    );
-    if (hasErrors) {
-      return;
+    if (validateForm() !== undefined) {
+      createUserWithEmailAndPassword(
+        auth,
+        registerValues.email,
+        registerValues.password
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          navigate("/en/"); // maybe make a function that handles currentLangKey?
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          switch (errorCode) {
+            // add translations to this !
+            case "auth/user-not-found":
+              setErrors({ email: "Incorrect email address" });
+              break;
+            case "auth/invalid-email":
+              setErrors({ email: "Invalid email address" });
+              break;
+            case "auth/wrong-password":
+              setErrors({ password: "Incorrect password" });
+              break;
+            default:
+              console.log(errorCode);
+          }
+        });
     }
   };
 
@@ -71,7 +103,13 @@ const RegisterForm = (props) => {
       checkbox: validateCheckbox(registerValues.checkbox),
     };
     setErrors(validationErrors);
-    return validationErrors;
+    const hasErrors = Object.values(validationErrors).some(
+      (error) => error !== ""
+    );
+    if (hasErrors) {
+      return;
+    }
+    return "hi";
   };
 
   return (

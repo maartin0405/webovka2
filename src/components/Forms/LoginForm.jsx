@@ -75,7 +75,7 @@ const LoginForm = (props) => {
           // Signed in
           const user = userCredential.user;
           console.log("User successfully signed in:", user.email);
-          navigate("/en/"); // navigate to home page
+          navigate("/en/"); // maybe make a function that handles currentLangKey?
         })
         .catch((error) => {
           const errorCode = error.code;
