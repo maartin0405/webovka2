@@ -14,6 +14,7 @@ import validateEmail from "../../utils/validators/validateEmail";
 import { FormattedMessage } from "react-intl";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/auth";
+import { navigate } from "gatsby";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -74,6 +75,7 @@ const LoginForm = (props) => {
           // Signed in
           const user = userCredential.user;
           console.log("User successfully signed in:", user.email);
+          navigate("/en/"); // navigate to home page
         })
         .catch((error) => {
           const errorCode = error.code;
