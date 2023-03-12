@@ -80,13 +80,13 @@ const LoginForm = (props) => {
           switch (errorCode) {
             // add translations to this !
             case "auth/user-not-found":
-              setErrors({ email: "Incorrect email address" }); 
+              setErrors({ email: "Incorrect email address" });
               break;
             case "auth/invalid-email":
               setErrors({ email: "Invalid email address" });
               break;
             case "auth/wrong-password":
-              setErrors({ password: "Wrong password" });
+              setErrors({ password: "Incorrect password" });
               break;
             default:
               console.log(errorCode);
