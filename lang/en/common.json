@@ -21,6 +21,9 @@
   "errorPasswordLength": "Password must be at least 8 characters",
   "errorConfirmPassword": "Passwords do not match",
   "cannotBeEmpty": "Cannot be empty",
-  "errorCheckbox": "You must agree to the terms and conditions"
+  "errorCheckbox": "You must agree to the terms and conditions",
+  "emailAlreadyInUse": "Email already in use",
+  "incorrectPassword": "Incorrect password",
+  "userNotFound": "User not found"
 
 }

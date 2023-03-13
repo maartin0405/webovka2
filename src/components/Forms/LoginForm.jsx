@@ -15,6 +15,7 @@ import { FormattedMessage } from "react-intl";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/auth";
 import { navigate } from "gatsby";
+import customNavigate from "../../utils/intl/navigate";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -75,20 +76,23 @@ const LoginForm = (props) => {
           // Signed in
           const user = userCredential.user;
           console.log("User successfully signed in:", user.email);
-          navigate("/en/"); // maybe make a function that handles currentLangKey?
+          customNavigate(); // maybe make a function that handles currentLangKey?
         })
         .catch((error) => {
           const errorCode = error.code;
+          console.log(errorCode);
           switch (errorCode) {
             // add translations to this !
             case "auth/user-not-found":
-              setErrors({ email: "Incorrect email address" });
+              setErrors({ email: <FormattedMessage id="userNotFound" /> });
               break;
             case "auth/invalid-email":
-              setErrors({ email: "Invalid email address" });
+              setErrors({ email: <FormattedMessage id="invalidEmail" /> });
               break;
             case "auth/wrong-password":
-              setErrors({ password: "Incorrect password" });
+              setErrors({
+                password: <FormattedMessage id="incorrectPassword" />,
+              });
               break;
             default:
               console.log(errorCode);
@@ -109,7 +113,7 @@ const LoginForm = (props) => {
     if (hasErrors) {
       return;
     }
-    return "hi";
+    return ":O";
   };
 
   const validatePassword = () => {

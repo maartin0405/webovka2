@@ -21,5 +21,8 @@
   "errorPasswordLength": "Heslo musí být delší než 8 znaků",
   "errorConfirmPassword": "Hesla nesouhlasí",
   "cannotBeEmpty": "Pole nesmí být prázdné",
-  "errorCheckbox": "Musíte souhlasit s podmínkami"
+  "errorCheckbox": "Musíte souhlasit s podmínkami",
+  "emailAlreadyInUse": "Email je již používán",
+  "incorrectPassword": "Nesprávné heslo",
+  "userNotFound": "Uživatel nenalezen"
 }

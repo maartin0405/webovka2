@@ -18,6 +18,7 @@ import { FormattedMessage } from "react-intl";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/auth";
 import { navigate } from "gatsby";
+import customNavigate from "../../utils/intl/navigate";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -59,6 +60,7 @@ const RegisterForm = (props) => {
   };
 
   const handleSubmit = (event) => {
+    console.log(customNavigate("/login/"));
     event.preventDefault();
     if (validateForm() !== undefined) {
       createUserWithEmailAndPassword(
@@ -69,20 +71,15 @@ const RegisterForm = (props) => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/en/"); // maybe make a function that handles currentLangKey?
+          customNavigate(); // maybe make a function that handles currentLangKey?
         })
         .catch((error) => {
           const errorCode = error.code;
+          console.log(errorCode);
           switch (errorCode) {
             // add translations to this !
-            case "auth/user-not-found":
-              setErrors({ email: "Incorrect email address" });
-              break;
-            case "auth/invalid-email":
-              setErrors({ email: "Invalid email address" });
-              break;
-            case "auth/wrong-password":
-              setErrors({ password: "Incorrect password" });
+            case "auth/email-already-in-use":
+              setErrors({ email: <FormattedMessage id="emailAlreadyInUse" /> });
               break;
             default:
               console.log(errorCode);
