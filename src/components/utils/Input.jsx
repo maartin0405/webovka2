@@ -13,6 +13,23 @@ const StyledLabel = styled.label`
   line-height: 140%;
   letter-spacing: 0.15px;
   line-height: 140%;
+  &.required {
+    ::after {
+      content: "*";
+      color: #cf1322;
+      margin-left: 2px;
+      height: 15px;
+      font-style: normal;
+      letter-spacing: 0.15px;
+      font-family: workSans, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+      top: -0.5em;
+    }
+  }
 `;
 
 const StyledInput = styled.input`
@@ -24,8 +41,8 @@ const StyledInput = styled.input`
   border-radius: 5px;
   padding: 10px;
   margin-top: 5px;
-  :required + label {
-    color: red;
+  &.errorClass {
+    border: 1px solid #cf1322;
   }
 `;
 
@@ -47,7 +64,12 @@ const StyledErrorDiv = styled.div`
 const Input = (props) => {
   return (
     <StyledDiv>
-      <StyledLabel htmlFor={props.label}>{props.label}</StyledLabel>
+      <StyledLabel
+        className={props.required ? "required" : null}
+        htmlFor={props.label}
+      >
+        {props.label}
+      </StyledLabel>
       <StyledInput className={props.error ? "errorClass" : null} {...props} />
       <StyledErrorDiv className={props.error ? "errorClass" : null}>
         {props.error}

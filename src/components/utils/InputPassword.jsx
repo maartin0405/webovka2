@@ -9,7 +9,7 @@ const StyledButton = styled.button`
   height: 38px;
   padding: 0px;
   position: absolute;
-  top: 40px;
+  top: 42px;
   right: 1px;
   border: none;
   background-color: transparent;

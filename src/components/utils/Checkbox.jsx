@@ -24,11 +24,21 @@ const StyledLabel = styled.label`
   letter-spacing: 0.15px;
   color: #322e35;
   line-height: 21px;
-  &::after {
-    &:required {
+  &.required {
+    ::after {
       content: "*";
       color: #cf1322;
-      margin-left: 3px;
+      margin-left: 2px;
+      height: 15px;
+      font-style: normal;
+      letter-spacing: 0.15px;
+      font-family: workSans, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+      top: -0.5em;
     }
   }
 `;
@@ -67,7 +77,9 @@ const Checkbox = ({
         checked={checked}
         onChange={onChange}
       />
-      <StyledLabel htmlFor="label">{label}</StyledLabel>
+      <StyledLabel className={required ? "required" : null} htmlFor="label">
+        {label}
+      </StyledLabel>
       <StyledErrorDiv className={error ? "errorClass" : null}>
         {error}
       </StyledErrorDiv>

@@ -109,7 +109,7 @@ const RegisterForm = (props) => {
     if (hasErrors) {
       return;
     }
-    return "hi";
+    return ":O";
   };
 
   return (
@@ -131,6 +131,7 @@ const RegisterForm = (props) => {
         type="text"
         label={<FormattedMessage id="yourName" />}
         error={errors.name}
+        required
       />
       <Input
         onChange={handleChange}
@@ -138,6 +139,7 @@ const RegisterForm = (props) => {
         type="text"
         label="Email"
         error={errors.email}
+        required
       />
       <InputPassword
         onChange={handleChange}
@@ -156,8 +158,8 @@ const RegisterForm = (props) => {
         required
       />
       <StyledCheckbox
-        name="checkbox"
         onChange={handleChange}
+        name="checkbox"
         error={errors.checkbox}
         label={<FormattedMessage id="termsOfService" />}
         required
