@@ -112,6 +112,30 @@ const RegisterForm = (props) => {
     return ":O";
   };
 
+  const handleBlur = (event) => {
+    const { name } = event.target;
+    const validationError = validateInput(registerValues[name], name);
+    setErrors({ ...errors, [name]: validationError });
+  };
+
+  const validateInput = (value, name) => {
+    switch (name) {
+      case "name":
+        return validateName(value);
+      case "email":
+        return validateEmail(value);
+      case "password":
+        return validatePassword(value);
+      case "confirmPassword":
+        return validateConfirmPassword(
+          registerValues.password,
+          registerValues.confirmPassword
+        );
+      default:
+        return "";
+    }
+  };
+
   return (
     <StyledForm
       onSubmit={handleSubmit}
@@ -127,6 +151,7 @@ const RegisterForm = (props) => {
       </Header>
       <Input
         onChange={handleChange}
+        onBlur={handleBlur}
         name="name"
         type="text"
         label={<FormattedMessage id="yourName" />}
@@ -135,6 +160,7 @@ const RegisterForm = (props) => {
       />
       <Input
         onChange={handleChange}
+        onBlur={handleBlur}
         name="email"
         type="text"
         label="Email"
@@ -143,6 +169,7 @@ const RegisterForm = (props) => {
       />
       <InputPassword
         onChange={handleChange}
+        onBlur={handleBlur}
         name="password"
         type="password"
         label={<FormattedMessage id="password" />}
@@ -151,6 +178,7 @@ const RegisterForm = (props) => {
       />
       <InputPassword
         onChange={handleChange}
+        onBlur={handleBlur}
         name="confirmPassword"
         type="password"
         label={<FormattedMessage id="confirmPassword" />}
