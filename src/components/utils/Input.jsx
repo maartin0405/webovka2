@@ -1,6 +1,19 @@
 import React from "react";
 import styled from "@emotion/styled";
-import errorStar from "../../images/Vector.svg";
+
+const StyledDiv = styled.div`
+  width: 100%;
+  padding: 0px;
+  margin-top: 15px;
+`;
+
+const StyledLabel = styled.label`
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0.15px;
+  line-height: 140%;
+`;
 
 const StyledInput = styled.input`
   width: 100%;
@@ -11,15 +24,9 @@ const StyledInput = styled.input`
   border-radius: 5px;
   padding: 10px;
   margin-top: 5px;
-  &.errorClass {
-    border-color: #cf1322;
+  :required + label {
+    color: red;
   }
-`;
-
-const StyledDiv = styled.div`
-  width: 100%;
-  padding: 0px;
-  margin-top: 15px;
 `;
 
 const StyledErrorDiv = styled.div`
@@ -37,34 +44,10 @@ const StyledErrorDiv = styled.div`
   color: #cf1322;
 `;
 
-const StyledLabel = styled.label`
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 140%;
-  letter-spacing: 0.15px;
-  display: flex;
-  align-items: flex-start;
-  line-height: 140%;
-`;
-
-const StyledImg = styled.img`
-  display: none;
-  margin-left: 3.35px;
-  &.errorClass {
-    display: inline-block;
-  }
-`;
-
 const Input = (props) => {
   return (
     <StyledDiv>
-      <StyledLabel htmlFor={props.label}>
-        {props.label}
-        <StyledImg
-          className={props.required ? "errorClass" : null}
-          src={errorStar}
-        ></StyledImg>
-      </StyledLabel>
+      <StyledLabel htmlFor={props.label}>{props.label}</StyledLabel>
       <StyledInput className={props.error ? "errorClass" : null} {...props} />
       <StyledErrorDiv className={props.error ? "errorClass" : null}>
         {props.error}

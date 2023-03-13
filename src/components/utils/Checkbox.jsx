@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import errorStar from "../../images/Vector.svg";
 
 const StyledDiv = styled.div`
   display: grid;
@@ -25,6 +24,13 @@ const StyledLabel = styled.label`
   letter-spacing: 0.15px;
   color: #322e35;
   line-height: 21px;
+  &::after {
+    &:required {
+      content: "*";
+      color: #cf1322;
+      margin-left: 3px;
+    }
+  }
 `;
 const StyledErrorDiv = styled.div`
   display: none;
@@ -41,13 +47,6 @@ const StyledErrorDiv = styled.div`
   line-height: 140%;
   letter-spacing: 0.15px;
   color: #cf1322;
-`;
-
-const StyledImg = styled.img`
-  display: none;
-  &.errorClass {
-    display: inline-block;
-  }
 `;
 
 const Checkbox = ({
@@ -68,13 +67,7 @@ const Checkbox = ({
         checked={checked}
         onChange={onChange}
       />
-      <StyledLabel htmlFor="label">
-        {label}{" "}
-        <StyledImg
-          src={errorStar}
-          className={required ? "errorClass" : null}
-        ></StyledImg>
-      </StyledLabel>
+      <StyledLabel htmlFor="label">{label}</StyledLabel>
       <StyledErrorDiv className={error ? "errorClass" : null}>
         {error}
       </StyledErrorDiv>
