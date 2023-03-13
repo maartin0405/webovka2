@@ -20,6 +20,7 @@
   "errorPassword": "Password is required",
   "errorPasswordLength": "Password must be at least 8 characters",
   "errorConfirmPassword": "Passwords do not match",
-  "cannotBeEmpty": "Cannot be empty"
+  "cannotBeEmpty": "Cannot be empty",
+  "errorCheckbox": "You must agree to the terms and conditions"
 
 }

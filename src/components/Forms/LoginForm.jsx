@@ -126,6 +126,7 @@ const LoginForm = (props) => {
       onSubmit={handleSubmit}
       className={props.className}
       color={props.color}
+      noValidate
     >
       <Text>
         <FormattedMessage id="welcomeBack" />
@@ -139,6 +140,7 @@ const LoginForm = (props) => {
         label="Email"
         onChange={handleChange}
         error={errors.email}
+        required
       />
       <InputPassword
         name="password"
@@ -146,6 +148,7 @@ const LoginForm = (props) => {
         label={<FormattedMessage id="password" />}
         onChange={handleChange}
         error={errors.password}
+        required
       />
       <StyledCheckbox
         label={<FormattedMessage id="rememberPassword" />}

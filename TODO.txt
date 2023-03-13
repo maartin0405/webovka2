@@ -1,3 +1,6 @@
-make index.jsx file that redirects based on browser language langKeyDefault DONE
-add login link to homepage DONE
 make login page inaccesible for logged in user, make it redirect them to the homepage when they try to log in
+make validateINput run on lose focus
+make stars display forever if required prop is passed in validateINput
+change star into text and not an svg
+add error message to checkbox
+

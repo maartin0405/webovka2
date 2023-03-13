@@ -61,11 +61,11 @@ const Input = (props) => {
       <StyledLabel htmlFor={props.label}>
         {props.label}
         <StyledImg
-          className={props.error ? "errorClass" : null}
+          className={props.required ? "errorClass" : null}
           src={errorStar}
         ></StyledImg>
       </StyledLabel>
-      <StyledInput {...props} />
+      <StyledInput className={props.error ? "errorClass" : null} {...props} />
       <StyledErrorDiv className={props.error ? "errorClass" : null}>
         {props.error}
       </StyledErrorDiv>

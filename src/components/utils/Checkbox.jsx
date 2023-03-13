@@ -3,9 +3,9 @@ import styled from "@emotion/styled";
 import errorStar from "../../images/Vector.svg";
 
 const StyledDiv = styled.div`
-  position: relative;
   display: grid;
   grid-template-columns: 35px auto;
+  grid-template-rows: auto auto;
   width: 100%;
 `;
 
@@ -26,18 +26,39 @@ const StyledLabel = styled.label`
   color: #322e35;
   line-height: 21px;
 `;
-
-const StyledImg = styled.img`
-  position: absolute;
+const StyledErrorDiv = styled.div`
   display: none;
   &.errorClass {
     display: inline-block;
   }
-  top: -5px;
-  left: 25.31px;
+  margin-top: 5px;
+  grid-column: 1 / span 2;
+  height: 15px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 140%;
+  letter-spacing: 0.15px;
+  color: #cf1322;
 `;
 
-const Checkbox = ({ className, label, error, checked, onChange, name }) => {
+const StyledImg = styled.img`
+  display: none;
+  &.errorClass {
+    display: inline-block;
+  }
+`;
+
+const Checkbox = ({
+  className,
+  label,
+  checked,
+  onChange,
+  name,
+  required,
+  error,
+}) => {
   return (
     <StyledDiv className={className}>
       <StyledInput
@@ -47,11 +68,16 @@ const Checkbox = ({ className, label, error, checked, onChange, name }) => {
         checked={checked}
         onChange={onChange}
       />
-      <StyledLabel htmlFor="label">{label}</StyledLabel>
-      <StyledImg
-        src={errorStar}
-        className={error ? "errorClass" : null}
-      ></StyledImg>
+      <StyledLabel htmlFor="label">
+        {label}{" "}
+        <StyledImg
+          src={errorStar}
+          className={required ? "errorClass" : null}
+        ></StyledImg>
+      </StyledLabel>
+      <StyledErrorDiv className={error ? "errorClass" : null}>
+        {error}
+      </StyledErrorDiv>
     </StyledDiv>
   );
 };

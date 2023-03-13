@@ -117,6 +117,7 @@ const RegisterForm = (props) => {
       onSubmit={handleSubmit}
       className={props.className}
       color={props.color}
+      noValidate
     >
       <Text>
         <FormattedMessage id="BusinessToANewLevel" />
@@ -130,6 +131,7 @@ const RegisterForm = (props) => {
         type="text"
         label={<FormattedMessage id="yourName" />}
         error={errors.name}
+        required
       />
       <Input
         onChange={handleChange}
@@ -137,6 +139,7 @@ const RegisterForm = (props) => {
         type="text"
         label="Email"
         error={errors.email}
+        required
       />
       <InputPassword
         onChange={handleChange}
@@ -144,6 +147,7 @@ const RegisterForm = (props) => {
         type="password"
         label={<FormattedMessage id="password" />}
         error={errors.password}
+        required
       />
       <InputPassword
         onChange={handleChange}
@@ -151,12 +155,14 @@ const RegisterForm = (props) => {
         type="password"
         label={<FormattedMessage id="confirmPassword" />}
         error={errors.confirmPassword}
+        required
       />
       <StyledCheckbox
         name="checkbox"
         onChange={handleChange}
         error={errors.checkbox}
-        label={<FormattedMessage id="termsOfService" />} // split this into checkbox and text because i dont think i can style the checkbox and the label by themselves, maybe by passing props but that seems weird
+        label={<FormattedMessage id="termsOfService" />}
+        required
       />
       <StyledButton type="submit" background="#0980CD">
         <FormattedMessage id="createAccount" />

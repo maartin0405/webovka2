@@ -20,5 +20,6 @@
   "errorPassword": "Heslo je povinné",
   "errorPasswordLength": "Heslo musí být delší než 8 znaků",
   "errorConfirmPassword": "Hesla nesouhlasí",
-  "cannotBeEmpty": "Pole nesmí být prázdné"
+  "cannotBeEmpty": "Pole nesmí být prázdné",
+  "errorCheckbox": "Musíte souhlasit s podmínkami"
 }
