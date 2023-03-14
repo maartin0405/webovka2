@@ -5,4 +5,4 @@ const ForgottenPassword = () => {
   return <ForgottenPasswordPage />;
 };
 
-export default ForgottenPassword;;
+export default ForgottenPassword;
