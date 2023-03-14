@@ -17,8 +17,7 @@ import validatePassword from "../../utils/validators/validatePassword";
 import { FormattedMessage } from "react-intl";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/auth";
-import { navigate } from "gatsby";
-import customNavigate from "../../utils/intl/navigate";
+import navigate from "../../utils/intl/navigate";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -71,7 +70,7 @@ const RegisterForm = (props) => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          customNavigate(); // maybe make a function that handles currentLangKey?
+          navigate("/"); // maybe make a function that handles currentLangKey?
         })
         .catch((error) => {
           const errorCode = error.code;

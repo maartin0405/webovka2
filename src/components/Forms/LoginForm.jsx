@@ -14,8 +14,7 @@ import validateEmail from "../../utils/validators/validateEmail";
 import { FormattedMessage } from "react-intl";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/auth";
-import { navigate } from "gatsby";
-import customNavigate from "../../utils/intl/navigate";
+import navigate from "../../utils/intl/navigate";
 
 const StyledForm = styled.form`
   padding-top: 48.5px;
@@ -76,7 +75,7 @@ const LoginForm = (props) => {
           // Signed in
           const user = userCredential.user;
           console.log("User successfully signed in:", user.email);
-          customNavigate(); // maybe make a function that handles currentLangKey?
+          navigate("/"); // maybe make a function that handles currentLangKey?
         })
         .catch((error) => {
           const errorCode = error.code;
