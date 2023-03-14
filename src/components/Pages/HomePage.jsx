@@ -13,7 +13,6 @@ const HomePage = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
-        console.log(uid);
         setUser(user);
       } else {
         console.log("User is not logged in.");

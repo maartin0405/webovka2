@@ -69,17 +69,14 @@ const LoginForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm() !== undefined) {
-      console.log(loginValues.email, loginValues.password);
       signInWithEmailAndPassword(auth, loginValues.email, loginValues.password)
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("User successfully signed in:", user.email);
           navigate("/"); // maybe make a function that handles currentLangKey?
         })
         .catch((error) => {
           const errorCode = error.code;
-          console.log(errorCode);
           switch (errorCode) {
             // add translations to this !
             case "auth/user-not-found":

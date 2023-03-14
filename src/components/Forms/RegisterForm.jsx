@@ -59,7 +59,6 @@ const RegisterForm = (props) => {
   };
 
   const handleSubmit = (event) => {
-    console.log(customNavigate("/login/"));
     event.preventDefault();
     if (validateForm() !== undefined) {
       createUserWithEmailAndPassword(
@@ -74,7 +73,6 @@ const RegisterForm = (props) => {
         })
         .catch((error) => {
           const errorCode = error.code;
-          console.log(errorCode);
           switch (errorCode) {
             // add translations to this !
             case "auth/email-already-in-use":

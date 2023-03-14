@@ -1,3 +1,2 @@
 make login page inaccesible for logged in user, make it redirect them to the homepage when they try to log in
-make customNavigate work
 
