@@ -24,6 +24,8 @@
   "errorCheckbox": "You must agree to the terms and conditions",
   "emailAlreadyInUse": "Email already in use",
   "incorrectPassword": "Incorrect password",
-  "userNotFound": "User not found"
-
+  "userNotFound": "User not found",
+  "forgotPasswordHeader": "Forgot password?",
+  "enterResetEmail": "Enter email address.",
+  "sendResetEmail": "Reset my password"
 }

@@ -131,12 +131,7 @@ const RegisterForm = (props) => {
   };
 
   return (
-    <StyledForm
-      onSubmit={handleSubmit}
-      className={props.className}
-      color={props.color}
-      noValidate
-    >
+    <StyledForm onSubmit={handleSubmit} className={props.className} noValidate>
       <Text>
         <FormattedMessage id="BusinessToANewLevel" />
       </Text>

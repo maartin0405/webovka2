@@ -6,7 +6,7 @@ import { RegisterForm } from "../Forms";
 import { LanguageSwitcher } from "../utils";
 import Layout from "../Layout";
 
-const StyledLogin = styled.main`
+const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,13 +21,13 @@ const StyledForm = styled(RegisterForm)`
 const RegisterPage = () => {
   return (
     <Layout>
-      <StyledLogin>
+      <StyledMain>
         <Logo width={90} />
         <Card>
           <LanguageSwitcher />
           <StyledForm />
         </Card>
-      </StyledLogin>
+      </StyledMain>
     </Layout>
   );
 };

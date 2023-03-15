@@ -2,8 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import Card from "../Card";
 import Logo from "../Logo";
-import { LoginForm } from "../Forms";
-import { LanguageSwitcher } from "../utils";
+import { SendResetEmailForm } from "../Forms";
 import Layout from "../Layout";
 
 const StyledMain = styled.main`
@@ -12,23 +11,22 @@ const StyledMain = styled.main`
   align-items: center;
 `;
 
-const StyledForm = styled(LoginForm)`
+const StyledForm = styled(SendResetEmailForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const LoginPage = () => {
+
+const ResetEmailPage = () => {
   return (
     <Layout>
       <StyledMain>
         <Logo width={90} />
         <Card>
-          <LanguageSwitcher />
           <StyledForm />
         </Card>
       </StyledMain>
     </Layout>
   );
 };
-
-export default LoginPage;
+export default ResetEmailPage;

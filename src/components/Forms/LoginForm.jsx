@@ -122,12 +122,7 @@ const LoginForm = (props) => {
   };
 
   return (
-    <StyledForm
-      onSubmit={handleSubmit}
-      className={props.className}
-      color={props.color}
-      noValidate
-    >
+    <StyledForm onSubmit={handleSubmit} className={props.className} noValidate>
       <Text>
         <FormattedMessage id="welcomeBack" />
       </Text>
@@ -155,7 +150,7 @@ const LoginForm = (props) => {
         name="checkbox"
         onChange={handleChange}
       />
-      <StyledLink to="/login">
+      <StyledLink to="/login/reset-password">
         <FormattedMessage id="forgotPassword" />
       </StyledLink>
       <StyledButton type="submit" background="#0980CD">

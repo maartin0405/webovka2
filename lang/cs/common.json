@@ -24,5 +24,8 @@
   "errorCheckbox": "Musíte souhlasit s podmínkami",
   "emailAlreadyInUse": "Email je již používán",
   "incorrectPassword": "Nesprávné heslo",
-  "userNotFound": "Uživatel nenalezen"
+  "userNotFound": "Uživatel nenalezen",
+  "forgotPasswordHeader": "Zapomněli jste heslo?",
+  "enterResetEmail": "Zadejte emailovou adresu.",
+  "sendResetEmail": "Reset my password"
 }
