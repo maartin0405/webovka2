@@ -70,7 +70,6 @@ const RegisterForm = (props) => {
           // Signed in
           const user = userCredential.user;
           navigate("/"); // maybe make a function that handles currentLangKey?
-          
         })
         .catch((error) => {
           const errorCode = error.code;
