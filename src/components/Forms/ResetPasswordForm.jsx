@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { InputPassword, Text, Button } from "../utils";
 import Header from "../Header";
-import validateEmail from "../../utils/validators/validateEmail";
+import validateConfirmPassword from "../../utils/validators/validateConfirmPassword";
+import validatePassword from "../../utils/validators/validatePassword";
 import { FormattedMessage } from "react-intl";
-import { sendPasswordResetEmail } from "firebase/auth";
+import { confirmPasswordReset, verifyPasswordResetCode } from "firebase/auth";
 import auth from "../../firebase/auth";
 import navigate from "../../utils/intl/navigate";
 
@@ -20,49 +21,85 @@ const StyledButton = styled(Button)`
 `;
 
 const ResetPasswordForm = (props) => {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-
+  const [passwordValues, setPasswordValues] = useState({
+    password: "",
+    confirmPassword: "",
+  });
+  const [errors, setErrors] = useState({});
+  const actionCode = new URLSearchParams(window.location.search).get("oobCode");
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm() !== undefined) {
-      sendPasswordResetEmail(auth, email)
-        .then(() => {
-          navigate("/login");
+      verifyPasswordResetCode(auth, actionCode)
+        .then((email) => {
+          const accountEmail = email;
+
+          // Save the new password.
+          confirmPasswordReset(auth, actionCode, passwordValues.password)
+            .then((resp) => {
+              navigate("/login");
+            })
+            .catch((error) => {
+              switch (errorCode) {
+                case "auth/expired-action-code":
+                  setError(<FormattedMessage id="userNotFound" />);
+                  break;
+                case "auth/invalid-action-code":
+                  setError(<FormattedMessage id="invalidEmail" />);
+                  break;
+                case "auth/user-disabled":
+                  setError(<FormattedMessage id="invalidEmail" />);
+                  break;
+                case "auth/user-not-found":
+                  setError(<FormattedMessage id="invalidEmail" />);
+                  break;
+                case "auth/user-not-found":
+                  setError(<FormattedMessage id="invalidEmail" />);
+                  break;
+                default:
+                  console.log(errorCode);
+              }
+            });
         })
         .catch((error) => {
-          const errorCode = error.code;
-          switch (errorCode) {
-            case "auth/user-not-found":
-              setError(<FormattedMessage id="userNotFound" />);
-              break;
-            case "auth/invalid-email":
-              setError(<FormattedMessage id="invalidEmail" />);
-              break;
-            default:
-              console.log(errorCode);
-          }
-          // ..
+          // Invalid or expired action code. Ask user to try to reset the password
+          // again.
         });
     }
   };
 
   const handleChange = (event) => {
-    setEmail(event.target.value);
+    setPasswordValues({
+      ...passwordValues,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const validateForm = () => {
-    const validationError = validateEmail(email);
-    setError(validationError);
-    if (validationError) {
+    const validationErrors = {
+      password: validatePassword(passwordValues.password),
+      confirmPassword: validateConfirmPassword(
+        passwordValues.password,
+        passwordValues.confirmPassword
+      ),
+    };
+    setErrors(validationErrors);
+    const hasErrors = Object.values(validationErrors).some(
+      (error) => error !== ""
+    );
+    if (hasErrors) {
       return;
     }
     return ":O";
   };
 
   const handleBlur = (event) => {
-    const validationError = validateEmail(event.target.value);
-    setError(validationError);
+    const { name, value } = event.target;
+    const validationErrors = {
+      ...errors,
+      [name]: validatePassword(value),
+    };
+    setErrors(validationErrors);
   };
 
   return (
@@ -76,20 +113,20 @@ const ResetPasswordForm = (props) => {
       <InputPassword
         onChange={handleChange}
         onBlur={handleBlur}
-        name="email"
+        name="password"
         type="text"
-        label="Email"
+        label="Password"
         required
-        error={error}
+        error={errors.password}
       />
       <InputPassword
         onChange={handleChange}
         onBlur={handleBlur}
-        name="email"
+        name="confirmPassword"
         type="text"
-        label="Email"
+        label="Confirm Password"
         required
-        error={error}
+        error={errors.confirmPassword}
       />
       <StyledButton type="submit" background="#0980CD">
         <FormattedMessage id="sendResetEmail" />

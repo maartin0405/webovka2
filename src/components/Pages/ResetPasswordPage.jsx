@@ -17,7 +17,7 @@ const StyledForm = styled(ResetPasswordForm)`
   align-items: center;
 `;
 
-const ResetEmailPage = () => {
+const ResetPasswordPage = () => {
   return (
     <Layout>
       <StyledMain>
@@ -29,4 +29,4 @@ const ResetEmailPage = () => {
     </Layout>
   );
 };
-export default ResetEmailPage;
+export default ResetPasswordPage;
