@@ -22,13 +22,14 @@ const StyledButton = styled(Button)`
 const SendResetEmailForm = (props) => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm() !== undefined) {
       sendPasswordResetEmail(auth, email)
         .then(() => {
-          navigate("/login");
+          setEmailSent(true);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -65,28 +66,35 @@ const SendResetEmailForm = (props) => {
     setError(validationError);
   };
 
-  return (
-    <StyledForm onSubmit={handleSubmit} className={props.className} noValidate>
-      <Header size={1}>
-        <FormattedMessage id="forgotPasswordHeader" />
-      </Header>
-      <Text>
-        <FormattedMessage id="enterResetEmail" />
-      </Text>
-      <Input
-        onChange={handleChange}
-        onBlur={handleBlur}
-        name="email"
-        type="text"
-        label="Email"
-        required
-        error={error}
-      />
-      <StyledButton type="submit" background="#0980CD">
-        <FormattedMessage id="sendResetEmail" />
-      </StyledButton>
-    </StyledForm>
-  );
+  if (emailSent === false) {
+    return (
+      <StyledForm
+        onSubmit={handleSubmit}
+        className={props.className}
+        noValidate
+      >
+        <Header size={1}>
+          <FormattedMessage id="forgotPasswordHeader" />
+        </Header>
+        <Text>
+          <FormattedMessage id="enterResetEmail" />
+        </Text>
+        <Input
+          onChange={handleChange}
+          onBlur={handleBlur}
+          name="email"
+          type="text"
+          label="Email"
+          required
+          error={error}
+        />
+        <StyledButton type="submit" background="#0980CD">
+          <FormattedMessage id="sendResetEmail" />
+        </StyledButton>
+      </StyledForm>
+    );
+  }
+  return <Text>Hi</Text>;
 };
 
 export default SendResetEmailForm;

@@ -26,6 +26,7 @@ const ResetPasswordForm = (props) => {
     confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
+  const [passwordReset, setPasswordReset] = useState(false);
   const actionCode = new URLSearchParams(window.location.search).get("oobCode");
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -37,7 +38,8 @@ const ResetPasswordForm = (props) => {
           // Save the new password.
           confirmPasswordReset(auth, actionCode, passwordValues.password)
             .then((resp) => {
-              navigate("/login");
+              //  navigate("/login");
+              setPasswordReset(true);
             })
             .catch((error) => {
               switch (errorCode) {
@@ -102,37 +104,45 @@ const ResetPasswordForm = (props) => {
     setErrors(validationErrors);
   };
 
-  return (
-    <StyledForm onSubmit={handleSubmit} className={props.className} noValidate>
-      <Header size={1}>
-        <FormattedMessage id="forgotPasswordHeader" />
-      </Header>
-      <Text>
-        <FormattedMessage id="enterResetEmail" />
-      </Text>
-      <InputPassword
-        onChange={handleChange}
-        onBlur={handleBlur}
-        name="password"
-        type="text"
-        label="Password"
-        required
-        error={errors.password}
-      />
-      <InputPassword
-        onChange={handleChange}
-        onBlur={handleBlur}
-        name="confirmPassword"
-        type="text"
-        label="Confirm Password"
-        required
-        error={errors.confirmPassword}
-      />
-      <StyledButton type="submit" background="#0980CD">
-        <FormattedMessage id="sendResetEmail" />
-      </StyledButton>
-    </StyledForm>
-  );
+  if (passwordReset === false) {
+    return (
+      <StyledForm
+        onSubmit={handleSubmit}
+        className={props.className}
+        noValidate
+      >
+        <Header size={1}>
+          <FormattedMessage id="forgotPasswordHeader" />
+        </Header>
+        <Text>
+          <FormattedMessage id="enterResetEmail" />
+        </Text>
+        <InputPassword
+          onChange={handleChange}
+          onBlur={handleBlur}
+          name="password"
+          type="text"
+          label="Password"
+          required
+          error={errors.password}
+        />
+        <InputPassword
+          onChange={handleChange}
+          onBlur={handleBlur}
+          name="confirmPassword"
+          type="text"
+          label="Confirm Password"
+          required
+          error={errors.confirmPassword}
+        />
+        <StyledButton type="submit" background="#0980CD">
+          <FormattedMessage id="sendResetEmail" />
+        </StyledButton>
+      </StyledForm>
+    );
+  }
+
+  return <Text>Hi</Text>;
 };
 
 export default ResetPasswordForm;
