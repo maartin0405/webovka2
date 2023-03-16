@@ -15,7 +15,6 @@ const StyledDiv = styled.div`
 const Layout = ({ children }) => {
   const url = typeof window !== "undefined" ? window.location.pathname : "";
   const currentLangKey = getLangKey(url, VALID_LANG_KEYS, DEFAULT_LANG_KEY);
-
   const [messages, setMessages] = useState();
   const [loading, setLoading] = useState(true);
 

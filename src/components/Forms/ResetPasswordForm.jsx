@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { InputPassword, Text, Button } from "../utils";
+import { InputPassword, Text, Button, LinkAsAButton } from "../utils";
 import Header from "../Header";
 import validateConfirmPassword from "../../utils/validators/validateConfirmPassword";
 import validatePassword from "../../utils/validators/validatePassword";
 import { FormattedMessage } from "react-intl";
 import { confirmPasswordReset, verifyPasswordResetCode } from "firebase/auth";
 import auth from "../../firebase/auth";
-import navigate from "../../utils/intl/navigate";
 
 const StyledForm = styled.form`
-  padding-top: 48.5px;
+  padding-top: 18px;
   padding-right: 65px;
   padding-left: 65px;
 `;
@@ -18,6 +17,20 @@ const StyledForm = styled.form`
 const StyledButton = styled(Button)`
   margin-top: 25px;
   margin-bottom: 25px;
+`;
+
+const StyledLinkAsAButton = styled(LinkAsAButton)`
+  margin-bottom: 35px;
+  margin-top: 5px;
+`;
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 18px;
+  padding-right: 65px;
+  padding-left: 65px;
 `;
 
 const ResetPasswordForm = (props) => {
@@ -42,7 +55,9 @@ const ResetPasswordForm = (props) => {
               setPasswordReset(true);
             })
             .catch((error) => {
-              switch (errorCode) {
+              const errorCode = error.code;
+              console.log(errorCode);
+              /* switch (errorCode) {
                 case "auth/expired-action-code":
                   setError(<FormattedMessage id="userNotFound" />);
                   break;
@@ -55,12 +70,9 @@ const ResetPasswordForm = (props) => {
                 case "auth/user-not-found":
                   setError(<FormattedMessage id="invalidEmail" />);
                   break;
-                case "auth/user-not-found":
-                  setError(<FormattedMessage id="invalidEmail" />);
-                  break;
                 default:
                   console.log(errorCode);
-              }
+              }*/
             });
         })
         .catch((error) => {
@@ -111,18 +123,12 @@ const ResetPasswordForm = (props) => {
         className={props.className}
         noValidate
       >
-        <Header size={1}>
-          <FormattedMessage id="forgotPasswordHeader" />
-        </Header>
-        <Text>
-          <FormattedMessage id="enterResetEmail" />
-        </Text>
         <InputPassword
           onChange={handleChange}
           onBlur={handleBlur}
           name="password"
           type="text"
-          label="Password"
+          label={<FormattedMessage id="newPassword" />}
           required
           error={errors.password}
         />
@@ -131,7 +137,7 @@ const ResetPasswordForm = (props) => {
           onBlur={handleBlur}
           name="confirmPassword"
           type="text"
-          label="Confirm Password"
+          label={<FormattedMessage id="confirmNewPassword" />}
           required
           error={errors.confirmPassword}
         />
@@ -142,7 +148,17 @@ const ResetPasswordForm = (props) => {
     );
   }
 
-  return <Text>Hi</Text>;
+  return (
+    <StyledDiv>
+      <Header size={2}>
+        <FormattedMessage id="passwordReset" />
+      </Header>
+      <Text>
+        <FormattedMessage id="backToLogin" />
+      </Text>
+      <StyledLinkAsAButton to="/login">Login</StyledLinkAsAButton>
+    </StyledDiv>
+  );
 };
 
 export default ResetPasswordForm;

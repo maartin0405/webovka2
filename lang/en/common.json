@@ -27,5 +27,12 @@
   "userNotFound": "User not found",
   "forgotPasswordHeader": "Forgot password?",
   "enterResetEmail": "Enter email address.",
-  "sendResetEmail": "Reset my password"
+  "sendResetEmail": "Reset my password",
+  "passwordReset": "password succesfully Reset",
+  "backToLogin": "Go back to login",
+  "enterNewPassword" : "Enter new password",
+  "emailSent": "Email has been sent",
+  "feelFreeToClose": "Feel free to close this window",
+  "newPassword": "New Password",
+  "confirmNewPassword": "Confirm New Password"
 }

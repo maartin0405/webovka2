@@ -1,7 +1,6 @@
 make login page inaccesible for logged in user, make it redirect them to the homepage when they try to log in
-add a "Email sent" render page when an email gets sent with a button to login page maybe
-add a "Password reset" render page when the password gets reset and redirect to login
-change state renders in resetpasswordform and sendresetemailform
 language key in form? idk how to do that.. mightr be impossible
+https://firebase.google.com/docs/auth/web/auth-state-persistence, make Remember me.
+make display name work in a database
 
 

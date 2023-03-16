@@ -27,5 +27,12 @@
   "userNotFound": "Uživatel nenalezen",
   "forgotPasswordHeader": "Zapomněli jste heslo?",
   "enterResetEmail": "Zadejte emailovou adresu.",
-  "sendResetEmail": "Reset my password"
+  "sendResetEmail": "Odeslat email",
+  "passwordReset": "heslo bylo změněno",
+  "backToLogin": "Zpět na přihlášení",
+  "enterNewPassword" : "Zadejte nové heslo",
+  "emailSent": "Email byl odeslán",
+  "feelFreeToClose": "Toto okno můžete zavřít",
+  "newPassword": "Nové heslo",
+  "confirmNewPassword": "Potvrďte nové heslo"
 }

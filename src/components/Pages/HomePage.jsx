@@ -12,7 +12,6 @@ const HomePage = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid;
         setUser(user);
       } else {
         console.log("User is not logged in.");
