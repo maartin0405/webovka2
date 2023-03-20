@@ -41,14 +41,14 @@ const StyledInput = styled.input`
   border-radius: 5px;
   padding: 10px;
   margin-top: 5px;
-  &.errorClass {
+  &.error {
     border: 1px solid #cf1322;
   }
 `;
 
 const StyledErrorDiv = styled.div`
   display: none;
-  &.errorClass {
+  &.error {
     display: inline-block;
   }
   height: 15px;
@@ -70,8 +70,8 @@ const Input = (props) => {
       >
         {props.label}
       </StyledLabel>
-      <StyledInput className={props.error ? "errorClass" : null} {...props} />
-      <StyledErrorDiv className={props.error ? "errorClass" : null}>
+      <StyledInput className={props.error ? "error" : null} {...props} />
+      <StyledErrorDiv className={props.error ? "error" : null}>
         {props.error}
       </StyledErrorDiv>
     </StyledDiv>

@@ -17,12 +17,18 @@ const StyledButton = styled.button`
   font-weight: 600;
 `;
 
+
+
 const Button = ({ className, children, background, type }) => {
   return (
     <StyledButton type={type} className={className} background={background}>
       {children}
     </StyledButton>
   );
+};
+
+Button.defaultProps = {
+  type: "button",
 };
 
 export default Button;

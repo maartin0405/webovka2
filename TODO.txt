@@ -6,12 +6,13 @@ add back to login button on forgot password
 handle invalid OOB code
 make language switcher extandable
 component text is useless
-recondiser wrapping input in a div
+FEELS POINTLESS recondiser wrapping input in a div
 checkbox not reusable, id label hardcoded
 htmlFor is BS, should be URL safe
 errorDiv styling is repeated
-errorClass => class is redundant, remove it
-button should have default type specified
-default logo 90px
+DONE errorClass => class is redundant, remove it
+DONE button should have default type specified
+DONE default logo 90px 
 1 form component cause of styling
+DONE make logo a link
 
