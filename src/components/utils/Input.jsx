@@ -47,10 +47,8 @@ const StyledInput = styled.input`
 `;
 
 const StyledErrorDiv = styled.div`
-  display: none;
-  &.error {
-    display: inline-block;
-  }
+  display: block;
+  margin-top: 3px;
   height: 15px;
   font-family: "Roboto";
   font-style: normal;
@@ -71,9 +69,11 @@ const Input = (props) => {
         {props.label}
       </StyledLabel>
       <StyledInput className={props.error ? "error" : null} {...props} />
-      <StyledErrorDiv className={props.error ? "error" : null}>
-        {props.error}
-      </StyledErrorDiv>
+      {props.error !== undefined && (
+        <StyledErrorDiv >
+          {props.error}
+        </StyledErrorDiv>
+      )}
     </StyledDiv>
   );
 };
