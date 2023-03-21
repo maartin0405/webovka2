@@ -9,6 +9,6 @@ const validateEmail = (email) => {
   ) {
     return <FormattedMessage id="errorEmailFormat" />;
   }
-  return "";
+  return undefined;
 };
 export default validateEmail;

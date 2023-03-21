@@ -7,7 +7,7 @@ const validateConfirmPassword = (password, confirmPassword) => {
   } else if (password !== confirmPassword) {
     return <FormattedMessage id="errorConfirmPassword" />;
   }
-  return "";
+  return undefined;
 };
 
 export default validateConfirmPassword;

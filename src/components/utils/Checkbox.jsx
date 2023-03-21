@@ -80,9 +80,7 @@ const Checkbox = ({
       <StyledLabel className={required ? "required" : null} htmlFor="label">
         {label}
       </StyledLabel>
-      <StyledErrorDiv className={error ? "errorClass" : null}>
-        {error}
-      </StyledErrorDiv>
+      {error === "" && <StyledErrorDiv>{error}</StyledErrorDiv>}
     </StyledDiv>
   );
 };

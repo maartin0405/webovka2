@@ -70,9 +70,7 @@ const Input = (props) => {
       </StyledLabel>
       <StyledInput className={props.error ? "error" : null} {...props} />
       {props.error !== undefined && (
-        <StyledErrorDiv >
-          {props.error}
-        </StyledErrorDiv>
+        <StyledErrorDiv>{props.error}</StyledErrorDiv>
       )}
     </StyledDiv>
   );

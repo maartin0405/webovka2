@@ -7,7 +7,7 @@ const validateName = (name) => {
   } else if (name.length < 2) {
     return <FormattedMessage id="errorNameLength" />;
   }
-  return "";
+  return undefined;
 };
 
 export default validateName;
