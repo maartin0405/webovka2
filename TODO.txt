@@ -7,12 +7,12 @@ handle invalid OOB code
 make language switcher extandable
 component text is useless
 FEELS POINTLESS recondiser wrapping input in a div
-checkbox not reusable, id label hardcoded
-htmlFor is BS, should be URL safe
-errorDiv styling is repeated
+DONE checkbox not reusable, id label hardcoded
+DONE htmlFor is BS, should be URL safe
+DONE errorDiv styling is repeated
 DONE errorClass => class is redundant, remove it
 DONE button should have default type specified
 DONE default logo 90px 
-1 form component cause of styling
+DONE 1 form component cause of styling
 DONE make logo a link
 

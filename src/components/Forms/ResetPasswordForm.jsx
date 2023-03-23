@@ -7,12 +7,8 @@ import validatePassword from "../../utils/validators/validatePassword";
 import { FormattedMessage } from "react-intl";
 import { confirmPasswordReset, verifyPasswordResetCode } from "firebase/auth";
 import auth from "../../firebase/auth";
+import Form from "./StyledForm";
 
-const StyledForm = styled.form`
-  padding-top: 18px;
-  padding-right: 65px;
-  padding-left: 65px;
-`;
 
 const StyledButton = styled(Button)`
   margin-top: 25px;
@@ -118,7 +114,7 @@ const ResetPasswordForm = (props) => {
 
   if (passwordReset === false) {
     return (
-      <StyledForm
+      <Form
         onSubmit={handleSubmit}
         className={props.className}
         noValidate
@@ -144,7 +140,7 @@ const ResetPasswordForm = (props) => {
         <StyledButton type="submit" background="#0980CD">
           <FormattedMessage id="sendResetEmail" />
         </StyledButton>
-      </StyledForm>
+      </Form>
     );
   }
 

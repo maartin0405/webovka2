@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
+import ErrorDiv from "./ErrorDiv";
+import { useId } from "react";
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -46,31 +48,24 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledErrorDiv = styled.div`
+const StyledErrorDiv = styled(ErrorDiv)`
   display: block;
-  margin-top: 3px;
-  height: 15px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 140%;
-  letter-spacing: 0.15px;
-  color: #cf1322;
 `;
 
 const Input = (props) => {
+  const id = useId();
   return (
     <StyledDiv>
-      <StyledLabel
-        className={props.required ? "required" : null}
-        htmlFor={props.label}
-      >
+      <StyledLabel className={props.required ? "required" : null} htmlFor={id}>
         {props.label}
       </StyledLabel>
-      <StyledInput className={props.error ? "error" : null} {...props} />
+      <StyledInput
+        id={id}
+        className={props.error ? "error" : null}
+        {...props}
+      />
       {props.error !== undefined && (
-        <StyledErrorDiv>{props.error}</StyledErrorDiv>
+        <StyledErrorDiv error={props.error}>{props.error}</StyledErrorDiv>
       )}
     </StyledDiv>
   );

@@ -6,12 +6,7 @@ import validateEmail from "../../utils/validators/validateEmail";
 import { FormattedMessage } from "react-intl";
 import { sendPasswordResetEmail } from "firebase/auth";
 import auth from "../../firebase/auth";
-
-const StyledForm = styled.form`
-  padding-top: 48.5px;
-  padding-right: 65px;
-  padding-left: 65px;
-`;
+import Form from "./StyledForm";
 
 const StyledButton = styled(Button)`
   margin-top: 25px;
@@ -77,7 +72,7 @@ const SendResetEmailForm = (props) => {
 
   if (emailSent === false) {
     return (
-      <StyledForm
+      <Form
         onSubmit={handleSubmit}
         className={props.className}
         noValidate
@@ -100,7 +95,7 @@ const SendResetEmailForm = (props) => {
         <StyledButton type="submit" background="#0980CD">
           <FormattedMessage id="sendResetEmail" />
         </StyledButton>
-      </StyledForm>
+      </Form>
     );
   }
   return (

@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
+import ErrorDiv from "./ErrorDiv";
+import { useId } from "react";
 
 const StyledDiv = styled.div`
   display: grid;
@@ -42,11 +44,8 @@ const StyledLabel = styled.label`
     }
   }
 `;
-const StyledErrorDiv = styled.div`
-  display: none;
-  &.errorClass {
-    display: inline-block;
-  }
+const StyledErrorDiv = styled(ErrorDiv)`
+  display: block;
   margin-top: 5px;
   grid-column: 1 / span 2;
   height: 15px;
@@ -68,19 +67,22 @@ const Checkbox = ({
   required,
   error,
 }) => {
+  const id = useId();
   return (
     <StyledDiv className={className}>
       <StyledInput
         name={name}
         type="checkbox"
-        id="label"
+        id={id}
         checked={checked}
         onChange={onChange}
       />
-      <StyledLabel className={required ? "required" : null} htmlFor="label">
+      <StyledLabel className={required ? "required" : null} htmlFor={id}>
         {label}
       </StyledLabel>
-      {error === "" && <StyledErrorDiv>{error}</StyledErrorDiv>}
+      {error !== undefined && (
+        <StyledErrorDiv error={error}>{error}</StyledErrorDiv>
+      )}
     </StyledDiv>
   );
 };

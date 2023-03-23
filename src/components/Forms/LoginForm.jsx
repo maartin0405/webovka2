@@ -15,12 +15,7 @@ import { FormattedMessage } from "react-intl";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/auth";
 import navigate from "../../utils/intl/navigate";
-
-const StyledForm = styled.form`
-  padding-top: 48.5px;
-  padding-right: 65px;
-  padding-left: 65px;
-`;
+import Form from "./StyledForm";
 
 const StyledLink = styled(Link)`
   color: #cf1322;
@@ -121,9 +116,8 @@ const LoginForm = (props) => {
     return "";
   };
 
-  
   return (
-    <StyledForm onSubmit={handleSubmit} className={props.className} noValidate>
+    <Form onSubmit={handleSubmit} className={props.className} noValidate>
       <Text>
         <FormattedMessage id="welcomeBack" />
       </Text>
@@ -163,7 +157,7 @@ const LoginForm = (props) => {
       <StyledLinkAsAButton to={`/register`}>
         <FormattedMessage id="register" />
       </StyledLinkAsAButton>
-    </StyledForm>
+    </Form>
   );
 };
 
