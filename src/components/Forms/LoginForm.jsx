@@ -64,6 +64,7 @@ const LoginForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm() !== undefined) {
+      console.log("hello");
       signInWithEmailAndPassword(auth, loginValues.email, loginValues.password)
         .then((userCredential) => {
           // Signed in
@@ -99,7 +100,7 @@ const LoginForm = (props) => {
     };
     setErrors(validationErrors);
     const hasErrors = Object.values(validationErrors).some(
-      (error) => error !== ""
+      (error) => error !== undefined
     );
     if (hasErrors) {
       return;
@@ -113,7 +114,7 @@ const LoginForm = (props) => {
     } else if (loginValues.password.length < 8) {
       return "Password must be at least 8 characters";
     }
-    return "";
+    return undefined;
   };
 
   return (

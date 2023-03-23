@@ -95,7 +95,7 @@ const ResetPasswordForm = (props) => {
     };
     setErrors(validationErrors);
     const hasErrors = Object.values(validationErrors).some(
-      (error) => error !== ""
+      (error) => error !== undefined
     );
     if (hasErrors) {
       return;

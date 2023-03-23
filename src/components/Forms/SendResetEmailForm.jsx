@@ -25,7 +25,7 @@ const StyledDiv = styled.div`
 
 const SendResetEmailForm = (props) => {
   const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(undefined);
   const [emailSent, setEmailSent] = useState(false);
 
   const handleSubmit = (event) => {
@@ -72,11 +72,7 @@ const SendResetEmailForm = (props) => {
 
   if (emailSent === false) {
     return (
-      <Form
-        onSubmit={handleSubmit}
-        className={props.className}
-        noValidate
-      >
+      <Form onSubmit={handleSubmit} className={props.className} noValidate>
         <Header size={1}>
           <FormattedMessage id="forgotPasswordHeader" />
         </Header>
