@@ -11,7 +11,7 @@ const Home = () => {
       .init({
         lng: localStorage.getItem("userSetLanguage") || undefined,
         fallbackLng: "en",
-        whitelist: ["en", "cs"],
+        supportedLngs: ["en", "cs"],
       })
       .then(() => {
         const detectedLanguage = i18next.language;
