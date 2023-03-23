@@ -8,8 +8,11 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import auth from "../../firebase/auth";
 import Form from "./StyledForm";
 
+const StyledInput = styled(Input)`
+  margin-bottom: 25px;
+`;
+
 const StyledButton = styled(Button)`
-  margin-top: 25px;
   margin-bottom: 25px;
 `;
 
@@ -79,7 +82,7 @@ const SendResetEmailForm = (props) => {
         <Text>
           <FormattedMessage id="enterResetEmail" />
         </Text>
-        <Input
+        <StyledInput
           onChange={handleChange}
           onBlur={handleBlur}
           name="email"
