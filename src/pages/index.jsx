@@ -9,18 +9,14 @@ const Home = () => {
     i18next
       .use(LanguageDetector)
       .init({
+        lng: localStorage.getItem("userSetLanguage") || undefined,
         fallbackLng: "en",
         whitelist: ["en", "cs"],
       })
       .then(() => {
         const detectedLanguage = i18next.language;
-
         // Redirect to the appropriate language
-        if (detectedLanguage === "cs") {
-          navigate("/cs/");
-        } else {
-          navigate("/en/");
-        }
+        navigate(`/${detectedLanguage}`);
       });
   }, []);
 

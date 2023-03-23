@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    localStorage.setItem("dataKey", JSON.stringify(currentLangKey));
+    localStorage.setItem("userSetLanguage", currentLangKey);
     const loadMessages = async () => {
       const messages = await loadLocaleMessage(currentLangKey);
       setMessages(messages.default);
