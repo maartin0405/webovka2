@@ -8,7 +8,11 @@ const StyledForm = styled.form`
 `;
 
 const Form = (props) => {
-  return <StyledForm className={props.className}>{props.children}</StyledForm>;
+  return (
+    <StyledForm {...props} className={props.className}>
+      {props.children}
+    </StyledForm>
+  );
 };
 
 export default Form;

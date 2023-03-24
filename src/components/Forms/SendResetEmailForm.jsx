@@ -8,8 +8,11 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import auth from "../../firebase/auth";
 import Form from "./StyledForm";
 
+const StyledInput = styled(Input)`
+  margin-bottom: 25px;
+`;
+
 const StyledButton = styled(Button)`
-  margin-top: 25px;
   margin-bottom: 25px;
 `;
 
@@ -25,7 +28,7 @@ const StyledDiv = styled.div`
 
 const SendResetEmailForm = (props) => {
   const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(undefined);
   const [emailSent, setEmailSent] = useState(false);
 
   const handleSubmit = (event) => {
@@ -72,18 +75,14 @@ const SendResetEmailForm = (props) => {
 
   if (emailSent === false) {
     return (
-      <Form
-        onSubmit={handleSubmit}
-        className={props.className}
-        noValidate
-      >
+      <Form onSubmit={handleSubmit} className={props.className} noValidate>
         <Header size={1}>
           <FormattedMessage id="forgotPasswordHeader" />
         </Header>
         <Text>
           <FormattedMessage id="enterResetEmail" />
         </Text>
-        <Input
+        <StyledInput
           onChange={handleChange}
           onBlur={handleBlur}
           name="email"

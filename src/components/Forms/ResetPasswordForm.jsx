@@ -5,10 +5,9 @@ import Header from "../Header";
 import validateConfirmPassword from "../../utils/validators/validateConfirmPassword";
 import validatePassword from "../../utils/validators/validatePassword";
 import { FormattedMessage } from "react-intl";
-import { confirmPasswordReset, verifyPasswordResetCode } from "firebase/auth";
+import { confirmPasswordReset } from "firebase/auth";
 import auth from "../../firebase/auth";
 import Form from "./StyledForm";
-
 
 const StyledButton = styled(Button)`
   margin-top: 25px;
@@ -40,40 +39,32 @@ const ResetPasswordForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm() !== undefined) {
-      verifyPasswordResetCode(auth, actionCode)
-        .then((email) => {
-          const accountEmail = email;
-
-          // Save the new password.
-          confirmPasswordReset(auth, actionCode, passwordValues.password)
-            .then((resp) => {
-              //  navigate("/login");
-              setPasswordReset(true);
-            })
-            .catch((error) => {
-              const errorCode = error.code;
-              console.log(errorCode);
-              /* switch (errorCode) {
-                case "auth/expired-action-code":
-                  setError(<FormattedMessage id="userNotFound" />);
-                  break;
-                case "auth/invalid-action-code":
-                  setError(<FormattedMessage id="invalidEmail" />);
-                  break;
-                case "auth/user-disabled":
-                  setError(<FormattedMessage id="invalidEmail" />);
-                  break;
-                case "auth/user-not-found":
-                  setError(<FormattedMessage id="invalidEmail" />);
-                  break;
-                default:
-                  console.log(errorCode);
-              }*/
-            });
+      confirmPasswordReset(auth, actionCode, passwordValues.password)
+        .then((resp) => {
+          //  navigate("/login");
+          setPasswordReset(true);
         })
         .catch((error) => {
-          // Invalid or expired action code. Ask user to try to reset the password
-          // again.
+          const errorCode = error.code;
+          /* switch (errorCode) {
+            case "auth/expired-action-code":
+              setAuthError(<FormattedMessage id="userNotFound" />);
+              break;
+            case "auth/invalid-action-code":
+              setAuthError(<FormattedMessage id="invalidEmail" />);
+              break;
+            case "auth/user-disabled":
+              setAuthError(<FormattedMessage id="invalidEmail" />);
+              break;
+            case "auth/user-not-found":
+              setAuthError(<FormattedMessage id="invalidEmail" />);
+              break;
+            case "auth/internal-error":
+              setAuthError(<FormattedMessage id="invalidEmail" />);
+              break;
+            default:
+              console.log(errorCode);
+          } */
         });
     }
   };
@@ -95,7 +86,7 @@ const ResetPasswordForm = (props) => {
     };
     setErrors(validationErrors);
     const hasErrors = Object.values(validationErrors).some(
-      (error) => error !== ""
+      (error) => error !== undefined
     );
     if (hasErrors) {
       return;
@@ -114,11 +105,7 @@ const ResetPasswordForm = (props) => {
 
   if (passwordReset === false) {
     return (
-      <Form
-        onSubmit={handleSubmit}
-        className={props.className}
-        noValidate
-      >
+      <Form onSubmit={handleSubmit} className={props.className} noValidate>
         <InputPassword
           onChange={handleChange}
           onBlur={handleBlur}

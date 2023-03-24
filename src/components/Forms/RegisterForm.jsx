@@ -18,12 +18,8 @@ import { FormattedMessage } from "react-intl";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/auth";
 import navigate from "../../utils/intl/navigate";
+import Form from "./StyledForm";
 
-const StyledForm = styled.form`
-  padding-top: 48.5px;
-  padding-right: 65px;
-  padding-left: 65px;
-`;
 
 const StyledCheckbox = styled(Checkbox)`
   margin-bottom: 25px;
@@ -98,7 +94,7 @@ const RegisterForm = (props) => {
     };
     setErrors(validationErrors);
     const hasErrors = Object.values(validationErrors).some(
-      (error) => error !== ""
+      (error) => error !== undefined
     );
     if (hasErrors) {
       return;
@@ -131,7 +127,7 @@ const RegisterForm = (props) => {
   };
 
   return (
-    <StyledForm onSubmit={handleSubmit} className={props.className} noValidate>
+    <Form onSubmit={handleSubmit} className={props.className} noValidate>
       <Text>
         <FormattedMessage id="BusinessToANewLevel" />
       </Text>
@@ -190,7 +186,7 @@ const RegisterForm = (props) => {
       <StyledLinkAsAButton to={`/login`}>
         <FormattedMessage id="login" />
       </StyledLinkAsAButton>
-    </StyledForm>
+    </Form>
   );
 };
 
