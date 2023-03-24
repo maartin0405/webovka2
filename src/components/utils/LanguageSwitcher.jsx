@@ -32,16 +32,18 @@ const LanguageSwitcher = () => {
     { key: "fr", flag: GB },
   ];
 
-  const switcherLinks = languages.map((lang) => {
-    const linkUrl =
-      lang.key === currentLangKey ? null : `/${lang.key}/${currentUrl}`;
-    return (
-      <StyledLink key={lang.key} to={linkUrl}>
-        <img src={lang.flag} alt={lang.key} />
-        {lang.name}
-      </StyledLink>
-    );
-  });
+  const switcherLinks = languages
+    .filter((lang) => lang.key !== currentLangKey)
+    .map((lang) => {
+      const linkUrl =
+        lang.key === currentLangKey ? null : `/${lang.key}/${currentUrl}`;
+      return (
+        <StyledLink key={lang.key} to={linkUrl}>
+          <img src={lang.flag} alt={lang.key} />
+          {lang.name}
+        </StyledLink>
+      );
+    });
 
   return (
     <div style={{ width: "100%", textAlign: "right" }}>{switcherLinks}</div>
