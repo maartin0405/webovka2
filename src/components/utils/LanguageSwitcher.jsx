@@ -1,10 +1,10 @@
 import React from "react";
-import CZ from "../../images/CZ.svg";
-import GB from "../../images/GB.svg";
 import styled from "@emotion/styled";
 import { Link as GatsbyLink } from "gatsby";
 import getLangKey from "../../utils/intl/getLangKey";
-import { VALID_LANG_KEYS, DEFAULT_LANG_KEY } from "../../utils/intl/LANG_KEYS";
+import { DEFAULT_LANG_KEY, VALID_LANG_KEYS } from "../../utils/intl/LANG_KEYS";
+import CZ from "../../images/CZ.svg";
+import GB from "../../images/GB.svg";
 
 const StyledLink = styled(GatsbyLink)`
   border: none;
@@ -15,7 +15,7 @@ const StyledLink = styled(GatsbyLink)`
   &:not(:last-child) {
     margin-right: 10px;
   }
-`; //the link is weirdly moved down for whatever reason idk why
+`;
 
 const LanguageSwitcher = () => {
   const currentUrl =
@@ -26,16 +26,24 @@ const LanguageSwitcher = () => {
   const url = typeof window !== "undefined" ? window.location.pathname : "";
   const currentLangKey = getLangKey(url, VALID_LANG_KEYS, DEFAULT_LANG_KEY);
 
-  const linkUrl =
-    currentLangKey === "cs" ? `/en/${currentUrl}` : `/cs/${currentUrl}`;
-  const flagImage = currentLangKey === "cs" ? GB : CZ;
+  const languages = [
+    { key: "en", flag: GB },
+    { key: "cs", flag: CZ },
+  ];
+
+  const switcherLinks = languages.map((lang) => {
+    const linkUrl =
+      lang.key === currentLangKey ? null : `/${lang.key}/${currentUrl}`;
+    return (
+      <StyledLink key={lang.key} to={linkUrl}>
+        <img src={lang.flag} alt={lang.key} />
+        {lang.name}
+      </StyledLink>
+    );
+  });
 
   return (
-    <div style={{ width: "100%", textAlign: "right" }}>
-      <StyledLink to={linkUrl}>
-        <img src={flagImage} />
-      </StyledLink>
-    </div>
+    <div style={{ width: "100%", textAlign: "right" }}>{switcherLinks}</div>
   );
 };
 
