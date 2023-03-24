@@ -36,6 +36,7 @@ const ResetPasswordForm = (props) => {
   const [errors, setErrors] = useState({});
   const [passwordReset, setPasswordReset] = useState(false);
   const actionCode = new URLSearchParams(window.location.search).get("oobCode");
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm() !== undefined) {
@@ -46,29 +47,24 @@ const ResetPasswordForm = (props) => {
         })
         .catch((error) => {
           const errorCode = error.code;
-          /* switch (errorCode) {
+          console.log(errorCode);
+          switch (errorCode) {
             case "auth/expired-action-code":
-              setAuthError(<FormattedMessage id="userNotFound" />);
+              setErrors({
+                authError: <FormattedMessage id="expiredOobCode" />,
+              });
               break;
             case "auth/invalid-action-code":
-              setAuthError(<FormattedMessage id="invalidEmail" />);
-              break;
-            case "auth/user-disabled":
-              setAuthError(<FormattedMessage id="invalidEmail" />);
-              break;
-            case "auth/user-not-found":
-              setAuthError(<FormattedMessage id="invalidEmail" />);
-              break;
-            case "auth/internal-error":
-              setAuthError(<FormattedMessage id="invalidEmail" />);
+              setErrors({
+                authError: <FormattedMessage id="invalidOobCode" />,
+              });
               break;
             default:
               console.log(errorCode);
-          } */
+          }
         });
     }
   };
-
   const handleChange = (event) => {
     setPasswordValues({
       ...passwordValues,
@@ -103,7 +99,16 @@ const ResetPasswordForm = (props) => {
     setErrors(validationErrors);
   };
 
-  if (passwordReset === false) {
+  if (errors.authError) {
+    return (
+      <StyledDiv>
+        <Header size={2}>{errors.authError}</Header>
+        <StyledLinkAsAButton to="/login/reset-password">
+          Send Email Again
+        </StyledLinkAsAButton>
+      </StyledDiv>
+    );
+  } else if (passwordReset === false) {
     return (
       <Form onSubmit={handleSubmit} className={props.className} noValidate>
         <InputPassword

@@ -20,7 +20,6 @@ import auth from "../../firebase/auth";
 import navigate from "../../utils/intl/navigate";
 import Form from "./StyledForm";
 
-
 const StyledCheckbox = styled(Checkbox)`
   margin-bottom: 25px;
   margin-top: 25px;

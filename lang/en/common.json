@@ -34,5 +34,7 @@
   "emailSent": "Email has been sent",
   "feelFreeToClose": "Feel free to close this window",
   "newPassword": "New Password",
-  "confirmNewPassword": "Confirm New Password"
+  "confirmNewPassword": "Confirm New Password",
+  "invalidOobCode": "Invalid password reset link",
+  "expiredOobCode": "Password reset link has expired"
 }

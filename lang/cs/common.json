@@ -34,5 +34,7 @@
   "emailSent": "Email byl odeslán",
   "feelFreeToClose": "Toto okno můžete zavřít",
   "newPassword": "Nové heslo",
-  "confirmNewPassword": "Potvrďte nové heslo"
+  "confirmNewPassword": "Potvrďte nové heslo",
+  "invalidOobCode": "Invalid password reset link",
+  "expiredOobCode": "Password reset link has expired"
 }
