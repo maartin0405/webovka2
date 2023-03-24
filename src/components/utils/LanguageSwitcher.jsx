@@ -29,22 +29,20 @@ const LanguageSwitcher = () => {
   const languages = [
     { key: "en", flag: GB },
     { key: "cs", flag: CZ },
-    { key: "fr", flag: GB },
   ];
 
   const switcherLinks = languages.map((lang) => {
-    const linkUrl =
-      lang.key === currentLangKey ? null : `/${lang.key}/${currentUrl}`;
-
-    if (lang.key !== currentLangKey) {
-      return (
-        <StyledLink key={lang.key} to={linkUrl}>
-          <img src={lang.flag} alt={lang.key} />
-          {lang.name}
-        </StyledLink>
-      );
+    if (lang.key === currentLangKey) {
+      return null;
     }
-    return null;
+
+    const linkUrl = `/${lang.key}/${currentUrl}`;
+    return (
+      <StyledLink key={lang.key} to={linkUrl}>
+        <img src={lang.flag} alt={lang.key} />
+        {lang.name}
+      </StyledLink>
+    );
   });
 
   return (
