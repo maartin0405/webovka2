@@ -29,6 +29,7 @@ const LanguageSwitcher = () => {
   const languages = [
     { key: "en", flag: GB },
     { key: "cs", flag: CZ },
+    { key: "fr", flag: GB },
   ];
 
   const switcherLinks = languages.map((lang) => {
