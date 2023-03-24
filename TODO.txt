@@ -6,7 +6,7 @@ FEELS POINTLESS add back to login button on forgot password
 handle invalid OOB code
 DONE make language switcher extandable
 component text is useless
-FEELS POINTLESS recondiser wrapping input in a div
+FEELS POINTLESS recondiser wrapping input in a div  
 DONE checkbox not reusable, id label hardcoded
 DONE htmlFor is BS, should be URL safe
 DONE errorDiv styling is repeated
