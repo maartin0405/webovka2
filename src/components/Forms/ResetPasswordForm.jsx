@@ -37,11 +37,33 @@ const ResetPasswordForm = (props) => {
   const [passwordReset, setPasswordReset] = useState(false);
   const actionCode = new URLSearchParams(window.location.search).get("oobCode");
 
+  const checkActionCode = () => {
+    checkActionCode(actionCode)
+      .then()
+      .catch((error) => {
+        const errorCode = error.code;
+        switch (errorCode) {
+          case "auth/expired-action-code":
+            setErrors({
+              authError: <FormattedMessage id="expiredOobCode" />,
+            });
+            break;
+          case "auth/invalid-action-code":
+            setErrors({
+              authError: <FormattedMessage id="invalidOobCode" />,
+            });
+            break;
+          default:
+            console.log(errorCode);
+        }
+      });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm() !== undefined) {
       confirmPasswordReset(auth, actionCode, passwordValues.password)
-        .then((resp) => {
+        .then(() => {
           //  navigate("/login");
           setPasswordReset(true);
         })

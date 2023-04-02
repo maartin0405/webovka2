@@ -12,10 +12,14 @@ import {
 import Header from "../Header";
 import validateEmail from "../../utils/validators/validateEmail";
 import { FormattedMessage } from "react-intl";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { setPersistence, signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/auth";
 import navigate from "../../utils/intl/navigate";
 import Form from "./StyledForm";
+import {
+  browserLocalPersistence,
+  browserSessionPersistence,
+} from "firebase/auth";
 
 const StyledLink = styled(Link)`
   color: #cf1322;
@@ -64,31 +68,47 @@ const LoginForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm() !== undefined) {
-      console.log("hello");
-      signInWithEmailAndPassword(auth, loginValues.email, loginValues.password)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          navigate("/"); // maybe make a function that handles currentLangKey?
+      setPersistence(
+        auth,
+        loginValues.checkbox
+          ? browserLocalPersistence
+          : browserSessionPersistence
+      )
+        .then(() => {
+          return signInWithEmailAndPassword(
+            auth,
+            loginValues.email,
+            loginValues.password
+          )
+            .then((userCredential) => {
+              // Signed in
+              const user = userCredential.user;
+              navigate("/");
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              switch (errorCode) {
+                // add translations to this !
+                case "auth/user-not-found":
+                  setErrors({ email: <FormattedMessage id="userNotFound" /> });
+                  break;
+                case "auth/invalid-email":
+                  setErrors({ email: <FormattedMessage id="invalidEmail" /> });
+                  break;
+                case "auth/wrong-password":
+                  setErrors({
+                    password: <FormattedMessage id="incorrectPassword" />,
+                  });
+                  break;
+                default:
+                  console.log(errorCode);
+              }
+            });
         })
         .catch((error) => {
+          // Handle Errors here.
           const errorCode = error.code;
-          switch (errorCode) {
-            // add translations to this !
-            case "auth/user-not-found":
-              setErrors({ email: <FormattedMessage id="userNotFound" /> });
-              break;
-            case "auth/invalid-email":
-              setErrors({ email: <FormattedMessage id="invalidEmail" /> });
-              break;
-            case "auth/wrong-password":
-              setErrors({
-                password: <FormattedMessage id="incorrectPassword" />,
-              });
-              break;
-            default:
-              console.log(errorCode);
-          }
+          const errorMessage = error.message;
         });
     }
   };
