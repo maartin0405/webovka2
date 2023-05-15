@@ -20,6 +20,7 @@ import {
   browserLocalPersistence,
   browserSessionPersistence,
 } from "firebase/auth";
+import { useEffect } from "react";
 
 const StyledLink = styled(Link)`
   color: #cf1322;
@@ -65,14 +66,21 @@ const LoginForm = (props) => {
     });
   };
 
-  onAuthStateChanged(auth, (user) => {
+
+  
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
     if (user) {
-      navigate("/")
+      navigate("/");
     } else {
       // User is signed out
       // ...
     }
   });
+  return unsubscribe;
+}, []);
+
+  
 
 
 
