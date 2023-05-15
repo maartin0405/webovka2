@@ -12,7 +12,7 @@ import {
 import Header from "../Header";
 import validateEmail from "../../utils/validators/validateEmail";
 import { FormattedMessage } from "react-intl";
-import { setPersistence, signInWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged, setPersistence, signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/auth";
 import navigate from "../../utils/intl/navigate";
 import Form from "./StyledForm";
@@ -64,6 +64,17 @@ const LoginForm = (props) => {
       [name]: type === "checkbox" ? checked : value,
     });
   };
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      navigate("/")
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault();

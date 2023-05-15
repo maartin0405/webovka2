@@ -3,7 +3,7 @@ language key in form? idk how to do that.. mightr be impossible
 DONE https://firebase.google.com/docs/auth/web/auth-state-persistence, make Remember me.
 make display name work in a database
 FEELS POINTLESS add back to login button on forgot password
-handle invalid OOB code
+DONE handle invalid OOB code
 DONE make language switcher extandable
 component text is useless
 FEELS POINTLESS recondiser wrapping input in a div  
@@ -15,5 +15,5 @@ DONE button should have default type specified
 DONE default logo 90px 
 DONE 1 form component cause of styling
 DONE make logo a link
-verify oobCode on render
+IDK HOW verify oobCode on render
 
